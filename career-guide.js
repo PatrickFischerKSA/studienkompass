@@ -712,6 +712,36 @@ const counsellingOffers = {
   ]
 };
 
+const careerPictures = {
+  "Lehrperson Kindergarten, Unterstufe oder Primarstufe": "kindergarten",
+  "Lehrperson Sekundarstufe I": "teaching",
+  "Schulische Heilpädagogik": "special-education",
+  "Logopädie": "speech",
+  "Ergotherapie": "occupational",
+  "Psychomotoriktherapie": "movement",
+  "Schulsozialarbeit": "social",
+  "Kindheitspädagogik HF": "kindergarten",
+  "Heilpädagogische Früherziehung": "early-support",
+  "Angewandte Psychologie · ZHAW": "psychology",
+  "Angewandte Psychologie · FHNW Olten": "psychology",
+  "Psychologie an der Universität": "psychology",
+  "Schulpsychologie": "psychology",
+  "Sozialpädagogik HF": "social",
+  "Biomedizinische Analytik HF": "lab",
+  "Hotellerie und Tourismus HF": "hospitality",
+  "Betriebsinterne Ausbildung und PWA": "banking",
+  "Berufslehre und mögliche Verkürzung": "studio",
+  "Berufsprüfung und höhere Fachprüfung": "marketing",
+  "Polizei": "police",
+  "Cabin Crew": "cabin",
+  "Fachmaturität anschliessen": "campus",
+  "Passerelle zu Universität und ETH": "studying",
+  "Pflege HF oder FH": "nursing",
+  "Tourismus HF im Kanton Schwyz": "tourism",
+  "Lokführung und Zugverkehr": "train",
+  "Theaterpädagogik": "theatre"
+};
+
 const comparisonOffers = {
   "Lehrperson Kindergarten, Unterstufe oder Primarstufe": ["PH Schwyz, PH Zürich, PH Zug", "Goldau, Zürich, Zug", "Vollzeit 3 Jahre. Teilzeit je nach PH.", "Bis 30. April für den regulären Herbststart. Für Aufnahmeprüfungen gelten andere Fristen.", "#ph-vergleich"],
   "Lehrperson Sekundarstufe I": ["PH Zürich", "Zürich", "4½ Jahre Vollzeit oder 6–7½ Jahre Teilzeit.", "Direkte Zulassung mit Schweizer Ausweis bis 30. April für den Herbststart. Aufnahmeprüfung separat.", "https://phzh.ch/de/studium/studiengaenge/sekundarstufe-1/sekundarstufe-1-voll-und-teilzeit/"],
@@ -867,9 +897,7 @@ function renderCareerResults() {
     const offer = counsellingOffers[career.title];
     const nextAction = credential.value === 'fms' && offer ? offer[2] : career.next;
     const route = admissionForCareer(career);
-    const picture = career.tags.includes('teach') ? 'teaching'
-      : career.tags.includes('lab') || career.tags.includes('research') ? 'lab'
-      : career.tags.includes('hands') ? 'studio' : 'campus';
+    const picture = careerPictures[career.title];
     return `<article class="result-story">
       <img src="images/${picture}.webp" alt="" loading="lazy">
       <h3>${career.title}</h3>
