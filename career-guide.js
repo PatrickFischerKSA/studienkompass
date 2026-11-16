@@ -742,6 +742,19 @@ const comparisonOffers = {
   "Theaterpädagogik": ["ZHdK", "Zürich", "6 Semester Vollzeit.", "Termine und Vorbehalte beim Zulassungsverfahren prüfen.", "https://www.zhdk.ch/studium/theater/ba-theater-theaterpaedagogik-836/anmeldung-theater-ba-theaterpaedagogik-3772"]
 };
 
+function restoreSharedComparison() {
+  const shared = new URLSearchParams(location.hash.slice(1)).getAll('vergleich');
+  const knownTitles = new Set(careers.map(career => career.title));
+  if (shared.length !== 4 || new Set(shared).size !== 4 || !shared.every(title => knownTitles.has(title))) {
+    return false;
+  }
+
+  comparisonTitles = shared;
+  track.value = 'all';
+  step = careerQuestions.length;
+  return true;
+}
+
 function admissionForCareer(career) {
   return typeof career.route === 'string'
     ? career.route
@@ -806,6 +819,14 @@ function renderShortlistComparison(shortlist, others) {
   return `<section class="shortlist-comparison" aria-labelledby="shortlist-title">
     <h3 id="shortlist-title">Deine ${shortlist.length} Vorschläge im Vergleich</h3>
     <p class="muted">Ausgangslage: ${credential.selectedOptions[0].textContent}. Die Links führen zu den aktuellen Fristen.</p>
+    <div class="comparison-share">
+      <button type="button" class="secondary" data-share-comparison>Vergleichslink kopieren</button>
+      <div id="comparison-share-link" hidden>
+        <label for="comparison-share-url">Link zum Vergleich</label>
+        <input id="comparison-share-url" type="url" readonly>
+        <span id="comparison-share-status" role="status"></span>
+      </div>
+    </div>
     <div class="compare" tabindex="0" role="region" aria-label="Vergleich deiner Vorschläge">
       <table class="shortlist-table" role="table">
         <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Vorschlag</th>
@@ -871,6 +892,28 @@ function renderCareerResults() {
     : '');
 }
 
+results.addEventListener('click', async event => {
+  if (!event.target.closest('[data-share-comparison]')) return;
+
+  const url = new URL('https://patrickfischerksa.github.io/studienkompass/');
+  const params = new URLSearchParams();
+  for (const title of comparisonTitles) params.append('vergleich', title);
+  url.hash = params.toString();
+
+  const field = document.getElementById('comparison-share-url');
+  const message = document.getElementById('comparison-share-status');
+  document.getElementById('comparison-share-link').hidden = false;
+  field.value = url.href;
+  try {
+    await navigator.clipboard.writeText(field.value);
+    message.textContent = 'Link kopiert.';
+  } catch {
+    field.focus();
+    field.select();
+    message.textContent = 'Du kannst den markierten Link kopieren.';
+  }
+});
+
 results.addEventListener('change', event => {
   const select = event.target.closest('select[data-comparison-slot]');
   if (!select || select.value === '') return;
@@ -912,6 +955,10 @@ form.addEventListener('submit', event => {
   saveCareerComparison();
   status.focus();
 });
-const restoredComparison = restoreCareerComparison();
+const sharedComparison = restoreSharedComparison();
+const restoredComparison = sharedComparison || restoreCareerComparison();
 showCareerStep();
 if (restoredComparison) renderCareerResults();
+if (sharedComparison) {
+  requestAnimationFrame(() => document.getElementById('shortlist-title').scrollIntoView());
+}
