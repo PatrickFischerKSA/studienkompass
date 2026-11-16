@@ -1,17 +1,54 @@
 <!doctype html><html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Wege nach der FMS oder dem Gymnasium in der Schweiz vergleichen."><title>Studienkompass · Wege nach der Matura</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#18291f;font:16px/1.55 system-ui,sans-serif}header,main,footer{max-width:1120px;margin:auto;padding:24px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #d9ded3}a{color:#24563e;text-underline-offset:4px}header strong{font-size:19px}nav{display:flex;gap:16px;flex-wrap:wrap}.hero{background:#183b2c;color:#fff4dc;border-radius:24px;padding:clamp(26px,6vw,72px);margin:14px 0 42px;background-image:radial-gradient(ellipse at top right,#356548,transparent 65%)}.hero p{max-width:52ch}.hero h1{font:clamp(44px,8vw,88px)/.98 Georgia,serif;letter-spacing:-.055em;margin:.22em 0}.eyebrow{color:#e3c283;font-weight:700}.button,button{display:inline-block;padding:10px 16px;border:1px solid #24563e;border-radius:9px;background:#24563e;color:white;text-decoration:none;font:inherit;cursor:pointer}.hero .button{background:#eed096;color:#18291f;border-color:transparent}button.secondary{background:transparent;color:#24563e}h2{font:clamp(30px,5vw,43px)/1.1 Georgia,serif;margin:0 0 14px}h3{margin:0}section{margin-bottom:45px;scroll-margin-top:16px}.panel,article{padding:22px;border:1px solid #d9ded3;background:#fffefa;border-radius:15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(255px,100%),1fr));gap:14px}.choices{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}.choice{border:1px solid #d9ded3;border-radius:8px;padding:8px 12px;cursor:pointer}.choice:has(input:checked){background:#e4efdf;border-color:#24563e}fieldset{border:0;padding:0;margin:0 0 18px;min-width:0}legend{font-weight:700;margin-bottom:10px}article p{margin:10px 0}article label,.task{cursor:pointer}.tag{color:#24563e;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}.task{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid #e8e9e1}input[type=checkbox]{accent-color:#24563e}select{display:block;max-width:100%;margin-top:6px;padding:9px;border:1px solid #829484;border-radius:8px;background:white;color:inherit;font:inherit}textarea{width:100%;padding:12px;border:1px solid #829484;border-radius:8px;font:inherit;min-height:85px}.ph-grid article{display:flex;flex-direction:column}.ph-grid article ul{padding-left:20px;margin:8px 0 16px}.ph-grid article p:last-child{margin-top:auto}.hero-link{display:inline-block;color:inherit;margin:8px 12px}.ph-decision{margin-top:20px}.ph-table{min-width:590px}.ph-table caption{text-align:left;padding:8px 0;color:#4c6054}.ph-table ul{margin:0;padding-left:20px}.ph-table li+li{margin-top:5px}.ph-table .format-match{background:#e4efdf;font-weight:700}#career-film{margin:14px 0}#career-film summary{cursor:pointer}#career-film button{margin:8px 8px 8px 0}.career-player{display:block;width:100%;max-width:640px;aspect-ratio:16/9;border:0;margin:10px 0}.compare{overflow:auto}table{border-collapse:collapse;width:100%;text-align:left}th,td{padding:10px;border-bottom:1px solid #d9ded3;vertical-align:top}footer{border-top:1px solid #d9ded3;color:#4c6054;font-size:.9rem}.muted{color:#4c6054}@media(max-width:520px){header{align-items:flex-start;flex-direction:column}main,header,footer{padding:16px}}
+/* Typography, spacing and colour for the orientation guide. */
+:root { color-scheme: light; --ink: #172c29; --paper: #f4f3eb; --green: #17634e; --line: #d8ded4; }
+body { background: var(--paper); color: var(--ink); font-family: "Instrument Sans", system-ui, sans-serif; }
+header, main, footer { max-width: 1200px; padding-inline: clamp(16px, 4vw, 42px); }
+header { border: 0; padding-block: 20px; }
+header strong { letter-spacing: -.035em; font-size: 1.3rem; }
+nav { gap: 9px 18px; }
+nav a { text-decoration: none; font-weight: 600; font-size: .9rem; }
+nav a:hover { text-decoration: underline; }
+.hero { position: relative; isolation: isolate; overflow: hidden; background: #173d35; padding: clamp(30px, 6vw, 76px); border-radius: 28px; }
+.hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 96% 25%, #347759, transparent 58%), repeating-radial-gradient(ellipse at 115% 30%, transparent 0 22px, #acdbc42e 23px 24px, transparent 25px 37px); }
+.hero h1, h2 { font-family: "Instrument Serif", Georgia, serif; letter-spacing: -.035em; }
+.hero h1 { font-size: clamp(3.3rem, 9vw, 7.3rem); max-width: 12ch; }
+.hero p { color: #e3f0e8; }
+.eyebrow { color: #cce7ab; font-size: .9rem; }
+.button, button { border-radius: 999px; font-weight: 650; padding-inline: 19px; }
+.hero .button { background: #def2b0; }
+:focus-visible { outline: 3px solid #a15b23; outline-offset: 4px; }
+section { margin-bottom: clamp(44px, 7vw, 86px); }
+.panel, article { border-color: var(--line); border-radius: 20px; padding: clamp(16px, 3vw, 30px); }
+#career-form { background: #fffefa; border: 1px solid #bfcebc; box-shadow: 0 12px 30px #183b2c0c; }
+#career-form legend { font-size: clamp(1.2rem, 3vw, 1.55rem); letter-spacing: -.025em; }
+#career-form #career-progress { color: var(--green); font-weight: 700; margin-top: 0; }
+#career-form .choice { display: flex; align-items: center; gap: 8px; min-height: 44px; border-radius: 999px; background: #f1f4eb; }
+#career-form .choice:has(input:checked) { background: #daedba; border-color: #466835; }
+#career-form select { margin-bottom: 12px; }
+.guide-aside { margin-bottom: 0; font-size: .9rem; }
+#career-film details { border-top: 1px solid var(--line); padding-top: 12px; }
+.practice-panel { padding-bottom: 12px; }
+.practice-filter { display: flex; align-items: baseline; gap: .5rem; font-weight: 650; cursor: pointer; }
+.practice-scroll { border: 1px solid var(--line); border-radius: 12px; }
+.practice-table { min-width: 860px; }
+.practice-table caption { text-align: left; padding: .75rem; color: #4c6054; }
+.practice-table thead { background: #e4eddd; }
+.practice-table tbody tr:nth-of-type(even) { background: #f7f8f2; }
+.practice-table td, .practice-table th { padding: 12px; }
+.practice-table a { font-weight: 650; }
 </style></head><body>
-<header><strong>Studienkompass</strong><nav aria-label="Abschnitte"><a href="#beratung">Berufsguide</a><a href="#profil">Profil</a><a href="#ksa-paedagogik">FMS Pädagogik</a><a href="#wege">Wege</a><a href="#bildungswege">Bildungssystem</a><a href="#plan">Mein Plan</a></nav></header>
-<main><section class="hero"><div class="eyebrow">Orientierung nach der FMS oder dem Gymnasium</div><h1>Welcher Weg<br>passt zu dir?</h1><p>Entdecke Möglichkeiten in der Schweiz, vergleiche deine Favoriten und plane deine nächsten Schritte.</p><a class="button" href="#beratung">Berufsguide starten ↓</a> <a href="#ph-vergleich" class="hero-link">PH-Studiengänge vergleichen</a></section>
+<header><strong>Studienkompass</strong><nav aria-label="Abschnitte"><a href="#beratung">Berufsguide</a><a href="#praxisvergleich">Praxiswege</a><a href="#ksa-paedagogik">FMS Pädagogik</a><a href="#profil">Alle Wege</a><a href="#bildungswege">Bildungssystem</a><a href="#plan">Mein Plan</a></nav></header>
+<main><section class="hero"><div class="eyebrow">Nach der FMS oder dem Gymnasium</div><h1>Wie geht’s<br>für dich weiter?</h1><p>Unterrichten, im Labor arbeiten oder direkt in einen Betrieb einsteigen? Schau, was zu dir passt und wie du dorthin kommst.</p><a class="button" href="#beratung">Meinen Weg finden</a> <a href="#ph-vergleich" class="hero-link">PH-Studiengänge vergleichen</a> <a href="#praxisvergleich" class="hero-link">Praxisangebote vergleichen</a></section>
 <section id="beratung">
-  <h2>Dein Berufsguide nach der FMS</h2>
-  <p>Wähle zuerst Aufgaben, die dich interessieren. Deine Antworten bestimmen die Folgefragen. Am Schluss siehst du die möglichen Ausbildungswege und ihre Zulassungsschritte.</p>
+  <h2>Was machst du gern?</h2>
+  <p>Vier kurze Schritte führen dich von deinen Interessen zu konkreten Ausbildungen.</p>
   <form id="career-form" class="panel">
     <p id="career-progress" class="muted"></p>
     <div id="career-questions"></div>
-    <fieldset id="career-admission" hidden><legend>Welche Zulassungswege kommen für dich infrage?</legend>
-      <label for="career-credential">Abschluss oder geplanter Abschluss</label>
+    <fieldset id="career-admission" hidden><legend>Wie möchtest du einsteigen?</legend>
+      <label for="career-credential">Welchen Abschluss hast du oder machst du gerade?</label>
       <select id="career-credential">
         <option value="fms">Fachmittelschulausweis</option>
         <option value="education">Fachmaturität Pädagogik</option>
@@ -31,10 +68,40 @@
     <div id="career-film"></div>
     <button type="button" id="career-back" class="secondary" hidden>Zurück</button>
     <button id="career-next">Weiter</button>
-    <p><a href="#bildungswege">Abschlüsse und weitere Bildungswege nachschlagen</a></p>
+    <p class="guide-aside"><a href="#praxisvergleich">Praxisangebote vergleichen</a></p>
   </form>
   <p id="career-status" role="status" tabindex="-1"></p>
   <div id="career-results" class="grid" aria-label="Berufsfelder"></div>
+</section>
+<section id="praxisvergleich" aria-labelledby="praxis-titel">
+  <div class="section-intro">
+    <h2 id="praxis-titel">Lieber direkt in die Praxis?</h2>
+    <p>Vergleiche acht Wege und schau, welche Anbieter deinen Fachmittelschulausweis anerkennen.</p>
+  </div>
+  <div class="panel practice-panel">
+    <label class="practice-filter"><input type="checkbox" id="practice-fms" aria-controls="practice-table"> Nur Angebote zeigen, bei denen der FMS-Ausweis als Vorbildung zählt</label>
+    <p id="practice-status" class="muted" role="status"></p>
+    <div class="compare practice-scroll" tabindex="0" role="region" aria-label="Vergleich der Praxisangebote">
+      <table class="practice-table" id="practice-table">
+        <caption>Ausbildung und Bewerbung · Stand 16. November 2026</caption>
+        <thead><tr><th scope="col">Praxisweg</th><th scope="col">Anbieter</th><th scope="col">Ort</th><th scope="col">Dauer</th><th scope="col">Bewerbungsfrist</th><th scope="col">Reicht der FMS-Ausweis?</th></tr></thead>
+        <tbody>
+          <tr data-fms="yes"><th scope="row">Sozialpädagogik HF</th><td><a href="https://www.agogis.ch/hohere-berufsbildung/sozialpadagogik-hf">Agogis</a></td><td>Zürich</td><td>3 Jahre im regulären Bildungsgang</td><td>Je nach Studienstart und Aufnahmeverfahren. Termine bei Agogis prüfen.</td><td>Ja · Praxis und Aufnahmeverfahren zusätzlich</td></tr>
+          <tr data-fms="yes"><th scope="row">Biomedizinische Analytik HF</th><td><a href="https://careum.ch/bildungsangebot/hoehere-fachschule/biomedizinische-analytik">Careum und Stadtspital Zürich</a></td><td>Zürich</td><td>3 Jahre Vollzeit</td><td>Beim Praxisbetrieb nach offenen Plätzen und deren Frist suchen.</td><td>Ja · Aufnahmeverfahren und Praktikumsplatz zusätzlich</td></tr>
+          <tr data-fms="unknown"><th scope="row">Hotellerie und Tourismus HF</th><td><a href="https://www.hfz.swiss/faq/">Hotelfachschule Zürich, Hotelmanagement HF</a></td><td>Zürich</td><td>6 Semester Vollzeit oder 7 berufsbegleitend</td><td>Bis kurz vor Studienbeginn, sofern Plätze frei sind.</td><td>Mit der Schule abklären</td></tr>
+          <tr data-fms="no"><th scope="row">Betriebsinterne Ausbildung und PWA</th><td><a href="https://www.zugerkb.ch/die-zugerkb/jobs-und-karriere/praktika/bankeinstieg">Zuger Kantonalbank, BEM</a></td><td>Zug</td><td>18 Monate</td><td>Bewerbungsfenster für Sommer 2028 öffnet im August 2027.</td><td>Nein · Fachmaturität ist einer der anerkannten Abschlüsse</td></tr>
+          <tr data-fms="no"><th scope="row">Betriebsinterne Ausbildung und PWA</th><td><a href="https://www.szkb.ch/die-szkb/jobs-karriere/dein-beruflicher-start/berufspraktikum">Schwyzer Kantonalbank, BEM</a></td><td>Kanton Schwyz</td><td>18 Monate</td><td>Für Sommer 2027 ausgeschrieben. Frist im Stellenportal prüfen.</td><td>Maturazeugnisse verlangt · FMS allein nicht aufgeführt</td></tr>
+          <tr data-fms="no"><th scope="row">Betriebsinterne Ausbildung und PWA</th><td><a href="https://www.pwa.ch/was-ist-die-pwa/ablauf">Kaderschule Zürich, PWA</a></td><td>Zürich</td><td>24 Monate (6 Monate Schule und 18 Monate Praktikum)</td><td>Schulstart und Bewerbungsfrist beim Programm oder Praxisbetrieb prüfen.</td><td>Nein · Zulassung nach Vorbildung prüfen</td></tr>
+          <tr data-fms="yes"><th scope="row">Berufslehre und mögliche Verkürzung</th><td><a href="https://career.post.ch/de/lernende">Die Schweizerische Post, z. B. Kaufleute EFZ</a></td><td>Je nach Lehrstelle</td><td>Regulär 3 Jahre für Kaufleute EFZ</td><td>Je nach Lehrstelle. Bewerbungsdaten stehen im Inserat.</td><td>Ja für die reguläre Bewerbung · Lehrvertrag nötig, Verkürzung separat klären</td></tr>
+          <tr data-fms="yes"><th scope="row">Berufsprüfung und höhere Fachprüfung</th><td><a href="https://www.kv-business-school.ch/school/marketing-und-verkauf/marketingfachleute-70-online">KV Business School Zürich, Marketingfachleute BP</a></td><td>Zürich</td><td>3 Semester im Beispielkurs mit 70 % Online-Unterricht</td><td>Lehrgang und eidgenössische Prüfung haben eigene Anmeldetermine.</td><td>Ja als Vorbildung für die BP · einschlägige Berufspraxis nötig</td></tr>
+          <tr data-fms="unknown"><th scope="row">Polizei</th><td><a href="https://www.sz.ch/behoerden/verwaltung/sicherheitsdepartement/kantonspolizei/ausbildung.html/8756-8758-8802-9496-9613-10833">Kantonspolizei Schwyz</a></td><td>Schwyz und Polizeischule Hitzkirch</td><td>2 Jahre</td><td>Je nach Ausschreibung für Polizeiaspirantinnen und Polizeiaspiranten.</td><td>Beim Korps abklären · Auswahlverfahren erforderlich</td></tr>
+          <tr data-fms="unknown"><th scope="row">Polizei</th><td><a href="https://www.zg.ch/jobs/offene-stellen/polizei-anwaerterin-polizei-anwaerter-zweijaehrige-grundausbildung/7d44d619-74ce-4f21-8575-bb80c316acd9">Zuger Polizei</a></td><td>Zug und Polizeischule Hitzkirch</td><td>Rund 2 Jahre</td><td>Frist gemäss Ausschreibung.</td><td>Gleichwertigkeit des FMS-Ausweises beim Korps abklären</td></tr>
+          <tr data-fms="unknown"><th scope="row">Cabin Crew</th><td><a href="https://www.swiss.com/corporate/de/careers/professional-fields/cabin-crew-member">SWISS, Base Zürich</a></td><td>Flughafen Zürich</td><td>Erste Schulungsphasen je 6 Wochen, gesamte Ausbildung im ersten Jahr</td><td>Bewerbung vorübergehend geschlossen. Nächste Kurse laut SWISS voraussichtlich im 2. Quartal 2027.</td><td>FMS-Ausweis beim Recruiting abklären</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">Auch bei «Ja» können Praxis, ein Lehrvertrag oder ein Aufnahmeverfahren verlangt werden. Die Anbieterlinks führen zu den aktuellen Angaben.</p>
+  </div>
 </section>
 <section id="profil"><h2>Was ist dir wichtig?</h2><form class="panel" id="profile"><fieldset><legend>Von welchem Abschluss gehst du aus?</legend>
 <label for="credential">Abschluss oder geplanter Abschluss</label>
@@ -159,5 +226,5 @@
 </section>
 <section id="plan"><h2>Mein nächster Schritt</h2><div class="panel"><p id="progress" role="status"></p><div id="tasks"></div><p><label for="notes"><strong>Meine Interessen, Stärken und Werte</strong></label></p><textarea id="notes" placeholder="Was mache ich gerne? Was kann ich gut? Was ist mir wichtig?"></textarea><p class="muted">Dein Plan und deine Auswahl werden in diesem Browser gespeichert, sofern der Browser dies erlaubt.</p></div></section></main>
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter.</footer>
-<script src="app.js?v=ph-vergleich"></script>
-<script src="career-guide.js?v=regionale-anbieter" defer></script></body></html>
+<script src="app.js?v=praxisvergleich"></script>
+<script src="career-guide.js?v=praxisvergleich" defer></script></body></html>

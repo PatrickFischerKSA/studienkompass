@@ -1,5 +1,5 @@
 const careerQuestions = [
-  ['Was möchtest du im Berufsalltag tun?', {
+  ['Was würdest du gern öfter tun?', {
     teach: 'Unterrichten und erklären', support: 'Individuell fördern',
     language: 'Mit Sprache arbeiten', movement: 'Mit Bewegung und Spiel arbeiten',
     daily: 'Selbstständigkeit im Alltag fördern', counsel: 'Beraten und Konflikte klären',
@@ -9,11 +9,11 @@ const careerQuestions = [
     business: 'Mit Kundschaft und Finanzfragen arbeiten', hands: 'Praktisch im Betrieb lernen',
     safety: 'Für Sicherheit sorgen'
   }],
-  ['Welche Eigenschaften passen zu dir?', {
+  ['Wie gehst du an Aufgaben heran?', {
     patient: 'Geduldig', creative: 'Kreativ', structured: 'Strukturiert',
     empathic: 'Einfühlsam', calm: 'Ruhig in anspruchsvollen Situationen'
   }],
-  ['Was gelingt dir bereits oder möchtest du gezielt üben?', {
+  ['Was kannst du schon gut oder möchtest du lernen?', {
     explain: 'Verständlich erklären', observe: 'Genau beobachten',
     listen: 'Aktiv zuhören', groups: 'Gruppen anleiten',
     plan: 'Aktivitäten planen', collaborate: 'Im Team zusammenarbeiten',
@@ -519,7 +519,7 @@ function showCareerStep(moveFocus = false) {
     const visibleKeys = new Set(choices.map(([key]) => key));
     answers[step] = new Set([...answers[step]].filter(key => visibleKeys.has(key)));
     questions.innerHTML = `<fieldset><legend tabindex="-1">${question}</legend>
-      <p class="muted">Du kannst mehrere Antworten wählen oder direkt weitergehen.</p>
+      <p class="muted">Du kannst mehrere Antworten ankreuzen.</p>
       <div class="choices">${choices.map(([key, label]) =>
         `<label class="choice"><input type="checkbox" name="trait" value="${key}" ${answers[step].has(key) ? 'checked' : ''}> ${label}</label>`
       ).join('')}</div></fieldset>`;
@@ -570,10 +570,10 @@ function renderCareerResults() {
     return `<article>
       <h3>${career.title}</h3>
       <p>${career.work}</p>
-      ${matches.length ? `<p><strong>Deine Übereinstimmungen</strong><br>${matches.map(tag => labels[tag]).join(', ')}</p>` : ''}
+      ${matches.length ? `<p><strong>Was zu deiner Auswahl passt</strong><br>${matches.map(tag => labels[tag]).join(', ')}</p>` : ''}
       ${admissionMatch ? '<p class="tag">Zulassungsschritt zum Prüfen</p>' : ''}
-      <p><strong>Dein Ausbildungsweg</strong><br>${route}</p>
-      <p><strong>Dein nächster Schritt</strong><br>${career.next}</p>
+      <p><strong>So kommst du hin</strong><br>${route}</p>
+      <p><strong>Das kannst du als Nächstes tun</strong><br>${career.next}</p>
       <ul>${career.links.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul>
     </article>`;
   }).join('');

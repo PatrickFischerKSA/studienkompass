@@ -184,3 +184,18 @@ function updatePhComparison() {
 phStage.addEventListener('change', updatePhComparison);
 phFormat.addEventListener('change', updatePhComparison);
 updatePhComparison();
+
+const practiceFilter = byId('practice-fms');
+const practiceRows = [...byId('practice-table').querySelectorAll('tbody tr')];
+
+function updatePracticeComparison() {
+  let visible = 0;
+  for (const row of practiceRows) {
+    row.hidden = practiceFilter.checked && row.dataset.fms !== 'yes';
+    if (!row.hidden) visible++;
+  }
+  byId('practice-status').textContent = `${visible} von ${practiceRows.length} Angeboten`;
+}
+
+practiceFilter.addEventListener('change', updatePracticeComparison);
+updatePracticeComparison();
