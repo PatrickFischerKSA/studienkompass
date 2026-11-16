@@ -192,12 +192,19 @@ const careers = [
       "collaborate"
     ],
     "work": "Menschen im Alltag begleiten und gemeinsam mit ihnen Ziele für mehr Selbstständigkeit entwickeln.",
-    "route": "Frage die HF, ob dein Fachmittelschulausweis oder dein anderer Abschluss anerkannt wird. Kläre Vorpraktikum, Praxisausbildungsplatz und Aufnahmeverfahren.",
+    "route": {
+      "fms": "Ja als schulische Vorbildung bei Agogis Zürich. Dazu kommen die geforderte Praxiserfahrung und das Aufnahmeverfahren.",
+      "other": "Frage die HF, ob dein Fachmittelschulausweis oder dein anderer Abschluss anerkannt wird. Kläre Vorpraktikum, Praxisausbildungsplatz und Aufnahmeverfahren. Mit FMS-Ausweis: Ja als schulische Vorbildung bei Agogis Zürich. Dazu kommen die geforderte Praxiserfahrung und das Aufnahmeverfahren."
+    },
     "next": "Besuche einen Infoanlass einer HF und frage nach Schnuppermöglichkeiten in einem Wohnheim oder Jugendangebot.",
     "links": [
       [
-        "Übersicht der praxisorientierten Anschlusswege",
-        "#bildungswege"
+        "Agogis Zürich · Ausbildung und Zulassung",
+        "https://www.agogis.ch/hohere-berufsbildung/sozialpadagogik-hf"
+      ],
+      [
+        "Agogis · Zulassungsgrundlagen im Rahmenlehrplan",
+        "https://www.agogis.ch/portals/0/inhalte/downloads/sozialpaedagogik_rahmenlehrplan_sbfi%20ab%20august%202023.pdf"
       ]
     ]
   },
@@ -218,12 +225,19 @@ const careers = [
       "craft"
     ],
     "work": "Proben im medizinischen Labor untersuchen und Ergebnisse sorgfältig dokumentieren.",
-    "route": "Lass deinen Abschluss von der HF prüfen und frage nach Eignungsabklärung und Praktikumsorganisation.",
+    "route": {
+      "fms": "Ja als schulische Vorbildung beim Bildungsgang von Careum und Stadtspital Zürich. Das Aufnahmeverfahren musst du zusätzlich absolvieren.",
+      "other": "Lass deinen Abschluss von der HF prüfen und frage nach Eignungsabklärung und Praktikumsorganisation. Mit FMS-Ausweis: Ja als schulische Vorbildung beim Bildungsgang von Careum und Stadtspital Zürich. Das Aufnahmeverfahren musst du zusätzlich absolvieren."
+    },
     "next": "Frage nach einem Einblick in ein Spitallabor und vergleiche die Aufnahmebedingungen der Schulen.",
     "links": [
       [
-        "Übersicht der praxisorientierten Anschlusswege",
-        "#bildungswege"
+        "Careum Zürich · Ausbildung und Aufnahme",
+        "https://careum.ch/bildungsangebot/hoehere-fachschule/biomedizinische-analytik"
+      ],
+      [
+        "Stadtspital Zürich · Praxis und Voraussetzungen",
+        "https://www.stadt-zuerich.ch/stadtspital/de/ueber-uns/fachbereiche/labormedizin/bildungsgang-biomedizinische-analytik.html"
       ]
     ]
   },
@@ -244,12 +258,19 @@ const careers = [
       "collaborate"
     ],
     "work": "Gäste beraten, Angebote organisieren und Abläufe im Betrieb koordinieren.",
-    "route": "Kläre bei der gewählten HF die Anerkennung deines Abschlusses und ob ein Vorpraktikum oder ein Praxisplatz nötig ist.",
+    "route": {
+      "fms": "Die Hotelfachschule Zürich nennt die Bedingungen für die Berufsaufnahme auf ihrer Anmeldeseite. Lass vor der Anmeldung abklären, ob dein FMS-Ausweis für das gewünschte Modell anerkannt wird und welche Praxis du mitbringen musst.",
+      "other": "Kläre bei der gewählten HF die Anerkennung deines Abschlusses und ob ein Vorpraktikum oder ein Praxisplatz nötig ist. Mit FMS-Ausweis: Die Hotelfachschule Zürich nennt die Bedingungen für die Berufsaufnahme auf ihrer Anmeldeseite. Lass vor der Anmeldung abklären, ob dein FMS-Ausweis für das gewünschte Modell anerkannt wird und welche Praxis du mitbringen musst."
+    },
     "next": "Vergleiche eine Hotelfachschule mit einem Tourismus-Bildungsgang und frage nach den Praxisphasen.",
     "links": [
       [
-        "Übersicht der praxisorientierten Anschlusswege",
-        "#bildungswege"
+        "Hotelfachschule Zürich · Ausbildung",
+        "https://www.hfz.swiss/"
+      ],
+      [
+        "Hotelfachschule Zürich · Anmeldung und Aufnahme",
+        "https://www.hfz.swiss/studium/anmeldung/"
       ]
     ]
   },
@@ -269,12 +290,27 @@ const careers = [
       "analyse"
     ],
     "work": "Bei einer Bank, Versicherung oder der Post in die Arbeitswelt einsteigen oder eine praxisorientierte Wirtschaftsausbildung prüfen.",
-    "route": "Die Zulassung hängt vom Programm ab. Frage ausdrücklich, ob dein Fachmittelschulausweis oder deine Fachmaturität akzeptiert wird und ob der Betrieb ein Auswahlverfahren durchführt.",
+    "route": {
+      "fms": "Nein für den Bankeinstieg bei der Zuger Kantonalbank. Sie akzeptiert unter anderem die Fachmaturität. Für das PWA-Wirtschaftsprogramm der Kaderschule Zürich genügt der FMS-Ausweis allein ebenfalls nicht. Bei der Schwyzer Kantonalbank prüfst du die Anforderungen des Berufspraktikums.",
+      "other": "Die Zulassung hängt vom Programm ab. Frage ausdrücklich, ob dein Fachmittelschulausweis oder deine Fachmaturität akzeptiert wird und ob der Betrieb ein Auswahlverfahren durchführt. Mit FMS-Ausweis: Nein für den Bankeinstieg bei der Zuger Kantonalbank. Sie akzeptiert unter anderem die Fachmaturität. Für das PWA-Wirtschaftsprogramm der Kaderschule Zürich genügt der FMS-Ausweis allein ebenfalls nicht. Bei der Schwyzer Kantonalbank prüfst du die Anforderungen des Berufspraktikums."
+    },
     "next": "Suche ein konkretes Programm und prüfe Abschluss, Bewerbungsfrist und vergütete Praxisphasen.",
     "links": [
       [
-        "Übersicht der praxisorientierten Anschlusswege",
-        "#bildungswege"
+        "Zuger Kantonalbank · BEM und Voraussetzungen",
+        "https://www.zugerkb.ch/die-zugerkb/jobs-und-karriere/praktika/bankeinstieg"
+      ],
+      [
+        "Kaderschule Zürich · PWA-Ausbildung",
+        "https://www.pwa.ch/was-ist-die-pwa/ablauf"
+      ],
+      [
+        "Kaderschule Zürich · PWA-Zulassung",
+        "https://www.pwa.ch/was-ist-die-pwa/zulassung"
+      ],
+      [
+        "Schwyzer Kantonalbank · Berufspraktikum und Bewerbung",
+        "https://www.szkb.ch/die-szkb/jobs-karriere/dein-beruflicher-start/berufspraktikum"
       ]
     ]
   },
@@ -297,9 +333,24 @@ const careers = [
       "collaborate"
     ],
     "work": "Einen Beruf im Lehrbetrieb erlernen und einen eidgenössischen Berufsabschluss erwerben.",
-    "route": "Du brauchst einen Lehrbetrieb. Eine Verkürzung klärst du mit dem Betrieb und dem kantonalen Berufsbildungsamt. Way-up richtet sich an gymnasiale Maturandinnen und Maturanden.",
+    "route": {
+      "fms": "Ja für die Bewerbung um eine reguläre Lehrstelle, sofern du die Anforderungen des Betriebs erfüllst. Du brauchst einen Lehrvertrag. Eine Verkürzung ist ein separater Entscheid des kantonalen Amts. Für Way-up reicht der FMS-Ausweis nicht.",
+      "other": "Du brauchst einen Lehrbetrieb. Eine Verkürzung klärst du mit dem Betrieb und dem kantonalen Berufsbildungsamt. Way-up richtet sich an gymnasiale Maturandinnen und Maturanden. Mit FMS-Ausweis: Ja für die Bewerbung um eine reguläre Lehrstelle, sofern du die Anforderungen des Betriebs erfüllst. Du brauchst einen Lehrvertrag. Eine Verkürzung ist ein separater Entscheid des kantonalen Amts. Für Way-up reicht der FMS-Ausweis nicht."
+    },
     "next": "Wähle einen Lehrberuf und frage bei einer Schnupperlehre, ob deine Vorbildung angerechnet werden kann.",
     "links": [
+      [
+        "Post · Lehrberufe und Bewerbung",
+        "https://career.post.ch/de/lernende"
+      ],
+      [
+        "Kanton Schwyz · Lehrvertrag und Lehrbetrieb",
+        "https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-berufsbildung/berufsbildung/lehrvertrag-und-lehrbetrieb.html/8756-8758-8802-9466-9469-11319-11326/trc/1"
+      ],
+      [
+        "Kanton Zug · Lehrvertrag",
+        "https://zg.ch/de/bildung/berufslehre/informationen-fuer-lehrbetriebe/lehrvertrag"
+      ],
       [
         "Verkürzte Lehre und Way-up",
         "https://www.berufsberatung.ch/dyn/show/65131"
@@ -322,9 +373,20 @@ const careers = [
       "plan"
     ],
     "work": "Sich nach dem Berufseinstieg spezialisieren, etwa in Finanzplanung, Marketing, Finanz- und Anlageexpertise oder Marketingleitung.",
-    "route": "Prüfe die Prüfungsordnung des konkreten Abschlusses. Je nach Prüfung sind eine einschlägige Vorbildung und Berufspraxis nötig.",
+    "route": {
+      "fms": "Für die Berufsprüfung Marketingfachleute gilt der anerkannte FMS-Ausweis als Vorbildung. Für die eidgenössische Prüfung brauchst du zusätzlich einschlägige Berufspraxis. Für eine höhere Fachprüfung gelten die Voraussetzungen der jeweiligen Prüfung.",
+      "other": "Prüfe die Prüfungsordnung des konkreten Abschlusses. Je nach Prüfung sind eine einschlägige Vorbildung und Berufspraxis nötig. Mit FMS-Ausweis: Für die Berufsprüfung Marketingfachleute gilt der anerkannte FMS-Ausweis als Vorbildung. Für die eidgenössische Prüfung brauchst du zusätzlich einschlägige Berufspraxis. Für eine höhere Fachprüfung gelten die Voraussetzungen der jeweiligen Prüfung."
+    },
     "next": "Wähle eine Berufsprüfung oder höhere Fachprüfung und arbeite von deren Zulassung aus rückwärts zum passenden Berufseinstieg.",
     "links": [
+      [
+        "KV Business School Zürich · Lehrgang Marketingfachleute",
+        "https://www.kv-business-school.ch/school/marketing-und-verkauf/marketingfachleute-praesenz"
+      ],
+      [
+        "KV Business School Zürich · Zulassung zur eidgenössischen Prüfung",
+        "https://www.kv-business-school.ch/en/node/2335"
+      ],
       [
         "SBFI · Abschlüsse der höheren Berufsbildung",
         "https://www.sbfi.admin.ch/de/der-nationale-qualifikationsrahmen-nqr-berufsbildung"
@@ -349,12 +411,23 @@ const careers = [
       "collaborate"
     ],
     "work": "Menschen in Konfliktsituationen unterstützen, für Sicherheit sorgen und Ereignisse dokumentieren.",
-    "route": "Das zuständige Korps entscheidet, welche Abschlüsse es anerkennt und welche Eignungsabklärungen gelten.",
+    "route": {
+      "fms": "Der FMS-Ausweis allein sichert keinen Ausbildungsplatz. Die Zuger Polizei nennt eine Matura oder gleichwertige Ausbildung als mögliche Vorbildung. Lass die Anerkennung deines konkreten FMS-Ausweises beim Korps bestätigen. Dazu kommt das Auswahlverfahren.",
+      "other": "Das zuständige Korps entscheidet, welche Abschlüsse es anerkennt und welche Eignungsabklärungen gelten. Mit FMS-Ausweis: Der FMS-Ausweis allein sichert keinen Ausbildungsplatz. Die Zuger Polizei nennt eine Matura oder gleichwertige Ausbildung als mögliche Vorbildung. Lass die Anerkennung deines konkreten FMS-Ausweises beim Korps bestätigen. Dazu kommt das Auswahlverfahren."
+    },
     "next": "Besuche einen Infoanlass und kläre deinen Abschluss beim gewünschten Korps.",
     "links": [
       [
-        "Übersicht der praxisorientierten Anschlusswege",
-        "#bildungswege"
+        "Kantonspolizei Schwyz · Ausbildung und Bewerbung",
+        "https://www.sz.ch/behoerden/verwaltung/sicherheitsdepartement/kantonspolizei/ausbildung.html/8756-8758-8802-9496-9613-10833"
+      ],
+      [
+        "Kantonspolizei Zürich · Ausbildung und Voraussetzungen",
+        "https://www.zh.ch/de/arbeiten-beim-kanton/ein-kanton-viele-moeglichkeiten/sicherheitsdirektion/arbeiten-bei-der-kantonspolizei/polizistin-polizist.html"
+      ],
+      [
+        "Zuger Polizei · Ausbildung und Voraussetzungen",
+        "https://www.zg.ch/jobs/offene-stellen/polizei-anwaerterin-polizei-anwaerter-zweijaehrige-grundausbildung/7d44d619-74ce-4f21-8575-bb80c316acd9"
       ]
     ]
   },
@@ -376,12 +449,19 @@ const careers = [
       "collaborate"
     ],
     "work": "Fluggäste betreuen und mit dem Team für Sicherheit an Bord sorgen.",
-    "route": "Kläre beim Unternehmen, welchen Abschluss, welche Sprachkenntnisse und welches Auswahlverfahren es für den Einstieg verlangt.",
+    "route": {
+      "fms": "SWISS in Zürich verlangt ein EFZ oder einen höheren Schulabschluss und nennt die Matura als Beispiel. Der FMS-Ausweis ist nicht ausdrücklich aufgeführt. Lass ihn vom Recruiting bestätigen. Dazu kommen unter anderem Sprachen, Assessment und medizinische Abklärung.",
+      "other": "Kläre beim Unternehmen, welchen Abschluss, welche Sprachkenntnisse und welches Auswahlverfahren es für den Einstieg verlangt. Mit FMS-Ausweis: SWISS in Zürich verlangt ein EFZ oder einen höheren Schulabschluss und nennt die Matura als Beispiel. Der FMS-Ausweis ist nicht ausdrücklich aufgeführt. Lass ihn vom Recruiting bestätigen. Dazu kommen unter anderem Sprachen, Assessment und medizinische Abklärung."
+    },
     "next": "Lies die Anforderungen eines konkreten Einstiegsprogramms und prüfe Sprachen, Einsatzzeiten und Auswahlverfahren.",
     "links": [
       [
-        "Übersicht der praxisorientierten Anschlusswege",
-        "#bildungswege"
+        "SWISS Zürich · Ausbildung und Bewerbung",
+        "https://www.swiss.com/corporate/de/careers/professional-fields/cabin-crew-member"
+      ],
+      [
+        "SWISS · Infoveranstaltung und Einstieg",
+        "https://www.swiss.com/corporate/en/careers/information-events/cabin.html"
       ]
     ]
   }
