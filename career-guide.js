@@ -1,3 +1,5 @@
+{
+
 const careerQuestions = [
   ['Was würdest du gern öfter tun?', {
     teach: 'Unterrichten und erklären', support: 'Individuell fördern',
@@ -642,7 +644,7 @@ function showCareerStep(moveFocus = false) {
       [option.value, option.textContent, photos[index], option.selected]));
   } else {
     const [question, options] = careerQuestions[step];
-    const relevantCareers = answers[0].size
+    const relevantCareers = step > 0 && answers[0].size
       ? careersForTrack().filter(career => career.tags.some(tag => answers[0].has(tag)))
       : careersForTrack();
     const relevantTags = new Set(relevantCareers.flatMap(career => career.tags));
@@ -1035,4 +1037,6 @@ showCareerStep();
 if (restoredComparison) renderCareerResults();
 if (sharedComparison) {
   requestAnimationFrame(() => document.getElementById('shortlist-title').scrollIntoView());
+}
+
 }
