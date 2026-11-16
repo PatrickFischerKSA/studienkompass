@@ -67,16 +67,19 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
   .ph-table td::before { content: attr(data-label); display: block; font-weight: 700; font-size: .78rem; }
   .ph-table td:last-child { background: #e4eddd; padding: 8px; border-radius: 8px; }
 }
+.career-reflection { padding: 12px; margin: 16px 0; border: 1px solid var(--line); border-radius: 12px; background: #f1f4eb; }
+.career-reflection summary { cursor: pointer; font-weight: 650; }
+#career-results .career-task { grid-column: 1 / -1; background: #e4eddd; }
 </style></head><body>
 <header><strong>Studienkompass</strong><nav aria-label="Abschnitte"><a href="#beratung">Berufsguide</a><a href="#praxisvergleich">Praxiswege</a><a href="#ksa-paedagogik">FMS Pädagogik</a><a href="#profil">Alle Wege</a><a href="#bildungswege">Bildungssystem</a><a href="#plan">Mein Plan</a></nav></header>
 <main><section class="hero"><div class="eyebrow">Nach der FMS oder dem Gymnasium</div><h1>Wie geht’s<br>für dich weiter?</h1><p>Unterrichten, im Labor arbeiten oder direkt in einen Betrieb einsteigen? Schau, was zu dir passt und wie du dorthin kommst.</p><a class="button" href="#beratung">Meinen Weg finden</a> <a href="#ph-vergleich" class="hero-link">PH-Studiengänge vergleichen</a> <a href="#praxisvergleich" class="hero-link">Praxisangebote vergleichen</a></section>
 <section id="beratung">
-  <h2>Was machst du gern?</h2>
-  <p>Vier kurze Schritte führen dich von deinen Interessen zu konkreten Ausbildungen.</p>
+  <h2>Dein nächster Schritt nach der FMS</h2>
+  <p>Beginne mit deinem Abschluss und der Frage, die du gerade klären möchtest.</p>
   <form id="career-form" class="panel">
     <p id="career-progress" class="muted"></p>
-    <div id="career-questions"></div>
-    <fieldset id="career-admission" hidden><legend>Wie möchtest du einsteigen?</legend>
+    <fieldset id="career-direction">
+      <legend>Wo stehst du gerade?</legend>
       <label for="career-credential">Welchen Abschluss hast du oder machst du gerade?</label>
       <select id="career-credential">
         <option value="fms">Fachmittelschulausweis</option>
@@ -85,6 +88,17 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
         <option value="social">Fachmaturität Soziale Arbeit</option>
         <option value="gym">Gymnasiale Matura</option>
       </select>
+      <label for="career-track">Was möchtest du herausfinden?</label>
+      <select id="career-track">
+        <option value="all">Ich möchte zuerst alle Möglichkeiten sehen</option>
+        <option value="now">Was ich mit dem FMS-Ausweis anfangen kann</option>
+        <option value="study">Wie ich an eine Hochschule komme</option>
+        <option value="switch">Wie ich das Berufsfeld wechseln kann</option>
+      </select>
+      <p id="career-track-note" class="muted"></p>
+    </fieldset>
+    <div id="career-questions"></div>
+    <fieldset id="career-admission" hidden><legend>Wie möchtest du einsteigen?</legend>
       <label for="career-preference">Was möchtest du zuerst prüfen?</label>
       <select id="career-preference">
         <option value="all">Alle Zulassungswege</option>
@@ -92,6 +106,18 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
         <option value="exam">Aufnahmeprüfung, Auswahlverfahren oder Passerelle</option>
         <option value="practice">Berufspraxis oder Praktikum</option>
         <option value="degree">Weg über einen weiteren Abschluss</option>
+      </select>
+      <details class="career-reflection">
+        <summary>Wozu noch studieren, wenn es KI gibt?</summary>
+        <p>Schau den Beitrag und überlege, was du an deinem nächsten Lernort selbst üben, mit anderen ausprobieren oder unter Anleitung lernen willst.</p>
+        <a href="https://www.zeit.de/video/2026-11/bildung-universitaet-ki-lernen-zukunft">ZEIT-Video öffnen</a>
+      </details>
+      <label for="career-learning">Was möchtest du beim nächsten Einblick herausfinden?</label>
+      <select id="career-learning">
+        <option value="">Das entscheide ich später</option>
+        <option value="practice">Was ich praktisch üben kann</option>
+        <option value="people">Wie ich mit anderen lerne</option>
+        <option value="judgment">Wo ich selbst entscheiden muss, auch mit KI</option>
       </select>
     </fieldset>
     <div id="career-film"></div>
@@ -254,6 +280,6 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
   <p class="muted">Grundlage ist die Übersicht zu praxisorientierten Ausbildungen der Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz aus «berufe.pdf».</p>
 </section>
 <section id="plan"><h2>Mein nächster Schritt</h2><div class="panel"><p id="progress" role="status"></p><div id="tasks"></div><p><label for="notes"><strong>Meine Interessen, Stärken und Werte</strong></label></p><textarea id="notes" placeholder="Was mache ich gerne? Was kann ich gut? Was ist mir wichtig?"></textarea><p class="muted">Dein Plan und deine Auswahl werden in diesem Browser gespeichert, sofern der Browser dies erlaubt.</p></div></section></main>
-<footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter.</footer>
+<footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>.</footer>
 <script src="app.js?v=praxisvergleich"></script>
-<script src="career-guide.js?v=praxisvergleich" defer></script></body></html>
+<script src="career-guide.js?v=fms-alternativen" defer></script></body></html>

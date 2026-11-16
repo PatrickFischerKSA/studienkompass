@@ -7,7 +7,7 @@ const careerQuestions = [
     mind: 'Erleben und Verhalten verstehen', research: 'Forschen und Daten auswerten',
     lab: 'Im Labor untersuchen', hospitality: 'Gäste betreuen und Reisen organisieren',
     business: 'Mit Kundschaft und Finanzfragen arbeiten', hands: 'Praktisch im Betrieb lernen',
-    safety: 'Für Sicherheit sorgen'
+    safety: 'Für Sicherheit sorgen', arts: 'Mit Theater und Gestaltung arbeiten'
   }],
   ['Wie gehst du an Aufgaben heran?', {
     patient: 'Geduldig', creative: 'Kreativ', structured: 'Strukturiert',
@@ -464,6 +464,70 @@ const careers = [
         "https://www.swiss.com/corporate/en/careers/information-events/cabin.html"
       ]
     ]
+  },
+  {
+    title: 'Fachmaturität anschliessen',
+    tags: ['teach', 'support', 'research', 'structured', 'plan', 'explain'],
+    admission: {fms: ['degree']},
+    work: 'Vertiefe dein FMS-Profil. Für Pädagogik an der KSA gehören Unterricht, Fachmaturitätsarbeit und Abschlussprüfung dazu.',
+    route: {
+      fms: 'Erkundige dich nach der Fachmaturität in deinem FMS-Profil. Kläre einen möglichen Profilwechsel mit der Schule, bevor du ein Praktikum vereinbarst.',
+      other: 'Prüfe direkt die Zulassung zum gewünschten Studium mit deinem vorhandenen Abschluss.'
+    },
+    next: 'Frag bei der Schule, welche Leistungen du für dein Profil erbringen musst.',
+    links: [['KSA · FMS und Fachmaturität', 'https://www.ksasz.ch/de/fachmittelschule']]
+  },
+  {
+    title: 'Passerelle zu Universität und ETH',
+    tags: ['research', 'mind', 'structured', 'analyse', 'plan'],
+    admission: {fms: ['degree', 'exam'], education: ['exam'], health: ['exam'], social: ['exam']},
+    work: 'Die Ergänzungsprüfung erweitert den Zugang zur Hochschule, wenn dich ein Fach an einer Universität oder der ETH interessiert.',
+    route: {
+      fms: 'Erwirb zuerst eine Fachmaturität. Danach kannst du die Passerellenprüfung vorbereiten.',
+      gym: 'Mit der gymnasialen Matura kannst du die Zulassung direkt bei der Universität oder ETH prüfen.',
+      other: 'Mit der Fachmaturität und bestandener Passerelle kannst du dich an universitären Hochschulen bewerben.'
+    },
+    next: 'Vergleiche die Prüfungsfächer mit dem, was du für dein Wunschstudium brauchst.',
+    links: [['EDK · Wege nach der Fachmittelschule', 'https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms'], ['Schwyzer Übersicht · Passerelle und weitere Wege', 'https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf#page=25']]
+  },
+  {
+    title: 'Pflege HF oder FH',
+    tags: ['support', 'daily', 'care', 'empathic', 'calm', 'observe', 'precise', 'collaborate'],
+    admission: {fms: ['exam', 'degree'], other: ['practice']},
+    work: 'Begleite und pflege Menschen und arbeite mit Fachpersonen aus verschiedenen Gesundheitsberufen zusammen.',
+    route: {
+      fms: 'Prüfe mit dem FMS-Ausweis zuerst die Aufnahme in eine Pflege-HF. Für den FH-Weg brauchst du einen anerkannten Zulassungsausweis wie die Fachmaturität.',
+      other: 'Für Pflege an der ZHAW hängt die geforderte Arbeitswelterfahrung von deiner Vorbildung ab. Prüfe parallel die HF-Zulassung beim jeweiligen Anbieter.'
+    },
+    next: 'Vergleiche einen Praxiseinblick bei einer Pflege-HF mit dem Studienplan an der ZHAW.',
+    links: [['Schwyzer Übersicht · Höhere Fachschulen', 'https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf#page=6'], ['ZHAW · Zulassung Bachelor Pflege', 'https://www.zhaw.ch/de/gesundheit/studium/bachelorstudium/bachelor-pflege/zulassung-und-termine']]
+  },
+  {
+    title: 'Tourismus HF im Kanton Schwyz',
+    tags: ['hospitality', 'business', 'structured', 'creative', 'customer', 'plan'],
+    admission: {other: ['direct']},
+    work: 'Gäste beraten, Freizeitangebote planen und Tourismusbetriebe organisieren.',
+    route: 'Die Höhere Fachschule Schwyz nennt den Fachmittelschulabschluss als mögliche Vorbildung. Kläre die weiteren Aufnahmebedingungen beim Anbieter.',
+    next: 'Frag nach einer Schnupperlektion und nach den Praxisphasen.',
+    links: [['Höhere Fachschule Schwyz · Tourismus und Zulassung', 'https://www.hfsz.ch/dipl-tourismusfachfrau-mann-hf/']]
+  },
+  {
+    title: 'Lokführung und Zugverkehr',
+    tags: ['safety', 'hands', 'structured', 'calm', 'precise', 'decide'],
+    admission: {other: ['exam']},
+    work: 'Führe Personenzüge oder koordiniere den Bahnverkehr in einer Betriebszentrale.',
+    route: 'Die Schwyzer Übersicht nennt die Bahnberufe als mögliche Anschlüsse. Prüfe in der konkreten SBB-Ausschreibung, welcher Abschluss anerkannt wird und welche Eignungsabklärung gilt.',
+    next: 'Vergleiche die Aufgaben im Führerstand und in der Betriebszentrale.',
+    links: [['SBB · Lokführung', 'https://company.sbb.ch/de/jobs-karriere/berufswelten/bahnberufe/lokfuehrer-in.html'], ['SBB · Zugverkehrsleitung', 'https://company.sbb.ch/de/jobs-karriere/berufswelten/bahnberufe/zugverkehrsleiter-in.html']]
+  },
+  {
+    title: 'Theaterpädagogik',
+    tags: ['arts', 'teach', 'creative', 'empathic', 'groups', 'collaborate'],
+    admission: {fms: ['degree', 'exam'], other: ['exam']},
+    work: 'Entwickle mit Gruppen Theaterprojekte und vermittle künstlerische Arbeitsweisen.',
+    route: 'Prüfe die schulische Vorbildung und die künstlerische Aufnahme bei der ZHdK. Kläre mit der Studienberatung, welchen Abschluss du für die Bewerbung brauchst.',
+    next: 'Schau dir die Aufnahmeaufgaben an und besuche eine Theaterwerkstatt.',
+    links: [['ZHdK · Bachelor Theaterpädagogik', 'https://www.zhdk.ch/studium/theater/ba-theater-theaterpaedagogik-836'], ['ZHdK · Zulassungsverfahren', 'https://www.zhdk.ch/studium/theater/ba-theater-theaterpaedagogik-836/anmeldung-theater-ba-theaterpaedagogik-3772']]
   }
 ];
 
@@ -482,6 +546,33 @@ const stepFilms = [
   ['TsX71LyHju0', 'Von der Studienwahl zum Studienalltag']
 ];
 
+const direction = document.getElementById('career-direction');
+const track = document.getElementById('career-track');
+const trackNote = document.getElementById('career-track-note');
+const learning = document.getElementById('career-learning');
+
+const trackNotes = {
+  all: 'Du kannst Wege über eine Höhere Fachschule, eine Berufsausbildung oder ein Studium vergleichen.',
+  now: 'Hier findest du Höhere Fachschulen, Lehrstellen und Angebote mit Auswahlverfahren. Kläre beim Anbieter, ob er deinen Ausweis anerkennt.',
+  study: 'Vergleiche PH, FH und Universität. Je nach Ziel brauchst du eine Fachmaturität, Praxis oder eine Passerelle.',
+  switch: 'Ein Wechsel kann über eine HF, eine Lehre oder ein Studium führen. Schau zuerst, welche Zusatzleistungen das neue Feld verlangt.'
+};
+const trackTitles = {
+  now: ['Kindheitspädagogik HF', 'Sozialpädagogik HF', 'Biomedizinische Analytik HF',
+    'Hotellerie und Tourismus HF', 'Berufslehre und mögliche Verkürzung', 'Polizei', 'Cabin Crew',
+    'Pflege HF oder FH', 'Tourismus HF im Kanton Schwyz', 'Lokführung und Zugverkehr'],
+  study: [...careers.slice(0, 13).map(career => career.title), 'Fachmaturität anschliessen',
+    'Passerelle zu Universität und ETH', 'Pflege HF oder FH', 'Theaterpädagogik'],
+  switch: ['Logopädie', 'Ergotherapie', 'Psychomotoriktherapie', 'Schulsozialarbeit',
+    ...careers.slice(9, 13).map(career => career.title),
+    ...careers.slice(13).map(career => career.title)]
+};
+
+function careersForTrack() {
+  const titles = trackTitles[track.value];
+  return titles ? careers.filter(career => titles.includes(career.title)) : careers;
+}
+
 const questions = document.getElementById('career-questions');
 const film = document.getElementById('career-film');
 const admission = document.getElementById('career-admission');
@@ -490,15 +581,23 @@ const progress = document.getElementById('career-progress');
 const back = document.getElementById('career-back');
 const next = document.getElementById('career-next');
 const answers = careerQuestions.map(() => new Set());
-let step = 0;
+let step = -1;
 
 function showCareerStep(moveFocus = false) {
+  const startStep = step === -1;
   const admissionStep = step === careerQuestions.length;
-  progress.textContent = `Schritt ${step + 1} von ${careerQuestions.length + 1}`;
+  progress.textContent = `Schritt ${step + 2} von ${careerQuestions.length + 2}`;
   admission.hidden = !admissionStep;
-  back.hidden = step === 0;
+  direction.hidden = !startStep;
+  back.hidden = startStep;
   next.textContent = admissionStep ? 'Ergebnisse anzeigen' : 'Weiter';
   questions.replaceChildren();
+  film.innerHTML = '';
+  if (startStep) {
+    trackNote.textContent = trackNotes[track.value];
+    if (moveFocus) credential.focus();
+    return;
+  }
   const [videoId, title] = stepFilms[step];
   film.innerHTML = `<details><summary>Film der Berufsberatung · ${title}</summary>
     <button type="button" class="secondary" data-video="${videoId}">YouTube-Film laden</button>
@@ -508,14 +607,14 @@ function showCareerStep(moveFocus = false) {
   if (!admissionStep) {
     const [question, options] = careerQuestions[step];
     const relevantCareers = answers[0].size
-      ? careers.filter(career => career.tags.some(tag => answers[0].has(tag)))
-      : careers;
+      ? careersForTrack().filter(career => career.tags.some(tag => answers[0].has(tag)))
+      : careersForTrack();
     const relevantTags = new Set(relevantCareers.flatMap(career => career.tags));
     const preferred = step === 2 ? answers[1] : new Set();
     const preferredCareers = relevantCareers.filter(career => career.tags.some(tag => preferred.has(tag)));
     const strengthTags = new Set(preferredCareers.flatMap(career => career.tags));
     const choices = Object.entries(options)
-      .filter(([key]) => step === 0 || (strengthTags.size ? strengthTags : relevantTags).has(key));
+      .filter(([key]) => (strengthTags.size ? strengthTags : relevantTags).has(key));
     const visibleKeys = new Set(choices.map(([key]) => key));
     answers[step] = new Set([...answers[step]].filter(key => visibleKeys.has(key)));
     questions.innerHTML = `<fieldset><legend tabindex="-1">${question}</legend>
@@ -525,7 +624,7 @@ function showCareerStep(moveFocus = false) {
       ).join('')}</div></fieldset>`;
   }
 
-  if (moveFocus) (admissionStep ? credential : questions.querySelector('legend')).focus();
+  if (moveFocus) (admissionStep ? preference : questions.querySelector('legend')).focus();
 }
 
 film.addEventListener('click', event => {
@@ -541,14 +640,14 @@ film.addEventListener('click', event => {
 });
 
 function rememberCareerStep() {
-  if (step < careerQuestions.length) {
+  if (step >= 0 && step < careerQuestions.length) {
     answers[step] = new Set(new FormData(form).getAll('trait'));
   }
 }
 
 function renderCareerResults() {
   const selected = new Set(answers.flatMap(answer => [...answer]));
-  const ranked = careers.map(career => {
+  const ranked = careersForTrack().map(career => {
     const matches = career.tags.filter(tag => selected.has(tag));
     const score = matches.reduce((total, tag) => total + (interestKeys.includes(tag) ? 2 : 1), 0);
     const routes = career.admission[credential.value] ?? career.admission.other ?? [];
@@ -563,7 +662,16 @@ function renderCareerResults() {
   status.textContent = `${ranked.length} Wege im Überblick.${admissionStatus}` +
     (selected.size ? ' Interessen zählen bei der Sortierung doppelt. Die Auswahl dient zur Orientierung.' : '');
 
-  results.innerHTML = ranked.map(({career, matches, admissionMatch}) => {
+  const trialQuestions = {
+    practice: 'Welche Aufgabe kann ich an einem Schnuppertag selbst ausprobieren?',
+    people: 'Wie viel lerne ich im Team, mit einer Fachperson oder direkt mit Kundschaft?',
+    judgment: 'Wo kommt KI zum Einsatz, und welche Entscheidungen muss ich selbst begründen?'
+  };
+  const trialQuestion = trialQuestions[learning.value];
+  const reflection = trialQuestion
+    ? `<article class="career-task"><h3>Frage für deinen nächsten Einblick</h3><p>${trialQuestion}</p></article>`
+    : '';
+  results.innerHTML = reflection + ranked.map(({career, matches, admissionMatch}) => {
     const route = typeof career.route === 'string'
       ? career.route
       : career.route[credential.value] ?? career.route.other;
@@ -588,6 +696,7 @@ credential.addEventListener('change', () => {
   profileCredential.value = credential.value;
   profileCredential.dispatchEvent(new Event('change'));
 });
+track.addEventListener('change', () => { trackNote.textContent = trackNotes[track.value]; });
 back.addEventListener('click', () => {
   rememberCareerStep();
   step--;
