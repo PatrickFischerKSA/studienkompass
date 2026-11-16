@@ -748,7 +748,46 @@ function admissionForCareer(career) {
     : career.route[credential.value] ?? career.route.other;
 }
 
+const comparisonStorageKey = 'studienkompass-comparison-v1';
 let comparisonTitles = [];
+
+function saveCareerComparison() {
+  try {
+    localStorage.setItem(comparisonStorageKey, JSON.stringify({
+      titles: comparisonTitles,
+      track: track.value,
+      preference: preference.value,
+      learning: learning.value,
+      answers: answers.map(answer => [...answer])
+    }));
+  } catch {}
+}
+
+function restoreCareerComparison() {
+  let saved;
+  try {
+    saved = JSON.parse(localStorage.getItem(comparisonStorageKey));
+  } catch {
+    return false;
+  }
+
+  if (!Array.isArray(saved?.titles)) return false;
+  const knownTitles = new Set(careers.map(career => career.title));
+  comparisonTitles = [...new Set(saved.titles.filter(title => knownTitles.has(title)))].slice(0, 4);
+  if (!comparisonTitles.length) return false;
+
+  for (const [control, value] of [[track, saved.track], [preference, saved.preference], [learning, saved.learning]]) {
+    if (Array.from(control.options).some(option => option.value === value)) control.value = value;
+  }
+  careerQuestions.forEach(([, options], index) => {
+    const values = saved.answers?.[index];
+    if (Array.isArray(values)) {
+      answers[index] = new Set(values.filter(value => Object.hasOwn(options, value)));
+    }
+  });
+  step = careerQuestions.length;
+  return true;
+}
 
 function renderShortlistComparison(shortlist, others) {
   const headings = ['Hochschule oder Anbieter', 'Ort', 'Dauer', 'Zulassung mit deinem Abschluss', 'Anmeldefrist'];
@@ -838,6 +877,7 @@ results.addEventListener('change', event => {
   const slot = Number(select.dataset.comparisonSlot);
   comparisonTitles[slot] = careers[Number(select.value)].title;
   renderCareerResults();
+  saveCareerComparison();
   results.querySelector(`[data-comparison-slot="${slot}"]`)?.focus();
   status.textContent += ` Im Vergleich: ${comparisonTitles[slot]}.`;
 });
@@ -869,6 +909,9 @@ form.addEventListener('submit', event => {
     return;
   }
   renderCareerResults();
+  saveCareerComparison();
   status.focus();
 });
+const restoredComparison = restoreCareerComparison();
 showCareerStep();
+if (restoredComparison) renderCareerResults();
