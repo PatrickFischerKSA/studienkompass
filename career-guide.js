@@ -867,15 +867,22 @@ function renderCareerResults() {
     const offer = counsellingOffers[career.title];
     const nextAction = credential.value === 'fms' && offer ? offer[2] : career.next;
     const route = admissionForCareer(career);
-    return `<article>
+    const picture = career.tags.includes('teach') ? 'teaching'
+      : career.tags.includes('lab') || career.tags.includes('research') ? 'lab'
+      : career.tags.includes('hands') ? 'studio' : 'campus';
+    return `<article class="result-story">
+      <img src="images/${picture}.webp" alt="" loading="lazy">
       <h3>${career.title}</h3>
       <p>${career.work}</p>
+      <button type="button" class="secondary" data-story-open>Weg ansehen ↗</button>
+      <div class="result-story-detail">
       ${matches.length ? `<p><strong>Was zu deiner Auswahl passt</strong><br>${matches.map(tag => labels[tag]).join(', ')}</p>` : ''}
       ${admissionMatch ? '<p class="tag">Zulassungsschritt zum Prüfen</p>' : ''}
       ${offer ? `<p><strong>Studienangebot oder Ausbildungsweg</strong><br><a href="https://www.berufsberatung.ch${offer[1]}">${offer[0]}</a></p>` : ''}
       <p><strong>Zulassung mit deinem Abschluss</strong><br>${route}</p>
       <p><strong>Das kannst du als Nächstes tun</strong><br>${nextAction}</p>
       <ul>${career.links.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul>
+      </div>
     </article>`;
   };
   const byTitle = new Map(ranked.map(item => [item.career.title, item]));
