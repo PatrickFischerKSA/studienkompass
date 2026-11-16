@@ -23,15 +23,16 @@ const zhawSocial = 'https://www.zhaw.ch/de/sozialearbeit/';
 const phzh = 'https://phzh.ch/de/studium/';
 const hfhBachelor = {
   fms: 'Kläre zuerst den Erwerb der Fachmaturität Pädagogik oder einen anerkannten alternativen Zugang.',
-  education: 'Die Fachmaturität Pädagogik ist ein anerkannter Vorbildungsausweis. Prüfe die weiteren Zulassungsschritte.',
-  health: 'Die Fachmaturität Gesundheit ist ein anerkannter Vorbildungsausweis. Prüfe die weiteren Zulassungsschritte.',
-  social: 'Die Fachmaturität Soziale Arbeit ist ein anerkannter Vorbildungsausweis. Prüfe die weiteren Zulassungsschritte.',
-  gym: 'Die gymnasiale Matura ist ein anerkannter Vorbildungsausweis. Prüfe die weiteren Zulassungsschritte.'
+  education: 'Die Fachmaturität Pädagogik ist ein anerkannter Vorbildungsausweis. Die HfH verlangt zudem ein Assessment.',
+  health: 'Die Fachmaturität Gesundheit ist ein anerkannter Vorbildungsausweis. Die HfH verlangt zudem ein Assessment.',
+  social: 'Die Fachmaturität Soziale Arbeit ist ein anerkannter Vorbildungsausweis. Die HfH verlangt zudem ein Assessment.',
+  gym: 'Die gymnasiale Matura ist ein anerkannter Vorbildungsausweis. Die HfH verlangt zudem ein Assessment.'
 };
 
 const careers = [
   {
     title: 'Lehrperson Kindergarten, Unterstufe oder Primarstufe',
+    admission: {fms: ['exam', 'degree'], education: ['direct'], gym: ['direct'], other: ['exam']},
     tags: ['teach', 'care', 'structured', 'creative', 'explain', 'groups', 'plan'],
     work: 'Unterricht vorbereiten, eine Klasse führen und Kinder beim Lernen begleiten.',
     route: {
@@ -45,6 +46,7 @@ const careers = [
   },
   {
     title: 'Lehrperson Sekundarstufe I',
+    admission: {fms: ['exam'], gym: ['direct'], other: ['exam']},
     tags: ['teach', 'youth', 'structured', 'calm', 'explain', 'groups', 'plan'],
     work: 'Jugendliche in mehreren Unterrichtsfächern durch die Schuljahre 9–11 begleiten.',
     route: {
@@ -57,6 +59,7 @@ const careers = [
   },
   {
     title: 'Schulische Heilpädagogik',
+    admission: {other: ['degree']},
     tags: ['support', 'teach', 'patient', 'empathic', 'observe', 'explain', 'collaborate'],
     work: 'Lernbarrieren erkennen, individuelle Förderung planen und mit Lehrpersonen zusammenarbeiten.',
     route: 'Ein Weg führt über ein PH-Studium mit Lehrdiplom zum Master. Bei bestimmten verwandten Abschlüssen prüft die HfH eine Zulassung mit Zusatzleistungen.',
@@ -65,6 +68,7 @@ const careers = [
   },
   {
     title: 'Logopädie',
+    admission: {fms: ['degree', 'exam'], other: ['exam']},
     tags: ['language', 'support', 'patient', 'creative', 'observe', 'listen', 'plan'],
     work: 'Menschen mit Schwierigkeiten beim Sprechen, in der Sprache oder in der Kommunikation begleiten.',
     route: hfhBachelor,
@@ -73,6 +77,7 @@ const careers = [
   },
   {
     title: 'Ergotherapie',
+    admission: {fms: ['degree', 'practice', 'exam'], health: ['exam'], other: ['practice', 'exam']},
     tags: ['daily', 'movement', 'support', 'creative', 'patient', 'observe', 'plan'],
     work: 'Alltagshandlungen üben oder anpassen, etwa Schreiben und den Umgang mit Schulmaterial.',
     route: {
@@ -85,6 +90,7 @@ const careers = [
   },
   {
     title: 'Psychomotoriktherapie',
+    admission: {fms: ['degree', 'exam'], other: ['exam']},
     tags: ['movement', 'support', 'care', 'creative', 'patient', 'observe', 'plan'],
     work: 'Kinder mit Bewegung und Spiel in ihrer motorischen, emotionalen und sozialen Entwicklung unterstützen.',
     route: hfhBachelor,
@@ -93,6 +99,7 @@ const careers = [
   },
   {
     title: 'Schulsozialarbeit',
+    admission: {fms: ['degree', 'practice'], social: [], other: ['practice']},
     tags: ['counsel', 'youth', 'support', 'empathic', 'calm', 'listen', 'collaborate'],
     work: 'Kinder und Jugendliche in schwierigen Situationen beraten und mit Eltern sowie der Schule zusammenarbeiten.',
     route: 'Ein Weg führt über den Bachelor Soziale Arbeit. Kläre bei der ZHAW, welche Praxiserfahrung für deinen Abschluss verlangt wird.',
@@ -101,6 +108,7 @@ const careers = [
   },
   {
     title: 'Kindheitspädagogik HF',
+    admission: {other: ['practice']},
     tags: ['care', 'daily', 'movement', 'empathic', 'creative', 'groups', 'plan', 'collaborate'],
     work: 'Kinder in Bildungs- und Betreuungseinrichtungen begleiten, etwa in schulergänzenden Tagesstrukturen.',
     route: 'Der anerkannte Fachmittelschulausweis kommt bei ARTISET als Vorbildung infrage. Prüfe auch Praxisausbildungsplatz und Aufnahmebedingungen.',
@@ -109,6 +117,7 @@ const careers = [
   },
   {
     title: 'Heilpädagogische Früherziehung',
+    admission: {other: ['degree', 'practice']},
     tags: ['care', 'support', 'counsel', 'empathic', 'patient', 'observe', 'listen', 'collaborate'],
     work: 'Kinder mit Entwicklungsauffälligkeiten oder Behinderungen und ihre Familien vor und rund um den Schuleintritt begleiten.',
     route: 'Der HfH-Master setzt eine anerkannte tertiäre Vorbildung und einschlägige Berufserfahrung voraus. Je nach Abschluss kommen Zusatzleistungen hinzu.',
@@ -117,6 +126,7 @@ const careers = [
   },
   {
     title: 'Angewandte Psychologie · ZHAW',
+    admission: {fms: ['degree', 'practice', 'exam'], other: ['practice', 'exam']},
     tags: ['mind', 'research', 'counsel', 'empathic', 'structured', 'listen', 'analyse'],
     work: 'Psychologische Erkenntnisse auf Fragen aus Beruf, Gesundheit und Gesellschaft anwenden.',
     route: {
@@ -128,6 +138,7 @@ const careers = [
   },
   {
     title: 'Angewandte Psychologie · FHNW Olten',
+    admission: {fms: ['degree', 'practice', 'exam'], other: ['practice', 'exam']},
     tags: ['mind', 'research', 'structured', 'analyse', 'collaborate'],
     work: 'Untersuchen, wie Menschen bei der Arbeit, in Organisationen und in wirtschaftlichen Situationen handeln und entscheiden.',
     route: {
@@ -139,6 +150,7 @@ const careers = [
   },
   {
     title: 'Psychologie an der Universität',
+    admission: {fms: ['degree', 'exam'], gym: ['direct'], other: ['exam']},
     tags: ['mind', 'research', 'structured', 'observe', 'analyse'],
     work: 'Erleben und Verhalten erforschen und dabei auch Statistik, Forschungsmethoden und psychologische Diagnostik kennenlernen.',
     route: {
@@ -151,6 +163,7 @@ const careers = [
   },
   {
     title: 'Schulpsychologie',
+    admission: {other: ['degree']},
     tags: ['mind', 'support', 'counsel', 'youth', 'empathic', 'observe', 'listen', 'analyse', 'collaborate'],
     work: 'Lern-, Entwicklungs- und Verhaltensfragen abklären und Kinder, Eltern sowie Schulen beraten.',
     route: 'Plane einen Bachelor und danach einen Master in Psychologie. Der Kanton Schwyz verlangt für schulpsychologische Stellen einen Master oder ein Lizentiat in Psychologie.',
@@ -167,25 +180,70 @@ const status = document.getElementById('career-status');
 const labels = Object.assign({}, ...careerQuestions.map(([, options]) => options));
 const interestKeys = Object.keys(careerQuestions[0][1]);
 
-document.getElementById('career-questions').innerHTML = careerQuestions.map(([question, options]) =>
-  `<fieldset><legend>${question}</legend><div class="choices">${Object.entries(options).map(([key, label]) =>
-    `<label class="choice"><input type="checkbox" name="trait" value="${key}"> ${label}</label>`
-  ).join('')}</div></fieldset>`
-).join('');
+const questions = document.getElementById('career-questions');
+const admission = document.getElementById('career-admission');
+const preference = document.getElementById('career-preference');
+const progress = document.getElementById('career-progress');
+const back = document.getElementById('career-back');
+const next = document.getElementById('career-next');
+const answers = careerQuestions.map(() => new Set());
+let step = 0;
+
+function showCareerStep(moveFocus = false) {
+  const admissionStep = step === careerQuestions.length;
+  progress.textContent = `Schritt ${step + 1} von ${careerQuestions.length + 1}`;
+  admission.hidden = !admissionStep;
+  back.hidden = step === 0;
+  next.textContent = admissionStep ? 'Ergebnisse anzeigen' : 'Weiter';
+  questions.replaceChildren();
+
+  if (!admissionStep) {
+    const [question, options] = careerQuestions[step];
+    const relevantCareers = answers[0].size
+      ? careers.filter(career => career.tags.some(tag => answers[0].has(tag)))
+      : careers;
+    const relevantTags = new Set(relevantCareers.flatMap(career => career.tags));
+    const preferred = step === 2 ? answers[1] : new Set();
+    const preferredCareers = relevantCareers.filter(career => career.tags.some(tag => preferred.has(tag)));
+    const strengthTags = new Set(preferredCareers.flatMap(career => career.tags));
+    const choices = Object.entries(options)
+      .filter(([key]) => step === 0 || (strengthTags.size ? strengthTags : relevantTags).has(key));
+    const visibleKeys = new Set(choices.map(([key]) => key));
+    answers[step] = new Set([...answers[step]].filter(key => visibleKeys.has(key)));
+    questions.innerHTML = `<fieldset><legend tabindex="-1">${question}</legend>
+      <p class="muted">Du kannst mehrere Antworten wählen oder direkt weitergehen.</p>
+      <div class="choices">${choices.map(([key, label]) =>
+        `<label class="choice"><input type="checkbox" name="trait" value="${key}" ${answers[step].has(key) ? 'checked' : ''}> ${label}</label>`
+      ).join('')}</div></fieldset>`;
+  }
+
+  if (moveFocus) (admissionStep ? credential : questions.querySelector('legend')).focus();
+}
+
+function rememberCareerStep() {
+  if (step < careerQuestions.length) {
+    answers[step] = new Set(new FormData(form).getAll('trait'));
+  }
+}
 
 function renderCareerResults() {
-  const selected = new Set(new FormData(form).getAll('trait'));
+  const selected = new Set(answers.flatMap(answer => [...answer]));
   const ranked = careers.map(career => {
     const matches = career.tags.filter(tag => selected.has(tag));
     const score = matches.reduce((total, tag) => total + (interestKeys.includes(tag) ? 2 : 1), 0);
-    return {career, matches, score};
-  }).sort((a, b) => b.score - a.score);
+    const routes = career.admission[credential.value] ?? career.admission.other ?? [];
+    const admissionMatch = routes.includes(preference.value);
+    return {career, matches, score, admissionMatch};
+  }).sort((a, b) => Number(b.admissionMatch) - Number(a.admissionMatch) || b.score - a.score);
 
-  status.textContent = selected.size
-    ? 'Die Berufe mit den meisten Übereinstimmungen stehen zuerst. Interessen zählen doppelt. Die Reihenfolge dient zur Orientierung.'
-    : `Alle ${careers.length} Berufs- und Studienwege. Wähle Interessen und Stärken aus, um die Reihenfolge anzupassen.`;
+  const matching = ranked.filter(item => item.admissionMatch).length;
+  const admissionStatus = preference.value === 'all' ? '' : matching
+    ? ` ${matching} Wege mit der gewählten Zulassungsoption stehen zuerst.`
+    : ' Für diesen Abschluss ist unter den 13 Wegen kein Weg mit dieser Zulassungsoption markiert.';
+  status.textContent = `${ranked.length} Wege im Überblick.${admissionStatus}` +
+    (selected.size ? ' Interessen zählen bei der Sortierung doppelt. Die Auswahl dient zur Orientierung.' : '');
 
-  results.innerHTML = ranked.map(({career, matches}) => {
+  results.innerHTML = ranked.map(({career, matches, admissionMatch}) => {
     const route = typeof career.route === 'string'
       ? career.route
       : career.route[credential.value] ?? career.route.other;
@@ -193,6 +251,7 @@ function renderCareerResults() {
       <h3>${career.title}</h3>
       <p>${career.work}</p>
       ${matches.length ? `<p><strong>Deine Übereinstimmungen</strong><br>${matches.map(tag => labels[tag]).join(', ')}</p>` : ''}
+      ${admissionMatch ? '<p class="tag">Gewählte Zulassungsoption</p>' : ''}
       <p><strong>Dein Ausbildungsweg</strong><br>${route}</p>
       <p><strong>Dein nächster Schritt</strong><br>${career.next}</p>
       <ul>${career.links.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul>
@@ -203,15 +262,28 @@ function renderCareerResults() {
 credential.value = profileCredential.value;
 profileCredential.addEventListener('change', () => {
   credential.value = profileCredential.value;
-  renderCareerResults();
+  if (results.innerHTML) renderCareerResults();
 });
 credential.addEventListener('change', () => {
   profileCredential.value = credential.value;
   profileCredential.dispatchEvent(new Event('change'));
 });
+back.addEventListener('click', () => {
+  rememberCareerStep();
+  step--;
+  results.replaceChildren();
+  status.textContent = '';
+  showCareerStep(true);
+});
 form.addEventListener('submit', event => {
   event.preventDefault();
+  rememberCareerStep();
+  if (step < careerQuestions.length) {
+    step++;
+    showCareerStep(true);
+    return;
+  }
   renderCareerResults();
-  status.scrollIntoView({block: 'nearest'});
+  status.focus();
 });
-renderCareerResults();
+showCareerStep();
