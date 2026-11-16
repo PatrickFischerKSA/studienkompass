@@ -546,7 +546,6 @@ const stepFilms = [
   ['TsX71LyHju0', 'Von der Studienwahl zum Studienalltag']
 ];
 
-const direction = document.getElementById('career-direction');
 const track = document.getElementById('career-track');
 const trackNote = document.getElementById('career-track-note');
 const learning = document.getElementById('career-learning');
@@ -582,33 +581,66 @@ const progress = document.getElementById('career-progress');
 const back = document.getElementById('career-back');
 const next = document.getElementById('career-next');
 const answers = careerQuestions.map(() => new Set());
-let step = -1;
+const firstStep = -2;
+const lastStep = careerQuestions.length + 1;
+let step = firstStep;
+
+const questionPhotos = {
+  teach: 'teaching', support: 'special-education', language: 'speech', movement: 'movement',
+  daily: 'occupational', counsel: 'social', care: 'kindergarten', youth: 'teaching',
+  mind: 'psychology', research: 'studying', lab: 'lab', hospitality: 'hospitality',
+  business: 'banking', hands: 'studio', safety: 'police', arts: 'theatre',
+  patient: 'early-support', creative: 'studio', structured: 'plan', empathic: 'social',
+  calm: 'nursing', explain: 'teaching', observe: 'lab', listen: 'psychology', groups: 'theatre',
+  plan: 'plan', collaborate: 'social', analyse: 'studying', precise: 'lab',
+  customer: 'hospitality', craft: 'studio', decide: 'police'
+};
+
+const selectQuestions = new Map([
+  [-2, [credential, ['campus', 'teaching', 'nursing', 'social', 'studying']]],
+  [-1, [track, ['plan', 'studio', 'campus', 'tourism']]],
+  [careerQuestions.length, [preference, ['plan', 'campus', 'studying', 'studio', 'teaching']]],
+  [lastStep, [learning, ['plan', 'studio', 'social', 'studying']]]
+]);
+
+function showQuestionCards(question, choices) {
+  questions.innerHTML = `<fieldset><legend tabindex="-1">${question}</legend>
+    <div class="career-question-cards">${choices.map(([key, label, photo, selected]) =>
+      `<button type="button" class="career-question-card" data-choice="${key}" aria-pressed="${selected}">
+        <img src="images/${photo}.webp" alt="" width="320" height="180">
+        <span>${label}</span>
+      </button>`
+    ).join('')}</div></fieldset>`;
+}
+
 
 function showCareerStep(moveFocus = false) {
-  const startStep = step === -1;
-  const admissionStep = step === careerQuestions.length;
-  progress.textContent = `Schritt ${step + 2} von ${careerQuestions.length + 2}`;
-  admission.hidden = !admissionStep;
-  direction.hidden = !startStep;
+  const resourceStep = Math.min(careerQuestions.length, Math.max(-1, step));
+  const selection = selectQuestions.get(step);
+  progress.textContent = `Schritt ${step - firstStep + 1} von ${lastStep - firstStep + 1}`;
+  trackNote.hidden = step !== -1;
+  trackNote.textContent = trackNotes[track.value];
+  admission.hidden = step !== lastStep;
   for (const group of resourceGroups) {
-    group.hidden = Number(group.dataset.resourceStep) !== step;
+    group.hidden = Number(group.dataset.resourceStep) !== resourceStep;
   }
-  back.hidden = startStep;
-  next.textContent = admissionStep ? 'Ergebnisse anzeigen' : 'Weiter';
-  questions.replaceChildren();
-  film.innerHTML = '';
-  if (startStep) {
-    trackNote.textContent = trackNotes[track.value];
-    if (moveFocus) credential.focus();
-    return;
+  back.hidden = step === firstStep;
+  next.hidden = Boolean(selection);
+  next.textContent = 'Überspringen';
+  film.replaceChildren();
+  if (resourceStep >= 0) {
+    const [videoId, title] = stepFilms[resourceStep];
+    film.innerHTML = `<details><summary>Film der Berufsberatung · ${title}</summary>
+      <button type="button" class="secondary" data-video="${videoId}">YouTube-Film laden</button>
+      <a href="https://www.youtube.com/watch?v=${videoId}">Auf YouTube ansehen</a>
+    </details>`;
   }
-  const [videoId, title] = stepFilms[step];
-  film.innerHTML = `<details><summary>Film der Berufsberatung · ${title}</summary>
-    <button type="button" class="secondary" data-video="${videoId}">YouTube-Film laden</button>
-    <a href="https://www.youtube.com/watch?v=${videoId}">Auf YouTube ansehen</a>
-  </details>`;
 
-  if (!admissionStep) {
+  if (selection) {
+    const [control, photos] = selection;
+    showQuestionCards(control.labels[0].textContent, Array.from(control.options, (option, index) =>
+      [option.value, option.textContent, photos[index], option.selected]));
+  } else {
     const [question, options] = careerQuestions[step];
     const relevantCareers = answers[0].size
       ? careersForTrack().filter(career => career.tags.some(tag => answers[0].has(tag)))
@@ -621,33 +653,42 @@ function showCareerStep(moveFocus = false) {
       .filter(([key]) => (strengthTags.size ? strengthTags : relevantTags).has(key));
     const visibleKeys = new Set(choices.map(([key]) => key));
     answers[step] = new Set([...answers[step]].filter(key => visibleKeys.has(key)));
-    questions.innerHTML = `<fieldset><legend tabindex="-1">${question}</legend>
-      <p class="muted">Du kannst mehrere Antworten ankreuzen.</p>
-      <div class="choices">${choices.map(([key, label]) =>
-        `<label class="choice"><input type="checkbox" name="trait" value="${key}" ${answers[step].has(key) ? 'checked' : ''}> ${label}</label>`
-      ).join('')}</div></fieldset>`;
+    showQuestionCards(question, choices.map(([key, label]) =>
+      [key, label, questionPhotos[key], answers[step].has(key)]));
   }
 
-  if (moveFocus) (admissionStep ? preference : questions.querySelector('legend')).focus();
+  if (moveFocus) {
+    const heading = questions.querySelector('legend');
+    heading.focus({preventScroll: true});
+    progress.scrollIntoView({block: 'start'});
+  }
 }
+
+questions.addEventListener('click', event => {
+  const card = event.target.closest('[data-choice]');
+  if (!card) return;
+  const selection = selectQuestions.get(step);
+  if (selection) {
+    const [control] = selection;
+    control.value = card.dataset.choice;
+    control.dispatchEvent(new Event('change'));
+  } else {
+    answers[step] = new Set([card.dataset.choice]);
+  }
+  form.requestSubmit();
+});
 
 film.addEventListener('click', event => {
   const button = event.target.closest('button[data-video]');
   if (!button) return;
   const player = document.createElement('iframe');
   player.src = `https://www.youtube-nocookie.com/embed/${button.dataset.video}`;
-  player.title = stepFilms[step][1];
+  player.title = stepFilms[Math.min(step, careerQuestions.length)][1];
   player.className = 'career-player';
   player.allowFullscreen = true;
   button.replaceWith(player);
   player.focus();
 });
-
-function rememberCareerStep() {
-  if (step >= 0 && step < careerQuestions.length) {
-    answers[step] = new Set(new FormData(form).getAll('trait'));
-  }
-}
 
 const counsellingOffers = {
   "Lehrperson Kindergarten, Unterstufe oder Primarstufe": [
@@ -781,7 +822,7 @@ function restoreSharedComparison() {
 
   comparisonTitles = shared;
   track.value = 'all';
-  step = careerQuestions.length;
+  step = lastStep;
   return true;
 }
 
@@ -828,7 +869,7 @@ function restoreCareerComparison() {
       answers[index] = new Set(values.filter(value => Object.hasOwn(options, value)));
     }
   });
-  step = careerQuestions.length;
+  step = lastStep;
   return true;
 }
 
@@ -969,9 +1010,7 @@ credential.addEventListener('change', () => {
   profileCredential.value = credential.value;
   profileCredential.dispatchEvent(new Event('change'));
 });
-track.addEventListener('change', () => { trackNote.textContent = trackNotes[track.value]; });
 back.addEventListener('click', () => {
-  rememberCareerStep();
   step--;
   comparisonTitles = [];
   results.replaceChildren();
@@ -980,8 +1019,8 @@ back.addEventListener('click', () => {
 });
 form.addEventListener('submit', event => {
   event.preventDefault();
-  rememberCareerStep();
-  if (step < careerQuestions.length) {
+  if (event.submitter === next) answers[step].clear();
+  if (step < lastStep) {
     step++;
     showCareerStep(true);
     return;

@@ -92,7 +92,7 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=fragekarten"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
   <nav aria-label="Hauptnavigation"><a href="#beratung">Berufsguide</a><a href="#ph-vergleich">PH-Vergleich</a><a href="#praxisvergleich">Praxisvergleich</a><a href="#plan">Mein Plan</a></nav>
@@ -122,7 +122,7 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
   <p>Beginne mit deinem Abschluss und der Frage, die du gerade klären möchtest.</p>
   <form id="career-form" class="panel">
     <p id="career-progress" class="muted"></p>
-    <fieldset id="career-direction">
+    <fieldset id="career-direction" hidden>
       <legend>Wo stehst du gerade?</legend>
       <label for="career-credential">Welchen Abschluss hast du oder machst du gerade?</label>
       <select id="career-credential">
@@ -139,12 +139,12 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
         <option value="study">Wie ich an eine Hochschule komme</option>
         <option value="switch">Wie ich das Berufsfeld wechseln kann</option>
       </select>
-      <p id="career-track-note" class="muted"></p>
     </fieldset>
     <div id="career-questions"></div>
+    <p id="career-track-note" class="muted" hidden></p>
     <fieldset id="career-admission" hidden><legend>Wie möchtest du einsteigen?</legend>
-      <label for="career-preference">Was möchtest du zuerst prüfen?</label>
-      <select id="career-preference">
+      <label for="career-preference" hidden>Was möchtest du zuerst prüfen?</label>
+      <select id="career-preference" hidden>
         <option value="all">Alle Zulassungswege</option>
         <option value="direct">Einstieg ohne zusätzlichen Abschluss oder Aufnahmeprüfung</option>
         <option value="exam">Aufnahmeprüfung, Auswahlverfahren oder Passerelle</option>
@@ -156,8 +156,8 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
         <p>Schau den Beitrag und überlege, was du an deinem nächsten Lernort selbst üben, mit anderen ausprobieren oder unter Anleitung lernen willst.</p>
         <a href="https://www.zeit.de/video/2026-11/bildung-universitaet-ki-lernen-zukunft">ZEIT-Video öffnen</a>
       </details>
-      <label for="career-learning">Was möchtest du beim nächsten Einblick herausfinden?</label>
-      <select id="career-learning">
+      <label for="career-learning" hidden>Was möchtest du beim nächsten Einblick herausfinden?</label>
+      <select id="career-learning" hidden>
         <option value="">Das entscheide ich später</option>
         <option value="practice">Was ich praktisch üben kann</option>
         <option value="people">Wie ich mit anderen lerne</option>
@@ -215,8 +215,10 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
       </ul>
     </details>
     <div id="career-film"></div>
-    <button type="button" id="career-back" class="secondary" hidden>Zurück</button>
-    <button id="career-next">Weiter</button>
+    <div class="career-step-nav">
+      <button type="button" id="career-back" class="secondary" hidden>Zurück</button>
+      <button id="career-next" hidden>Überspringen</button>
+    </div>
     <p class="guide-aside"><a href="#praxisvergleich">Praxisangebote vergleichen</a></p>
   </form>
   <p id="career-status" role="status" tabindex="-1"></p>
@@ -377,5 +379,5 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <section id="plan"><h2>Mein nächster Schritt</h2><div class="panel"><p id="progress" role="status"></p><div id="tasks"></div><p><label for="notes"><strong>Meine Interessen, Stärken und Werte</strong></label></p><textarea id="notes" placeholder="Was mache ich gerne? Was kann ich gut? Was ist mir wichtig?"></textarea><p class="muted">Dein Plan und deine Auswahl werden in diesem Browser gespeichert, sofern der Browser dies erlaubt.</p></div></section></main>
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>. Bildmotive sind KI-generierte Illustrationen.</footer>
 <script src="app.js?v=praxisvergleich"></script>
-<script src="career-guide.js?v=berufsbilder" defer></script>
+<script src="career-guide.js?v=fragekarten" defer></script>
 <script src="experience.js" defer></script></body></html>

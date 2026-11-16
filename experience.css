@@ -61,3 +61,48 @@ body:has(dialog[open]) { overflow: hidden; }
   .scene[open] { animation: none; }
   .explore-card img { transition: none; }
 }
+
+.career-question-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 155px), 1fr));
+  gap: 12px;
+  margin-block: 14px;
+}
+#career-form .career-question-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #cbd5c4;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--forest);
+  text-align: left;
+}
+#career-form .career-question-card:hover,
+#career-form .career-question-card[aria-pressed="true"] {
+  border-color: var(--forest);
+  background: #eaf2dc;
+}
+.career-question-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.career-question-card span { padding: 10px; }
+#career-progress { scroll-margin-top: 12px; }
+.career-step-nav { display: flex; gap: 8px; }
+@media (max-width: 600px) {
+  .career-question-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .career-step-nav {
+    position: sticky;
+    z-index: 2;
+    bottom: 0;
+    background: #fffefa;
+    padding-block: 6px max(6px, env(safe-area-inset-bottom));
+  }
+}
+.career-step-nav [hidden] { display: none; }
