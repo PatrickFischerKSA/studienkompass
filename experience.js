@@ -92,3 +92,23 @@ function openLinkedScene() {
 
 window.addEventListener('hashchange', openLinkedScene);
 openLinkedScene();
+
+function openExternalResourcesInNewTabs(container) {
+  for (const link of container.querySelectorAll('a[href]')) {
+    const url = new URL(link.href, document.baseURI);
+    if (!['http:', 'https:'].includes(url.protocol) || url.origin === location.origin) continue;
+    link.target = '_blank';
+    link.relList.add('noopener');
+  }
+}
+
+openExternalResourcesInNewTabs(document);
+const externalLinkObserver = new MutationObserver(records => {
+  for (const record of records) {
+    for (const node of record.addedNodes) {
+      if (!(node instanceof Element)) continue;
+      openExternalResourcesInNewTabs(node.parentElement ?? node);
+    }
+  }
+});
+externalLinkObserver.observe(document.body, {childList: true, subtree: true});
