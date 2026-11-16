@@ -2,7 +2,7 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#18291f;font:16px/1.55 system-ui,sans-serif}header,main,footer{max-width:1120px;margin:auto;padding:24px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #d9ded3}a{color:#24563e;text-underline-offset:4px}header strong{font-size:19px}nav{display:flex;gap:16px;flex-wrap:wrap}.hero{background:#183b2c;color:#fff4dc;border-radius:24px;padding:clamp(26px,6vw,72px);margin:14px 0 42px;background-image:radial-gradient(ellipse at top right,#356548,transparent 65%)}.hero p{max-width:52ch}.hero h1{font:clamp(44px,8vw,88px)/.98 Georgia,serif;letter-spacing:-.055em;margin:.22em 0}.eyebrow{color:#e3c283;font-weight:700}.button,button{display:inline-block;padding:10px 16px;border:1px solid #24563e;border-radius:9px;background:#24563e;color:white;text-decoration:none;font:inherit;cursor:pointer}.hero .button{background:#eed096;color:#18291f;border-color:transparent}button.secondary{background:transparent;color:#24563e}h2{font:clamp(30px,5vw,43px)/1.1 Georgia,serif;margin:0 0 14px}h3{margin:0}section{margin-bottom:45px;scroll-margin-top:16px}.panel,article{padding:22px;border:1px solid #d9ded3;background:#fffefa;border-radius:15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(255px,100%),1fr));gap:14px}.choices{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}.choice{border:1px solid #d9ded3;border-radius:8px;padding:8px 12px;cursor:pointer}.choice:has(input:checked){background:#e4efdf;border-color:#24563e}fieldset{border:0;padding:0;margin:0 0 18px;min-width:0}legend{font-weight:700;margin-bottom:10px}article p{margin:10px 0}article label,.task{cursor:pointer}.tag{color:#24563e;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}.task{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid #e8e9e1}input[type=checkbox]{accent-color:#24563e}select{display:block;max-width:100%;margin-top:6px;padding:9px;border:1px solid #829484;border-radius:8px;background:white;color:inherit;font:inherit}textarea{width:100%;padding:12px;border:1px solid #829484;border-radius:8px;font:inherit;min-height:85px}.ph-grid article{display:flex;flex-direction:column}.ph-grid article ul{padding-left:20px;margin:8px 0 16px}.ph-grid article p:last-child{margin-top:auto}.hero-link{display:inline-block;color:inherit;margin:8px 12px}.ph-decision{margin-top:20px}.ph-table{min-width:590px}.ph-table caption{text-align:left;padding:8px 0;color:#4c6054}.ph-table ul{margin:0;padding-left:20px}.ph-table li+li{margin-top:5px}.ph-table .format-match{background:#e4efdf;font-weight:700}#career-film{margin:14px 0}#career-film summary{cursor:pointer}#career-film button{margin:8px 8px 8px 0}.career-player{display:block;width:100%;max-width:640px;aspect-ratio:16/9;border:0;margin:10px 0}.compare{overflow:auto}table{border-collapse:collapse;width:100%;text-align:left}th,td{padding:10px;border-bottom:1px solid #d9ded3;vertical-align:top}footer{border-top:1px solid #d9ded3;color:#4c6054;font-size:.9rem}.muted{color:#4c6054}@media(max-width:520px){header{align-items:flex-start;flex-direction:column}main,header,footer{padding:16px}}
 </style></head><body>
-<header><strong>Studienkompass</strong><nav aria-label="Abschnitte"><a href="#beratung">Berufsguide</a><a href="#profil">Profil</a><a href="#ksa-paedagogik">FMS Pädagogik</a><a href="#wege">Wege</a><a href="#plan">Mein Plan</a></nav></header>
+<header><strong>Studienkompass</strong><nav aria-label="Abschnitte"><a href="#beratung">Berufsguide</a><a href="#profil">Profil</a><a href="#ksa-paedagogik">FMS Pädagogik</a><a href="#wege">Wege</a><a href="#bildungswege">Bildungssystem</a><a href="#plan">Mein Plan</a></nav></header>
 <main><section class="hero"><div class="eyebrow">Orientierung nach der FMS oder dem Gymnasium</div><h1>Welcher Weg<br>passt zu dir?</h1><p>Entdecke Möglichkeiten in der Schweiz, vergleiche deine Favoriten und plane deine nächsten Schritte.</p><a class="button" href="#beratung">Berufsguide starten ↓</a> <a href="#ph-vergleich" class="hero-link">PH-Studiengänge vergleichen</a></section>
 <section id="beratung">
   <h2>Dein Berufsguide für Schule, Förderung und Psychologie</h2>
@@ -31,6 +31,7 @@
     <div id="career-film"></div>
     <button type="button" id="career-back" class="secondary" hidden>Zurück</button>
     <button id="career-next">Weiter</button>
+    <p><a href="#bildungswege">Abschlüsse und weitere Bildungswege nachschlagen</a></p>
   </form>
   <p id="career-status" role="status" tabindex="-1"></p>
   <div id="career-results" class="grid" aria-label="Berufsfelder"></div>
@@ -131,6 +132,31 @@
 </section>
 <section id="wege"><h2>Deine Anschlusswege</h2><p class="muted">Wähle bis zu drei Wege für den direkten Vergleich.</p><div id="cards" class="grid"></div></section>
 <section><h2>Direkter Vergleich</h2><div id="comparison" class="panel compare" aria-live="polite"></div></section>
+<section id="bildungswege" aria-labelledby="bildungswege-titel">
+  <h2 id="bildungswege-titel">Das Schweizer Bildungssystem</h2>
+  <div class="grid">
+    <article><h3>FMS und Fachmaturität</h3><p>Mit dem Fachmittelschulausweis kannst du passende HF-Ausbildungen prüfen. Mit der Fachmaturität kommen je nach Berufsfeld FH- oder PH-Studiengänge dazu. Die bestandene Passerelle eröffnet den Zugang zu Universität und ETH.</p><a href="#ksa-paedagogik">FMS Pädagogik und PH-Zulassung</a></article>
+    <article><h3>Lehre und Berufsmaturität</h3><p>Die berufliche Grundbildung führt zum EBA oder EFZ. Die Berufsmaturität kann während oder nach einer EFZ-Lehre erworben werden. Mit ihr kannst du ein passendes FH-Studium prüfen. Über die Passerelle ist auch der Zugang zu Universität und ETH möglich.</p></article>
+    <article><h3>Gymnasiale Matura</h3><p>Sie eröffnet in der Regel den Zugang zu Universität, ETH und PH. Für ein FH-Studium brauchst du in der Regel einschlägige Arbeitswelterfahrung.</p></article>
+  </div>
+  <p class="muted">Grundlage ist die Folie «Schweizerisches Bildungssystem» der Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz aus «Berufsübersicht.pdf».</p>
+  <h3>Weitere Wege in die Praxis</h3>
+  <div class="panel">
+    <dl>
+      <dt><strong>Höhere Fachschule (HF)</strong></dt>
+      <dd>Erkunde zum Beispiel Sozialpädagogik, biomedizinische Analytik oder Hotellerie und Tourismus. Frage die Schule, ob dein Ausweis anerkannt wird und welche Praxis du brauchst.</dd>
+      <dt><strong>Betriebsinterne Ausbildung</strong></dt>
+      <dd>Prüfe Programme für Maturandinnen und Maturanden bei Banken, Versicherungen oder der Post sowie praxisorientierte Wirtschaftsausbildungen (PWA). Frage beim Anbieter nach den akzeptierten Abschlüssen.</dd>
+      <dt><strong>Berufslehre</strong></dt>
+      <dd>Wenn du einen Beruf im Betrieb lernen möchtest, kläre mit Lehrbetrieb und Berufsbildungsamt, ob deine Vorbildung eine Verkürzung ermöglicht. <a href="https://www.berufsberatung.ch/dyn/show/65131">Verkürzte Lehre nach der gymnasialen Matura</a></dd>
+      <dt><strong>Berufsprüfung (BP) und höhere Fachprüfung (HFP)</strong></dt>
+      <dd>Plane diese Abschlüsse als spätere Spezialisierung mit Berufspraxis. Beispiele sind Finanzplanung und Marketing auf Stufe BP sowie Finanz- und Anlageexpertise und Marketingleitung auf Stufe HFP.</dd>
+      <dt><strong>Weitere Berufswege</strong></dt>
+      <dd>Auch Polizei oder Cabin Crew kommen als spätere Berufswege infrage. Informiere dich über die Auswahlverfahren und Voraussetzungen beim jeweiligen Arbeitgeber.</dd>
+    </dl>
+  </div>
+  <p class="muted">Grundlage ist die Übersicht zu praxisorientierten Ausbildungen der Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz aus «berufe.pdf».</p>
+</section>
 <section id="plan"><h2>Mein nächster Schritt</h2><div class="panel"><p id="progress" role="status"></p><div id="tasks"></div><p><label for="notes"><strong>Meine Interessen, Stärken und Werte</strong></label></p><textarea id="notes" placeholder="Was mache ich gerne? Was kann ich gut? Was ist mir wichtig?"></textarea><p class="muted">Dein Plan und deine Auswahl werden in diesem Browser gespeichert, sofern der Browser dies erlaubt.</p></div></section></main>
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter.</footer>
 <script src="app.js?v=ph-vergleich"></script>
