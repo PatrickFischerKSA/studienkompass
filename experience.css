@@ -92,8 +92,8 @@ body:has(dialog[open]) { overflow: hidden; }
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.career-question-card span { padding: 10px; }
-#career-progress { scroll-margin-top: 12px; }
+.career-question-card span { padding: 10px; overflow-wrap: anywhere; hyphens: auto; }
+.scene { scroll-padding-top: 76px; }
 .career-step-nav { display: flex; gap: 8px; }
 @media (max-width: 600px) {
   .career-question-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
