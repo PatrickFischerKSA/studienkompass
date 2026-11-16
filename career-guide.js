@@ -4,7 +4,10 @@ const careerQuestions = [
     language: 'Mit Sprache arbeiten', movement: 'Mit Bewegung und Spiel arbeiten',
     daily: 'Selbstständigkeit im Alltag fördern', counsel: 'Beraten und Konflikte klären',
     care: 'Kinder betreuen und begleiten', youth: 'Mit Jugendlichen arbeiten',
-    mind: 'Erleben und Verhalten verstehen', research: 'Forschen und Daten auswerten'
+    mind: 'Erleben und Verhalten verstehen', research: 'Forschen und Daten auswerten',
+    lab: 'Im Labor untersuchen', hospitality: 'Gäste betreuen und Reisen organisieren',
+    business: 'Mit Kundschaft und Finanzfragen arbeiten', hands: 'Praktisch im Betrieb lernen',
+    safety: 'Für Sicherheit sorgen'
   }],
   ['Welche Eigenschaften passen zu dir?', {
     patient: 'Geduldig', creative: 'Kreativ', structured: 'Strukturiert',
@@ -14,7 +17,9 @@ const careerQuestions = [
     explain: 'Verständlich erklären', observe: 'Genau beobachten',
     listen: 'Aktiv zuhören', groups: 'Gruppen anleiten',
     plan: 'Aktivitäten planen', collaborate: 'Im Team zusammenarbeiten',
-    analyse: 'Informationen systematisch auswerten'
+    analyse: 'Informationen systematisch auswerten',
+    precise: 'Sorgfältig nach Vorgaben arbeiten', customer: 'Auf Kundschaft eingehen',
+    craft: 'Mit Werkzeug oder Geräten arbeiten', decide: 'Unter Zeitdruck entscheiden'
   }]
 ];
 
@@ -169,6 +174,216 @@ const careers = [
     route: 'Plane einen Bachelor und danach einen Master in Psychologie. Der Kanton Schwyz verlangt für schulpsychologische Stellen einen Master oder ein Lizentiat in Psychologie.',
     next: 'Lies das Aufgabenprofil des Schulpsychologischen Dienstes und vergleiche Psychologiestudiengänge mit Blick auf Diagnostik, Entwicklungspsychologie und Praktika.',
     links: [['Kanton Schwyz · Schulpsychologischer Dienst', 'https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-volksschulen-und-sport/besonderer-bildungsbedarf/schulpsychologie.html/8756-8758-8802-9466-9467-12713-12723'], ['Kanton Schwyz · Anforderungsprofil einer schulpsychologischen Stelle', 'https://jobs.sz.ch/offene-stellen/schulpsychologin-schulpsychologe/2077e80b-f676-42ea-a091-d19608261e62']]
+  },
+  {
+    "title": "Sozialpädagogik HF",
+    "admission": {
+      "other": [
+        "practice"
+      ]
+    },
+    "tags": [
+      "support",
+      "youth",
+      "care",
+      "empathic",
+      "calm",
+      "listen",
+      "collaborate"
+    ],
+    "work": "Menschen im Alltag begleiten und gemeinsam mit ihnen Ziele für mehr Selbstständigkeit entwickeln.",
+    "route": "Frage die HF, ob dein Fachmittelschulausweis oder dein anderer Abschluss anerkannt wird. Kläre Vorpraktikum, Praxisausbildungsplatz und Aufnahmeverfahren.",
+    "next": "Besuche einen Infoanlass einer HF und frage nach Schnuppermöglichkeiten in einem Wohnheim oder Jugendangebot.",
+    "links": [
+      [
+        "Übersicht der praxisorientierten Anschlusswege",
+        "#bildungswege"
+      ]
+    ]
+  },
+  {
+    "title": "Biomedizinische Analytik HF",
+    "admission": {
+      "other": [
+        "exam"
+      ]
+    },
+    "tags": [
+      "lab",
+      "research",
+      "structured",
+      "observe",
+      "analyse",
+      "precise",
+      "craft"
+    ],
+    "work": "Proben im medizinischen Labor untersuchen und Ergebnisse sorgfältig dokumentieren.",
+    "route": "Lass deinen Abschluss von der HF prüfen und frage nach Eignungsabklärung und Praktikumsorganisation.",
+    "next": "Frage nach einem Einblick in ein Spitallabor und vergleiche die Aufnahmebedingungen der Schulen.",
+    "links": [
+      [
+        "Übersicht der praxisorientierten Anschlusswege",
+        "#bildungswege"
+      ]
+    ]
+  },
+  {
+    "title": "Hotellerie und Tourismus HF",
+    "admission": {
+      "other": [
+        "practice"
+      ]
+    },
+    "tags": [
+      "hospitality",
+      "business",
+      "structured",
+      "calm",
+      "customer",
+      "plan",
+      "collaborate"
+    ],
+    "work": "Gäste beraten, Angebote organisieren und Abläufe im Betrieb koordinieren.",
+    "route": "Kläre bei der gewählten HF die Anerkennung deines Abschlusses und ob ein Vorpraktikum oder ein Praxisplatz nötig ist.",
+    "next": "Vergleiche eine Hotelfachschule mit einem Tourismus-Bildungsgang und frage nach den Praxisphasen.",
+    "links": [
+      [
+        "Übersicht der praxisorientierten Anschlusswege",
+        "#bildungswege"
+      ]
+    ]
+  },
+  {
+    "title": "Betriebsinterne Ausbildung und PWA",
+    "admission": {
+      "other": [
+        "exam"
+      ]
+    },
+    "tags": [
+      "business",
+      "hospitality",
+      "structured",
+      "customer",
+      "plan",
+      "analyse"
+    ],
+    "work": "Bei einer Bank, Versicherung oder der Post in die Arbeitswelt einsteigen oder eine praxisorientierte Wirtschaftsausbildung prüfen.",
+    "route": "Die Zulassung hängt vom Programm ab. Frage ausdrücklich, ob dein Fachmittelschulausweis oder deine Fachmaturität akzeptiert wird und ob der Betrieb ein Auswahlverfahren durchführt.",
+    "next": "Suche ein konkretes Programm und prüfe Abschluss, Bewerbungsfrist und vergütete Praxisphasen.",
+    "links": [
+      [
+        "Übersicht der praxisorientierten Anschlusswege",
+        "#bildungswege"
+      ]
+    ]
+  },
+  {
+    "title": "Berufslehre und mögliche Verkürzung",
+    "admission": {
+      "other": [],
+      "gym": [
+        "direct"
+      ]
+    },
+    "tags": [
+      "hands",
+      "lab",
+      "hospitality",
+      "business",
+      "structured",
+      "craft",
+      "precise",
+      "collaborate"
+    ],
+    "work": "Einen Beruf im Lehrbetrieb erlernen und einen eidgenössischen Berufsabschluss erwerben.",
+    "route": "Du brauchst einen Lehrbetrieb. Eine Verkürzung klärst du mit dem Betrieb und dem kantonalen Berufsbildungsamt. Way-up richtet sich an gymnasiale Maturandinnen und Maturanden.",
+    "next": "Wähle einen Lehrberuf und frage bei einer Schnupperlehre, ob deine Vorbildung angerechnet werden kann.",
+    "links": [
+      [
+        "Verkürzte Lehre und Way-up",
+        "https://www.berufsberatung.ch/dyn/show/65131"
+      ]
+    ]
+  },
+  {
+    "title": "Berufsprüfung und höhere Fachprüfung",
+    "admission": {
+      "other": [
+        "practice"
+      ]
+    },
+    "tags": [
+      "business",
+      "research",
+      "structured",
+      "analyse",
+      "customer",
+      "plan"
+    ],
+    "work": "Sich nach dem Berufseinstieg spezialisieren, etwa in Finanzplanung, Marketing, Finanz- und Anlageexpertise oder Marketingleitung.",
+    "route": "Prüfe die Prüfungsordnung des konkreten Abschlusses. Je nach Prüfung sind eine einschlägige Vorbildung und Berufspraxis nötig.",
+    "next": "Wähle eine Berufsprüfung oder höhere Fachprüfung und arbeite von deren Zulassung aus rückwärts zum passenden Berufseinstieg.",
+    "links": [
+      [
+        "SBFI · Abschlüsse der höheren Berufsbildung",
+        "https://www.sbfi.admin.ch/de/der-nationale-qualifikationsrahmen-nqr-berufsbildung"
+      ]
+    ]
+  },
+  {
+    "title": "Polizei",
+    "admission": {
+      "other": [
+        "exam"
+      ]
+    },
+    "tags": [
+      "safety",
+      "counsel",
+      "youth",
+      "calm",
+      "structured",
+      "decide",
+      "listen",
+      "collaborate"
+    ],
+    "work": "Menschen in Konfliktsituationen unterstützen, für Sicherheit sorgen und Ereignisse dokumentieren.",
+    "route": "Das zuständige Korps entscheidet, welche Abschlüsse es anerkennt und welche Eignungsabklärungen gelten.",
+    "next": "Besuche einen Infoanlass und kläre deinen Abschluss beim gewünschten Korps.",
+    "links": [
+      [
+        "Übersicht der praxisorientierten Anschlusswege",
+        "#bildungswege"
+      ]
+    ]
+  },
+  {
+    "title": "Cabin Crew",
+    "admission": {
+      "other": [
+        "exam"
+      ]
+    },
+    "tags": [
+      "hospitality",
+      "safety",
+      "care",
+      "calm",
+      "empathic",
+      "customer",
+      "decide",
+      "collaborate"
+    ],
+    "work": "Fluggäste betreuen und mit dem Team für Sicherheit an Bord sorgen.",
+    "route": "Kläre beim Unternehmen, welchen Abschluss, welche Sprachkenntnisse und welches Auswahlverfahren es für den Einstieg verlangt.",
+    "next": "Lies die Anforderungen eines konkreten Einstiegsprogramms und prüfe Sprachen, Einsatzzeiten und Auswahlverfahren.",
+    "links": [
+      [
+        "Übersicht der praxisorientierten Anschlusswege",
+        "#bildungswege"
+      ]
+    ]
   }
 ];
 
@@ -264,7 +479,7 @@ function renderCareerResults() {
   const matching = ranked.filter(item => item.admissionMatch).length;
   const admissionStatus = preference.value === 'all' ? '' : matching
     ? ` ${matching} Wege mit der gewählten Zulassungsoption stehen zuerst.`
-    : ' Für diesen Abschluss ist unter den 13 Wegen kein Weg mit dieser Zulassungsoption markiert.';
+    : ' Für diesen Abschluss ist in der Übersicht kein Weg mit dieser Zulassungsoption markiert.';
   status.textContent = `${ranked.length} Wege im Überblick.${admissionStatus}` +
     (selected.size ? ' Interessen zählen bei der Sortierung doppelt. Die Auswahl dient zur Orientierung.' : '');
 
@@ -276,7 +491,7 @@ function renderCareerResults() {
       <h3>${career.title}</h3>
       <p>${career.work}</p>
       ${matches.length ? `<p><strong>Deine Übereinstimmungen</strong><br>${matches.map(tag => labels[tag]).join(', ')}</p>` : ''}
-      ${admissionMatch ? '<p class="tag">Gewählte Zulassungsoption</p>' : ''}
+      ${admissionMatch ? '<p class="tag">Zulassungsschritt zum Prüfen</p>' : ''}
       <p><strong>Dein Ausbildungsweg</strong><br>${route}</p>
       <p><strong>Dein nächster Schritt</strong><br>${career.next}</p>
       <ul>${career.links.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul>
