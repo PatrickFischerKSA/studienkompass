@@ -649,6 +649,69 @@ function rememberCareerStep() {
   }
 }
 
+const counsellingOffers = {
+  "Lehrperson Kindergarten, Unterstufe oder Primarstufe": [
+    "Primarstufe und Kindergarten · PH Schwyz, Zürich und Zug",
+    "/de/studium/hochschulzulassung/zulassung-zur-paedagogischen-hochschule",
+    "Kläre die Fachmaturität Pädagogik an deiner FMS oder frage bei der PH nach dem Prüfungsweg."
+  ],
+  "Lehrperson Sekundarstufe I": [
+    "Lehrdiplom Sekundarstufe I · PH Zürich",
+    "/de/aus-weiterbildungen/paedagogische-hochschule-zuerich-phzh/lehrdiplom-fuer-die-sekundarstufe-i",
+    "Vergleiche die Aufnahmeprüfung der PH Zürich mit dem Weg über Fachmaturität und Passerelle."
+  ],
+  "Logopädie": [
+    "Bachelor Logopädie · HfH Zürich",
+    "/de/aus-weiterbildungen/interkantonale-hochschule-fuer-heilpaedagogik-zuerich-hfh/speech-and-language",
+    "Kläre mit der HfH, welche Fachmaturität oder welchen gleichwertigen Zugang sie anerkennt und welche Nachweise du danach brauchst."
+  ],
+  "Psychomotoriktherapie": [
+    "Bachelor Psychomotoriktherapie · HfH Zürich",
+    "/de/aus-weiterbildungen/interkantonale-hochschule-fuer-heilpaedagogik-zuerich-hfh/psychomotor-therapy",
+    "Kläre die Fachmaturität und informiere dich über die Vorbereitung auf das Assessment der HfH."
+  ],
+  "Ergotherapie": [
+    "Bachelor Ergotherapie · ZHAW Winterthur",
+    "/de/aus-weiterbildungen/zuercher-hochschule-fuer-angewandte-wissenschaften-zhaw/ergotherapie-1",
+    "Kläre zuerst deinen Weg zur Fachmaturität. Frage danach die ZHAW, welche Arbeitswelterfahrung sie für dein Profil anerkennt."
+  ],
+  "Schulsozialarbeit": [
+    "Bachelor Soziale Arbeit · ZHAW Zürich",
+    "/de/aus-weiterbildungen/zuercher-hochschule-fuer-angewandte-wissenschaften-zhaw/soziale-arbeit",
+    "Vergleiche die Fachmaturitätsprofile und lass die Anforderungen an deine Praxiserfahrung vor der Praktikumssuche bestätigen."
+  ],
+  "Angewandte Psychologie · ZHAW": [
+    "Bachelor Angewandte Psychologie · ZHAW Zürich",
+    "/de/aus-weiterbildungen/zuercher-hochschule-fuer-angewandte-wissenschaften-zhaw/angewandte-psychologie",
+    "Plane zuerst die Fachmaturität und kläre danach, wie du die für die Bewerbung nötige Arbeitswelterfahrung nachweist."
+  ],
+  "Angewandte Psychologie · FHNW Olten": [
+    "Bachelor Arbeits-, Organisations- und Personalpsychologie · FHNW Olten",
+    "/de/aus-weiterbildungen/fachhochschule-nordwestschweiz-fhnw/arbeits-und-organisationspsychologie",
+    "Kläre zuerst die Fachmaturität und frage die FHNW, welche Praxiserfahrung bis zum Eignungsverfahren zählen kann."
+  ],
+  "Psychologie an der Universität": [
+    "Bachelor Psychologie · Universität Zürich",
+    "/de/aus-weiterbildungen/universitaet-zuerich-uzh/psychologie",
+    "Vergleiche den Weg über Fachmaturität und Passerelle mit der gymnasialen Matura."
+  ],
+  "Schulpsychologie": [
+    "Bachelor und Master Psychologie · Studienangebote",
+    "/de/studienrichtungen/psychologie",
+    "Plane den Zugang zu einem Psychologie-Bachelor und prüfe, welche Masterprogramme schulpsychologische Schwerpunkte bieten."
+  ],
+  "Pflege HF oder FH": [
+    "Pflege HF und FH · Ausbildungsübersicht",
+    "/web_file/get?id=5011",
+    "Prüfe zuerst Pflege-HF-Angebote mit FMS-Ausweis. Vergleiche dann die Voraussetzungen für den FH-Weg über die Fachmaturität."
+  ],
+  "Passerelle zu Universität und ETH": [
+    "Passerelle · Vorbereitung und Prüfung",
+    "/de/studium/hochschulzulassung/zulassung-zur-universitaet/eth/ergaenzungspruefung-passerelle",
+    "Kläre zuerst die Fachmaturität und vergleiche anschliessend die Vorbereitungskurse."
+  ]
+};
+
 function renderCareerResults() {
   const selected = new Set(answers.flatMap(answer => [...answer]));
   const ranked = careersForTrack().map(career => {
@@ -664,7 +727,7 @@ function renderCareerResults() {
     ? ` ${matching} Wege mit der gewählten Zulassungsoption stehen zuerst.`
     : ' Für diesen Abschluss ist in der Übersicht kein Weg mit dieser Zulassungsoption markiert.';
   status.textContent = `${ranked.length} Wege im Überblick.${admissionStatus}` +
-    (selected.size ? ' Interessen zählen bei der Sortierung doppelt. Die Auswahl dient zur Orientierung.' : '');
+    (selected.size ? ' Oben siehst du zuerst bis zu vier Vorschläge. Interessen zählen doppelt.' : '');
 
   const trialQuestions = {
     practice: 'Welche Aufgabe kann ich an einem Schnuppertag selbst ausprobieren?',
@@ -675,7 +738,9 @@ function renderCareerResults() {
   const reflection = trialQuestion
     ? `<article class="career-task"><h3>Frage für deinen nächsten Einblick</h3><p>${trialQuestion}</p></article>`
     : '';
-  results.innerHTML = reflection + ranked.map(({career, matches, admissionMatch}) => {
+  const renderCard = ({career, matches, admissionMatch}) => {
+    const offer = counsellingOffers[career.title];
+    const nextAction = credential.value === 'fms' && offer ? offer[2] : career.next;
     const route = typeof career.route === 'string'
       ? career.route
       : career.route[credential.value] ?? career.route.other;
@@ -684,11 +749,18 @@ function renderCareerResults() {
       <p>${career.work}</p>
       ${matches.length ? `<p><strong>Was zu deiner Auswahl passt</strong><br>${matches.map(tag => labels[tag]).join(', ')}</p>` : ''}
       ${admissionMatch ? '<p class="tag">Zulassungsschritt zum Prüfen</p>' : ''}
-      <p><strong>So kommst du hin</strong><br>${route}</p>
-      <p><strong>Das kannst du als Nächstes tun</strong><br>${career.next}</p>
+      ${offer ? `<p><strong>Studienangebot oder Ausbildungsweg</strong><br><a href="https://www.berufsberatung.ch${offer[1]}">${offer[0]}</a></p>` : ''}
+      <p><strong>Zulassung mit deinem Abschluss</strong><br>${route}</p>
+      <p><strong>Das kannst du als Nächstes tun</strong><br>${nextAction}</p>
       <ul>${career.links.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul>
     </article>`;
-  }).join('');
+  };
+  const shortlist = selected.size || preference.value !== 'all' ? ranked.slice(0, 4) : ranked;
+  const others = ranked.slice(shortlist.length);
+  results.innerHTML = reflection + shortlist.map(renderCard).join('') + (others.length
+    ? `<details class="career-more"><summary>Weitere ${others.length} Wege ansehen</summary>
+        <div class="grid">${others.map(renderCard).join('')}</div></details>`
+    : '');
 }
 
 credential.value = profileCredential.value;
