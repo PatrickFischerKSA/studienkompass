@@ -748,12 +748,20 @@ function admissionForCareer(career) {
     : career.route[credential.value] ?? career.route.other;
 }
 
-function renderShortlistComparison(shortlist) {
+let comparisonTitles = [];
+
+function renderShortlistComparison(shortlist, others) {
   const headings = ['Hochschule oder Anbieter', 'Ort', 'Dauer', 'Zulassung mit deinem Abschluss', 'Anmeldefrist'];
-  const rows = shortlist.map(({career}) => {
+  const rows = shortlist.map(({career}, slot) => {
     const [provider, place, duration, deadline, url] = comparisonOffers[career.title];
     const values = [provider, place, duration, admissionForCareer(career), `<a href="${url}">${deadline}</a>`];
-    return `<tr role="row"><th role="rowheader" scope="row">${career.title}</th>
+    const replacement = others.length ? `<select data-comparison-slot="${slot}"
+        aria-label="${career.title} im Vergleich austauschen">
+        <option value="">Austauschen …</option>
+        ${others.map(({career: option}) =>
+          `<option value="${careers.indexOf(option)}">${option.title}</option>`).join('')}
+      </select>` : '';
+    return `<tr role="row"><th role="rowheader" scope="row">${career.title}${replacement}</th>
       ${values.map((value, index) => `<td role="cell" data-label="${headings[index]}">${value}</td>`).join('')}</tr>`;
   });
   return `<section class="shortlist-comparison" aria-labelledby="shortlist-title">
@@ -810,13 +818,29 @@ function renderCareerResults() {
       <ul>${career.links.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul>
     </article>`;
   };
-  const shortlist = ranked.slice(0, 4);
-  const others = ranked.slice(shortlist.length);
-  results.innerHTML = reflection + renderShortlistComparison(shortlist) + shortlist.map(renderCard).join('') + (others.length
+  const byTitle = new Map(ranked.map(item => [item.career.title, item]));
+  comparisonTitles = comparisonTitles.filter(title => byTitle.has(title));
+  for (const {career} of ranked) {
+    if (comparisonTitles.length === 4) break;
+    if (!comparisonTitles.includes(career.title)) comparisonTitles.push(career.title);
+  }
+  const shortlist = comparisonTitles.map(title => byTitle.get(title));
+  const others = ranked.filter(({career}) => !comparisonTitles.includes(career.title));
+  results.innerHTML = reflection + renderShortlistComparison(shortlist, others) + shortlist.map(renderCard).join('') + (others.length
     ? `<details class="career-more"><summary>Weitere ${others.length} Wege ansehen</summary>
         <div class="grid">${others.map(renderCard).join('')}</div></details>`
     : '');
 }
+
+results.addEventListener('change', event => {
+  const select = event.target.closest('select[data-comparison-slot]');
+  if (!select || select.value === '') return;
+  const slot = Number(select.dataset.comparisonSlot);
+  comparisonTitles[slot] = careers[Number(select.value)].title;
+  renderCareerResults();
+  results.querySelector(`[data-comparison-slot="${slot}"]`)?.focus();
+  status.textContent += ` Im Vergleich: ${comparisonTitles[slot]}.`;
+});
 
 credential.value = profileCredential.value;
 profileCredential.addEventListener('change', () => {
@@ -831,6 +855,7 @@ track.addEventListener('change', () => { trackNote.textContent = trackNotes[trac
 back.addEventListener('click', () => {
   rememberCareerStep();
   step--;
+  comparisonTitles = [];
   results.replaceChildren();
   status.textContent = '';
   showCareerStep(true);
