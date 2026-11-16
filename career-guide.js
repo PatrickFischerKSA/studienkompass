@@ -712,6 +712,63 @@ const counsellingOffers = {
   ]
 };
 
+const comparisonOffers = {
+  "Lehrperson Kindergarten, Unterstufe oder Primarstufe": ["PH Schwyz, PH Zürich, PH Zug", "Goldau, Zürich, Zug", "Vollzeit 3 Jahre. Teilzeit je nach PH.", "Bis 30. April für den regulären Herbststart. Für Aufnahmeprüfungen gelten andere Fristen.", "#ph-vergleich"],
+  "Lehrperson Sekundarstufe I": ["PH Zürich", "Zürich", "4½ Jahre Vollzeit oder 6–7½ Jahre Teilzeit.", "Direkte Zulassung mit Schweizer Ausweis bis 30. April für den Herbststart. Aufnahmeprüfung separat.", "https://phzh.ch/de/studium/studiengaenge/sekundarstufe-1/sekundarstufe-1-voll-und-teilzeit/"],
+  "Schulische Heilpädagogik": ["HfH", "Zürich", "3–12 Semester.", "Frist nach Studienbeginn auf der Zulassungsseite prüfen.", "https://www.hfh.ch/ausbildung/ma-schulische-heilpaedagogik/zulassung"],
+  "Logopädie": ["HfH", "Zürich", "6 Semester Vollzeit.", "15. März für Herbst, 30. September für Frühling.", "https://www.hfh.ch/ausbildung/ba-logopaedie/zulassung"],
+  "Ergotherapie": ["ZHAW", "Winterthur", "3 Jahre Vollzeit oder 4 Jahre Teilzeit.", "28. Februar 2027 für Studienstart im Herbst 2027.", "https://www.zhaw.ch/de/gesundheit/studium/bachelorstudium/bachelor-ergotherapie/zulassung-und-termine"],
+  "Psychomotoriktherapie": ["HfH", "Zürich", "6 Semester Vollzeit.", "15. März für Herbst, 30. September für Frühling.", "https://www.hfh.ch/ausbildung/ba-psychomotoriktherapie/zulassung"],
+  "Schulsozialarbeit": ["ZHAW · Bachelor Soziale Arbeit", "Zürich", "6 Semester Vollzeit.", "Nach Studienstart und Studienmodell bei der ZHAW prüfen.", "https://www.zhaw.ch/de/sozialearbeit/studium/bachelor-in-sozialer-arbeit/zulassung/voraussetzungen-fuers-studium"],
+  "Kindheitspädagogik HF": ["ARTISET Bildung", "Zug und Zürich", "3 oder 4 Jahre je nach Vorbildung.", "Frist beim gewählten Bildungsgang prüfen.", "https://artiset.ch/de/bildung/ausbildung/hoehere-fachschule-kindheitspaedagogik"],
+  "Heilpädagogische Früherziehung": ["HfH", "Zürich", "Mindestens 4 Semester.", "15. März 2027 für Studienstart im Herbst 2027.", "https://www.hfh.ch/ausbildung/ma-heilpaedagogische-frueherziehung/zulassung"],
+  "Angewandte Psychologie · ZHAW": ["ZHAW", "Zürich", "6 Semester Vollzeit.", "31. Januar 2027 für Studienstart im September 2027.", "https://www.zhaw.ch/de/psychologie/studium/bachelor/anmeldung-bachelorstudiengang"],
+  "Angewandte Psychologie · FHNW Olten": ["FHNW", "Olten", "6 Semester Vollzeit, 8 Teilzeit, 10–12 Flexzeit.", "Spätestens einen Monat vor der gewählten Eignungsrunde.", "https://www.fhnw.ch/de/psychologie/studium/angebot/studiengaenge/bachelor-arbeits-organisations-personalpsychologie"],
+  "Psychologie an der Universität": ["Universität Zürich · Bachelor Psychologie", "Zürich", "6 Semester Regelstudienzeit.", "UZH regulär bis 30. April für Herbst, bis 30. November für Frühling.", "https://uzh.ch/de/studies/application/deadlines.html"],
+  "Schulpsychologie": ["Zum Beispiel Universität Zürich · Psychologie", "Zürich", "Bachelor und Master zusammen in der Regel 5 Jahre Vollzeit.", "Bewerbungsfrist für Bachelor und Master separat prüfen.", "https://uzh.ch/de/studies/application/deadlines.html"],
+  "Sozialpädagogik HF": ["Agogis", "Zürich", "3 Jahre im regulären Bildungsgang.", "Je nach Start und Aufnahmeverfahren.", "#praxisvergleich"],
+  "Biomedizinische Analytik HF": ["Careum und Stadtspital Zürich", "Zürich", "3 Jahre Vollzeit.", "Je nach ausgeschriebenem Praxisplatz.", "#praxisvergleich"],
+  "Hotellerie und Tourismus HF": ["Hotelfachschule Zürich", "Zürich", "6 Semester Vollzeit oder 7 berufsbegleitend.", "Bis kurz vor Studienstart, abhängig von freien Plätzen.", "#praxisvergleich"],
+  "Betriebsinterne Ausbildung und PWA": ["Zuger Kantonalbank, Schwyzer Kantonalbank oder Kaderschule Zürich", "Zug, Schwyz oder Zürich", "BEM 18 Monate, PWA 24 Monate.", "Je nach Anbieter und Einstiegsjahr.", "#praxisvergleich"],
+  "Berufslehre und mögliche Verkürzung": ["Zum Beispiel Schweizerische Post", "Je nach Lehrstelle", "Kaufleute EFZ regulär 3 Jahre.", "Gemäss Lehrstelleninserat.", "#praxisvergleich"],
+  "Berufsprüfung und höhere Fachprüfung": ["KV Business School Zürich · Beispiel Marketingfachleute BP", "Zürich", "Beispiel Lehrgang mit 70 % online: 3 Semester.", "Lehrgang und eidgenössische Prüfung haben eigene Fristen.", "#praxisvergleich"],
+  "Polizei": ["Zum Beispiel Kantonspolizei Schwyz oder Zuger Polizei", "Schwyz oder Zug sowie Hitzkirch", "Rund 2 Jahre.", "Gemäss Ausschreibung.", "#praxisvergleich"],
+  "Cabin Crew": ["SWISS", "Flughafen Zürich", "Ausbildung im ersten Jahr.", "Gemäss Ausschreibung der nächsten Kurse.", "#praxisvergleich"],
+  "Fachmaturität anschliessen": ["Zum Beispiel Kantonsschule Ausserschwyz", "Kanton Schwyz", "Fachmaturität Pädagogik an der KSA: 1 Semester.", "Bei der eigenen FMS nachfragen.", "https://www.ksasz.ch/de/fachmittelschule"],
+  "Passerelle zu Universität und ETH": ["Vorbereitungskurs oder Selbststudium", "Je nach Anbieter", "Je nach Vorbereitungskurs und Prüfungsplanung.", "Fristen für Kurs und Prüfung separat prüfen.", "https://www.berufsberatung.ch/de/studium/hochschulzulassung/zulassung-zur-universitaet/eth/ergaenzungspruefung-passerelle"],
+  "Pflege HF oder FH": ["Zum Beispiel ZHAW · Pflege FH", "Winterthur", "Für die Bachelor- und HF-Modelle je nach Anbieter.", "ZHAW FH: 15. April 2027 für Herbst 2027. HF je nach Anbieter.", "https://www.zhaw.ch/de/gesundheit/studium/bachelorstudium/bachelor-pflege/zulassung-und-termine"],
+  "Tourismus HF im Kanton Schwyz": ["Höhere Fachschule Schwyz", "Kanton Schwyz", "6 Semester laut Schwyzer Übersicht.", "Frist für den nächsten Start beim Anbieter prüfen.", "https://www.hfsz.ch/dipl-tourismusfachfrau-mann-hf/"],
+  "Lokführung und Zugverkehr": ["SBB", "Je nach Ausschreibung", "Je nach Funktion und Pensum.", "Gemäss Ausschreibung.", "https://company.sbb.ch/de/jobs-karriere/einsteigen/quereinstieg.html"],
+  "Theaterpädagogik": ["ZHdK", "Zürich", "6 Semester Vollzeit.", "Termine und Vorbehalte beim Zulassungsverfahren prüfen.", "https://www.zhdk.ch/studium/theater/ba-theater-theaterpaedagogik-836/anmeldung-theater-ba-theaterpaedagogik-3772"]
+};
+
+function admissionForCareer(career) {
+  return typeof career.route === 'string'
+    ? career.route
+    : career.route[credential.value] ?? career.route.other;
+}
+
+function renderShortlistComparison(shortlist) {
+  const headings = ['Hochschule oder Anbieter', 'Ort', 'Dauer', 'Zulassung mit deinem Abschluss', 'Anmeldefrist'];
+  const rows = shortlist.map(({career}) => {
+    const [provider, place, duration, deadline, url] = comparisonOffers[career.title];
+    const values = [provider, place, duration, admissionForCareer(career), `<a href="${url}">${deadline}</a>`];
+    return `<tr role="row"><th role="rowheader" scope="row">${career.title}</th>
+      ${values.map((value, index) => `<td role="cell" data-label="${headings[index]}">${value}</td>`).join('')}</tr>`;
+  });
+  return `<section class="shortlist-comparison" aria-labelledby="shortlist-title">
+    <h3 id="shortlist-title">Deine ${shortlist.length} Vorschläge im Vergleich</h3>
+    <p class="muted">Ausgangslage: ${credential.selectedOptions[0].textContent}. Die Links führen zu den aktuellen Fristen.</p>
+    <div class="compare" tabindex="0" role="region" aria-label="Vergleich deiner Vorschläge">
+      <table class="shortlist-table" role="table">
+        <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Vorschlag</th>
+          ${headings.map(heading => `<th role="columnheader" scope="col">${heading}</th>`).join('')}</tr></thead>
+        <tbody role="rowgroup">${rows.join('')}</tbody>
+      </table>
+    </div>
+  </section>`;
+}
+
 function renderCareerResults() {
   const selected = new Set(answers.flatMap(answer => [...answer]));
   const ranked = careersForTrack().map(career => {
@@ -741,9 +798,7 @@ function renderCareerResults() {
   const renderCard = ({career, matches, admissionMatch}) => {
     const offer = counsellingOffers[career.title];
     const nextAction = credential.value === 'fms' && offer ? offer[2] : career.next;
-    const route = typeof career.route === 'string'
-      ? career.route
-      : career.route[credential.value] ?? career.route.other;
+    const route = admissionForCareer(career);
     return `<article>
       <h3>${career.title}</h3>
       <p>${career.work}</p>
@@ -755,9 +810,9 @@ function renderCareerResults() {
       <ul>${career.links.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul>
     </article>`;
   };
-  const shortlist = selected.size || preference.value !== 'all' ? ranked.slice(0, 4) : ranked;
+  const shortlist = ranked.slice(0, 4);
   const others = ranked.slice(shortlist.length);
-  results.innerHTML = reflection + shortlist.map(renderCard).join('') + (others.length
+  results.innerHTML = reflection + renderShortlistComparison(shortlist) + shortlist.map(renderCard).join('') + (others.length
     ? `<details class="career-more"><summary>Weitere ${others.length} Wege ansehen</summary>
         <div class="grid">${others.map(renderCard).join('')}</div></details>`
     : '');
