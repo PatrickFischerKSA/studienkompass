@@ -151,3 +151,36 @@ byId('notes').addEventListener('input', event => {
 });
 renderPaths();
 updateProgress();
+
+const phStage = byId('ph-stage');
+const phFormat = byId('ph-format');
+const phRows = [...document.querySelectorAll('[data-ph-stage]')];
+
+function updatePhComparison() {
+  let matchingSchools = 0;
+  for (const row of phRows) {
+    row.hidden = row.dataset.phStage !== phStage.value;
+    let hasMatch = false;
+    for (const format of row.querySelectorAll('[data-ph-format]')) {
+      const matches = format.dataset.phFormat.split(' ').includes(phFormat.value);
+      format.classList.toggle('format-match', matches);
+      hasMatch ||= matches;
+    }
+    if (!row.hidden && hasMatch) matchingSchools++;
+  }
+
+  const feedback = byId('ph-feedback');
+  if (phFormat.value === 'any') {
+    feedback.textContent = 'Alle drei Hochschulen im Vergleich.';
+  } else if (matchingSchools === 0) {
+    feedback.textContent = 'Für diese Zielstufe ist bei den drei Hochschulen kein passendes Format aufgeführt. Wähle eine andere Studienform oder Zielstufe.';
+  } else {
+    feedback.textContent = matchingSchools === 1
+      ? 'Eine Hochschule bietet das gewählte Format an.'
+      : `${matchingSchools} Hochschulen bieten das gewählte Format an.`;
+  }
+}
+
+phStage.addEventListener('change', updatePhComparison);
+phFormat.addEventListener('change', updatePhComparison);
+updatePhComparison();
