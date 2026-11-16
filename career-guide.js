@@ -574,6 +574,7 @@ function careersForTrack() {
 }
 
 const questions = document.getElementById('career-questions');
+const resourceGroups = form.querySelectorAll('[data-resource-step]');
 const film = document.getElementById('career-film');
 const admission = document.getElementById('career-admission');
 const preference = document.getElementById('career-preference');
@@ -589,6 +590,9 @@ function showCareerStep(moveFocus = false) {
   progress.textContent = `Schritt ${step + 2} von ${careerQuestions.length + 2}`;
   admission.hidden = !admissionStep;
   direction.hidden = !startStep;
+  for (const group of resourceGroups) {
+    group.hidden = Number(group.dataset.resourceStep) !== step;
+  }
   back.hidden = startStep;
   next.textContent = admissionStep ? 'Ergebnisse anzeigen' : 'Weiter';
   questions.replaceChildren();

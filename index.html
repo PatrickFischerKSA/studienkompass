@@ -120,6 +120,56 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
         <option value="judgment">Wo ich selbst entscheiden muss, auch mit KI</option>
       </select>
     </fieldset>
+    <details class="career-reflection" data-resource-step="-1">
+      <summary>Dein Abschluss und seine Möglichkeiten · Links der Berufsberatung</summary>
+      <ul>
+        <li><a href="https://www.berufsberatung.ch/de/fachmittelschule">Fachmittelschule und Fachmaturität</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/bildungssystem/d/fachmittelschulen">FMS-Ausweis im Bildungssystem</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/bildungssystem/d/fachmaturitaet">Fachmaturität im Bildungssystem</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/unterschiede-der-maturitaeten">Unterschiede der Maturitäten</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/bildungssystem/d/hoehere-fachschulen-hf">Höhere Fachschulen</a></li>
+      </ul>
+    </details>
+    <details class="career-reflection" data-resource-step="0" hidden>
+      <summary>Studienfächer und Interessen erkunden · Links der Berufsberatung</summary>
+      <ul>
+        <li><a href="https://www.berufsberatung.ch/de/studienbereiche">Studienangebot</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/hochschultypen">Hochschultypen</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/studienabschluesse/bachelor-master">Bachelor und Master</a></li>
+        <li><a href="https://was-studiere-ich.ch">Was studiere ich?</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studien-interessen-check">Studien-Interessen-Check</a></li>
+      </ul>
+    </details>
+    <details class="career-reflection" data-resource-step="1" hidden>
+      <summary>Berufe kennenlernen · Links der Berufsberatung</summary>
+      <ul>
+        <li><a href="https://www.berufsberatung.ch/de/suche/berufe?type=type_3">Berufe mit Hochschulabschluss</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/berufseinstieg">Berufseinstieg nach dem Studium</a></li>
+      </ul>
+    </details>
+    <details class="career-reflection" data-resource-step="2" hidden>
+      <summary>Fragen für einen Infoanlass sammeln · Links der Berufsberatung</summary>
+      <ul>
+        <li><a href="https://www.berufsberatung.ch/de/video-smart-choices">SMART CHOICES · Von der Studienwahl zum Studienalltag</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/hochschultypen/infotage-der-hochschulen">Infotage der Hochschulen</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/die-berufs-studien-und-laufbahnberatung-der-schweiz">Beratungsstellen der BIZ</a></li>
+      </ul>
+    </details>
+    <details class="career-reflection" data-resource-step="3" hidden>
+      <summary>Zulassung und Studienalltag planen · Links der Berufsberatung</summary>
+      <ul>
+        <li><a href="https://www.berufsberatung.ch/de/studium/hochschulzulassung">Hochschulzulassung im Überblick</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/zulassung-zur-fachhochschule">Zulassung zur FH</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/hochschulzulassung/zulassung-zur-paedagogischen-hochschule">Zulassung zur PH</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/hochschulzulassung/zulassung-zur-universitaet/eth/ergaenzungspruefung-passerelle">Passerelle zu Universität und ETH</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/studienplanung/anmeldung-an-der-hochschule">Anmeldung und Fristen</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/studienplanung/studium-finanzieren">Studium finanzieren</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium-und-militaerdienst-zivildienst">Studium und Militär- oder Zivildienst</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/im-ausland-studieren">Im Ausland studieren</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/studium/akademische-laufbahn">Akademische Laufbahn</a></li>
+        <li><a href="https://www.berufsberatung.ch/de/haeufige-fragen-und-antworten">Häufige Fragen</a></li>
+      </ul>
+    </details>
     <div id="career-film"></div>
     <button type="button" id="career-back" class="secondary" hidden>Zurück</button>
     <button id="career-next">Weiter</button>
@@ -280,6 +330,6 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
   <p class="muted">Grundlage ist die Übersicht zu praxisorientierten Ausbildungen der Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz aus «berufe.pdf».</p>
 </section>
 <section id="plan"><h2>Mein nächster Schritt</h2><div class="panel"><p id="progress" role="status"></p><div id="tasks"></div><p><label for="notes"><strong>Meine Interessen, Stärken und Werte</strong></label></p><textarea id="notes" placeholder="Was mache ich gerne? Was kann ich gut? Was ist mir wichtig?"></textarea><p class="muted">Dein Plan und deine Auswahl werden in diesem Browser gespeichert, sofern der Browser dies erlaubt.</p></div></section></main>
-<footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>.</footer>
+<footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>.</footer>
 <script src="app.js?v=praxisvergleich"></script>
-<script src="career-guide.js?v=fms-alternativen" defer></script></body></html>
+<script src="career-guide.js?v=berufsberatung" defer></script></body></html>
