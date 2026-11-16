@@ -3,7 +3,8 @@ const careerQuestions = [
     teach: 'Unterrichten und erklären', support: 'Individuell fördern',
     language: 'Mit Sprache arbeiten', movement: 'Mit Bewegung und Spiel arbeiten',
     daily: 'Selbstständigkeit im Alltag fördern', counsel: 'Beraten und Konflikte klären',
-    care: 'Kinder betreuen und begleiten', youth: 'Mit Jugendlichen arbeiten'
+    care: 'Kinder betreuen und begleiten', youth: 'Mit Jugendlichen arbeiten',
+    mind: 'Erleben und Verhalten verstehen', research: 'Forschen und Daten auswerten'
   }],
   ['Welche Eigenschaften passen zu dir?', {
     patient: 'Geduldig', creative: 'Kreativ', structured: 'Strukturiert',
@@ -12,7 +13,8 @@ const careerQuestions = [
   ['Was gelingt dir bereits oder möchtest du gezielt üben?', {
     explain: 'Verständlich erklären', observe: 'Genau beobachten',
     listen: 'Aktiv zuhören', groups: 'Gruppen anleiten',
-    plan: 'Aktivitäten planen', collaborate: 'Im Team zusammenarbeiten'
+    plan: 'Aktivitäten planen', collaborate: 'Im Team zusammenarbeiten',
+    analyse: 'Informationen systematisch auswerten'
   }]
 ];
 
@@ -112,6 +114,48 @@ const careers = [
     route: 'Der HfH-Master setzt eine anerkannte tertiäre Vorbildung und einschlägige Berufserfahrung voraus. Je nach Abschluss kommen Zusatzleistungen hinzu.',
     next: 'Vergleiche vor der Wahl einer Erstausbildung die von der HfH anerkannten Vorbildungen.',
     links: [['HfH · Master', hfh + 'ma-heilpaedagogische-frueherziehung/auf-einen-blick'], ['HfH · Zulassung', hfh + 'ma-heilpaedagogische-frueherziehung/zulassung']]
+  },
+  {
+    title: 'Angewandte Psychologie · ZHAW',
+    tags: ['mind', 'research', 'counsel', 'empathic', 'structured', 'listen', 'analyse'],
+    work: 'Psychologische Erkenntnisse auf Fragen aus Beruf, Gesundheit und Gesellschaft anwenden.',
+    route: {
+      fms: 'Erwirb zuerst eine anerkannte Fachmaturität. Plane auch Arbeitswelterfahrung und Eignungsprüfung ein.',
+      other: 'Die ZHAW akzeptiert Fachmaturitäten aller Richtungen. Bei der Anmeldung brauchst du zwölf Monate Arbeitswelterfahrung zu 100 Prozent ausserhalb einer Ausbildung oder entsprechend länger in Teilzeit. Dazu kommt die Eignungsprüfung.'
+    },
+    next: 'Kläre bei der ZHAW, welche Tätigkeiten für deine Arbeitswelterfahrung zählen.',
+    links: [['ZHAW · Bachelor in Zürich', 'https://www.zhaw.ch/de/psychologie/studium/bachelor'], ['ZHAW · Zulassung und Eignungsprüfung', 'https://www.zhaw.ch/de/psychologie/studium/bachelor/zulassung']]
+  },
+  {
+    title: 'Angewandte Psychologie · FHNW Olten',
+    tags: ['mind', 'research', 'structured', 'analyse', 'collaborate'],
+    work: 'Untersuchen, wie Menschen bei der Arbeit, in Organisationen und in wirtschaftlichen Situationen handeln und entscheiden.',
+    route: {
+      fms: 'Erwirb zuerst eine anerkannte Fachmaturität. Kläre früh, welche Praxiserfahrung die FHNW anrechnet.',
+      other: 'Für die verlinkten Bachelorangebote akzeptiert die FHNW anerkannte Fachmaturitäten aller Berufsfelder. Sie verlangt mindestens ein Jahr Arbeitswelterfahrung bei mindestens 80 Prozent sowie ein Eignungsverfahren.'
+    },
+    next: 'Vergleiche Arbeits-, Organisations- und Personalpsychologie mit Wirtschaftspsychologie. Die Studiengangsseiten nennen die jeweiligen Termine und Zulassungsbedingungen.',
+    links: [['FHNW · Arbeits-, Organisations- und Personalpsychologie', 'https://www.fhnw.ch/de/psychologie/studium/angebot/studiengaenge/bachelor-arbeits-organisations-personalpsychologie'], ['FHNW · Wirtschaftspsychologie', 'https://www.fhnw.ch/de/psychologie/studium/angebot/studiengaenge/bachelor-wirtschaftspsychologie'], ['FHNW · Zulassungsbüro', 'https://www.fhnw.ch/de/psychologie/ueber-uns/personen/zulassung-bachelor-master']]
+  },
+  {
+    title: 'Psychologie an der Universität',
+    tags: ['mind', 'research', 'structured', 'observe', 'analyse'],
+    work: 'Erleben und Verhalten erforschen und dabei auch Statistik, Forschungsmethoden und psychologische Diagnostik kennenlernen.',
+    route: {
+      fms: 'Ein möglicher Weg führt über die Fachmaturität und die bestandene Passerelle zum universitären Bachelor.',
+      gym: 'Die gymnasiale Matura ist ein regulärer Zugang zum Bachelor. Prüfe die Vorgaben der Universität.',
+      other: 'Die bestandene Passerelle eröffnet dir mit der Fachmaturität den Weg zum universitären Bachelor.'
+    },
+    next: 'Vergleiche Studienpläne und Masterangebote, etwa an der Universität Zürich und der Universität Freiburg.',
+    links: [['UZH · Psychologie und Zugang', 'https://www.psychologie.uzh.ch/de/studium/interesse/voraussetzungen.html'], ['Universität Freiburg · Bachelor und Zulassung', 'https://studies.unifr.ch/de/bachelor/pedpsy/psychology']]
+  },
+  {
+    title: 'Schulpsychologie',
+    tags: ['mind', 'support', 'counsel', 'youth', 'empathic', 'observe', 'listen', 'analyse', 'collaborate'],
+    work: 'Lern-, Entwicklungs- und Verhaltensfragen abklären und Kinder, Eltern sowie Schulen beraten.',
+    route: 'Plane einen Bachelor und danach einen Master in Psychologie. Der Kanton Schwyz verlangt für schulpsychologische Stellen einen Master oder ein Lizentiat in Psychologie.',
+    next: 'Lies das Aufgabenprofil des Schulpsychologischen Dienstes und vergleiche Psychologiestudiengänge mit Blick auf Diagnostik, Entwicklungspsychologie und Praktika.',
+    links: [['Kanton Schwyz · Schulpsychologischer Dienst', 'https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-volksschulen-und-sport/besonderer-bildungsbedarf/schulpsychologie.html/8756-8758-8802-9466-9467-12713-12723'], ['Kanton Schwyz · Anforderungsprofil einer schulpsychologischen Stelle', 'https://jobs.sz.ch/offene-stellen/schulpsychologin-schulpsychologe/2077e80b-f676-42ea-a091-d19608261e62']]
   }
 ];
 
@@ -139,7 +183,7 @@ function renderCareerResults() {
 
   status.textContent = selected.size
     ? 'Die Berufe mit den meisten Übereinstimmungen stehen zuerst. Interessen zählen doppelt. Die Reihenfolge dient zur Orientierung.'
-    : 'Alle neun Berufsfelder. Wähle Interessen und Stärken aus, um die Reihenfolge anzupassen.';
+    : `Alle ${careers.length} Berufs- und Studienwege. Wähle Interessen und Stärken aus, um die Reihenfolge anzupassen.`;
 
   results.innerHTML = ranked.map(({career, matches}) => {
     const route = typeof career.route === 'string'
