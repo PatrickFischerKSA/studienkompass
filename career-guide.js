@@ -42,7 +42,7 @@ const careers = [
       other: 'Kläre das Aufnahmeverfahren für deine Fachmaturität bei der gewünschten PH.'
     },
     next: 'Vergleiche die Zielstufen und Studienformen und besuche einen Infoanlass.',
-    links: [['Drei PHs vergleichen', '#ph-vergleich']]
+    links: [['Drei PHs vergleichen', '#ph-vergleich'], ['Berufsfilm · Primarlehrerin', 'https://www.berufsberatung.ch/de/video/berufsbild-lehrer-in-auf-der-primarstufe']]
   },
   {
     title: 'Lehrperson Sekundarstufe I',
@@ -95,7 +95,7 @@ const careers = [
     work: 'Kinder mit Bewegung und Spiel in ihrer motorischen, emotionalen und sozialen Entwicklung unterstützen.',
     route: hfhBachelor,
     next: 'Achte bei einer Hospitation darauf, wie Spiel und Bewegung für individuelle Förderziele eingesetzt werden.',
-    links: [['HfH · Zulassung zum Bachelor', hfh + 'ba-psychomotoriktherapie/zulassung']]
+    links: [['HfH · Zulassung zum Bachelor', hfh + 'ba-psychomotoriktherapie/zulassung'], ['HfH · Berufsfeldfilm Psychomotoriktherapie', 'https://www.hfh.ch/news/neuer-berufsfeldfilm-psychomotoriktherapie']]
   },
   {
     title: 'Schulsozialarbeit',
@@ -180,7 +180,15 @@ const status = document.getElementById('career-status');
 const labels = Object.assign({}, ...careerQuestions.map(([, options]) => options));
 const interestKeys = Object.keys(careerQuestions[0][1]);
 
+const stepFilms = [
+  ['_eJ9cQau39Y', 'Ich lerne meine Interessen und Stärken kennen'],
+  ['HeIBH_EpLWE', 'Einfühlungsvermögen im Beruf'],
+  ['x-FM4yZCGNA', 'Organisationsfähigkeit im Beruf'],
+  ['TsX71LyHju0', 'Von der Studienwahl zum Studienalltag']
+];
+
 const questions = document.getElementById('career-questions');
+const film = document.getElementById('career-film');
 const admission = document.getElementById('career-admission');
 const preference = document.getElementById('career-preference');
 const progress = document.getElementById('career-progress');
@@ -196,6 +204,11 @@ function showCareerStep(moveFocus = false) {
   back.hidden = step === 0;
   next.textContent = admissionStep ? 'Ergebnisse anzeigen' : 'Weiter';
   questions.replaceChildren();
+  const [videoId, title] = stepFilms[step];
+  film.innerHTML = `<details><summary>Film der Berufsberatung · ${title}</summary>
+    <button type="button" class="secondary" data-video="${videoId}">YouTube-Film laden</button>
+    <a href="https://www.youtube.com/watch?v=${videoId}">Auf YouTube ansehen</a>
+  </details>`;
 
   if (!admissionStep) {
     const [question, options] = careerQuestions[step];
@@ -219,6 +232,18 @@ function showCareerStep(moveFocus = false) {
 
   if (moveFocus) (admissionStep ? credential : questions.querySelector('legend')).focus();
 }
+
+film.addEventListener('click', event => {
+  const button = event.target.closest('button[data-video]');
+  if (!button) return;
+  const player = document.createElement('iframe');
+  player.src = `https://www.youtube-nocookie.com/embed/${button.dataset.video}`;
+  player.title = stepFilms[step][1];
+  player.className = 'career-player';
+  player.allowFullscreen = true;
+  button.replaceWith(player);
+  player.focus();
+});
 
 function rememberCareerStep() {
   if (step < careerQuestions.length) {
