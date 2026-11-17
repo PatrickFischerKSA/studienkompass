@@ -88,13 +88,97 @@
   first.innerHTML = second.innerHTML = options;
   second.value = 'uzh';
 
-  function renderProfiles(interest = '') {
+  const finder = document.getElementById('gym-finder');
+  const finderResults = document.getElementById('gym-finder-results');
+  const finderQuestion = document.getElementById('gym-finder-question');
+  const finderProgress = document.getElementById('gym-finder-progress');
+  const finderBack = document.getElementById('gym-finder-back');
+  const subjects = {
+    law: {lu: 'Rechtswissenschaft / Jus mit Wirtschaft', uzh: 'Rechtswissenschaft', bern: 'Rechtswissenschaft', basel: 'Rechtswissenschaft', fr: 'Rechtswissenschaft, auch zweisprachig', ge: 'Droit', hsg: 'Law oder Law and Economics', fernuni: 'Bachelor of Law'},
+    business: {lu: 'Wirtschaftswissenschaften oder PPE', uzh: 'Wirtschaftswissenschaften', bern: 'Betriebswirtschaftslehre', basel: 'Wirtschaftswissenschaften', fr: 'Management', ge: 'Économie et management', hsg: 'BWL oder VWL', usi: 'Wirtschaftswissenschaften', hslu: 'Business Administration', zhaw: 'Betriebsökonomie', fhnw: 'Betriebsökonomie', fernuni: 'Wirtschaftswissenschaften', ffhs: 'Betriebsökonomie'},
+    society: {lu: 'Politikwissenschaft oder PPE', uzh: 'Soziologie', bern: 'Politikwissenschaft', basel: 'Soziologie', fr: 'Sozialwissenschaften', ge: 'Internationale Beziehungen', hsg: 'International Affairs', usi: 'Kommunikation', hslu: 'Soziale Arbeit', zhaw: 'Soziale Arbeit', fhnw: 'Soziale Arbeit'},
+    culture: {lu: 'Kulturwissenschaften', uzh: 'Germanistik', bern: 'Geschichte', basel: 'Geschichte', fr: 'Sprachen oder Mehrsprachigkeit', ge: 'Lettres', usi: 'Italienische Sprache, Literatur und Kultur', fernuni: 'Geschichte'},
+    health: {lu: 'Gesundheitswissenschaften', uzh: 'Psychologie, Humanmedizin oder Chiropraktik', bern: 'Humanmedizin mit PBL oder Psychologie', basel: 'Pharmazeutische Wissenschaften oder Humanmedizin', fr: 'Psychologie', ge: 'Psychologie oder Medizin', epfl: 'Life Sciences Engineering', zhaw: 'Angewandte Psychologie oder Ergotherapie', fhnw: 'Angewandte Psychologie', fernuni: 'Psychologie', ffhs: 'Ernährung und Gesundheit'},
+    science: {uzh: 'Biologie', bern: 'Biologie', basel: 'Biologie', fr: 'Biologie', ge: 'Biologie', eth: 'Physik oder Umweltnaturwissenschaften', epfl: 'Physik oder Life Sciences Engineering', zhaw: 'Biotechnologie', fernuni: 'Mathematik'},
+    tech: {uzh: 'Informatik', bern: 'Informatik', basel: 'Informatik', fr: 'Informatik', ge: 'Informatique', hsg: 'Computer Science', usi: 'Informatik oder Architektur', eth: 'Informatik, Architektur oder Maschineningenieurwissenschaften', epfl: 'Informatik, Architektur oder Maschinenbau', hslu: 'Informatik oder Architektur', zhaw: 'Informatik oder Medizininformatik', fhnw: 'Informatik', ffhs: 'Wirtschaftsinformatik'},
+    arts: {hslu: 'Design, Film oder Kunst', fhnw: 'Gestaltung oder Musik', zhdk: 'Design, Film, Fine Arts, Musik, Tanz oder Theater', music: 'Musik in Klassik, Jazz oder Volksmusik'}
+  };
+  const photos = ['studying','banking','social','architecture','nursing','lab','studio','theatre'];
+  const finderSteps = [
+    ['Welches Fachgebiet zieht dich an?', Object.entries(interests).map(([key, title], index) => [key, title, photos[index]])],
+    ['Wie möchtest du arbeiten?', [
+      ['research', 'Fragen erforschen und Theorien verstehen', 'lab'],
+      ['practice', 'In Projekten und an praktischen Aufgaben lernen', 'studio'],
+      ['creative', 'Gestalten, auftreten oder künstlerisch arbeiten', 'theatre'],
+      ['any', 'Ich möchte beides kennenlernen', 'studying']
+    ]],
+    ['Wie soll dein Studienalltag aussehen?', [
+      ['campus', 'Vor Ort am Campus studieren', 'campus'],
+      ['distance', 'Mit Fernstudium flexibel bleiben', 'studying'],
+      ['any', 'Beide Studienformen prüfen', 'plan']
+    ]]
+  ];
+  const finderAnswers = [];
+  let finderStep = 0;
+  const distanceIds = ['fernuni', 'ffhs'];
+
+  function renderFinder() {
+    const finished = finderStep === finderSteps.length;
+    finderResults.hidden = !finished;
+    finderBack.hidden = finderStep === 0;
+    finderProgress.textContent = finished ? 'Deine Studienvorschläge' : `Frage ${finderStep + 1} von ${finderSteps.length}`;
+    if (finished) {
+      finderQuestion.replaceChildren();
+      filters.value = finderAnswers[0];
+      renderProfiles(filters.value, true);
+      return;
+    }
+    const [question, choices] = finderSteps[finderStep];
+    finderQuestion.innerHTML = `<fieldset><legend tabindex="-1">${question}</legend>
+      <div class="career-question-cards">${choices.map(([key, title, photo]) =>
+        `<button type="button" class="career-question-card" data-gym-answer="${key}" aria-pressed="${finderAnswers[finderStep] === key}">
+          <img src="images/${photo}.webp" alt="" width="320" height="180"><span>${title}</span>
+        </button>`).join('')}</div></fieldset>`;
+  }
+
+  function focusFinder() {
+    (finderQuestion.querySelector('legend') ?? filters).focus({preventScroll: true});
+    finder.scrollIntoView({block: 'start'});
+  }
+
+  finder.addEventListener('click', event => {
+    const answer = event.target.closest('[data-gym-answer]');
+    if (!answer) return;
+    finderAnswers[finderStep++] = answer.dataset.gymAnswer;
+    renderFinder();
+    focusFinder();
+  });
+  finderBack.addEventListener('click', () => {
+    finderStep--;
+    renderFinder();
+    focusFinder();
+  });
+
+  function fit(school) {
+    const [id, , , type] = school;
+    const [, approach, format] = finderAnswers;
+    const distance = distanceIds.includes(id);
+    const creative = id === 'hslu' || id === 'fhnw' || id === 'zhdk' || id === 'music';
+    const practice = type.includes('Fachhochschule') || creative;
+    return (format === 'distance' && distance || format === 'campus' && !distance ? 2 : 0)
+      + (approach === 'research' && !practice || approach === 'practice' && practice || approach === 'creative' && creative ? 1 : 0);
+  }
+
+  function renderProfiles(interest = '', ranked = false) {
     const matches = schools.filter(school => !interest || school[5].includes(interest));
-    document.getElementById('gym-count').textContent = `${matches.length} Hochschulen`;
+    if (ranked) matches.sort((a, b) => fit(b) - fit(a));
+    document.getElementById('gym-count').textContent = ranked
+      ? `${matches.length} Hochschulen · nach deinen Antworten geordnet`
+      : `${matches.length} Hochschulen`;
     profiles.innerHTML = matches
       .map(([id, title, place, type, language, fields, programmes, focus, url]) => `<article class="panel gym-school">
         <h3>${title}</h3><p class="muted">${place} · ${type}</p>
-        <p>${programmes}</p>
+        <p>${interest && subjects[interest][id] ? `<strong>${subjects[interest][id]}</strong>` : programmes}</p>
         <details><summary>Was zeichnet sie aus?</summary><p>${focus}</p><p>Unterrichtssprache: ${language}</p></details>
         <p><a href="${url}">Offizielles Angebot und Informationen</a></p>
         ${id === 'lu' ? '' : `<button type="button" class="secondary" data-gym-compare="${id}">Mit Luzern vergleichen</button>`}
@@ -149,7 +233,7 @@
   filters.innerHTML = [['', 'Alle Studienbereiche'], ...Object.entries(interests)].map(([key, label]) =>
     `<option value="${key}">${label}</option>`
   ).join('');
-  filters.addEventListener('change', () => renderProfiles(filters.value));
+  filters.addEventListener('change', () => renderProfiles(filters.value, filters.value === finderAnswers[0]));
   profiles.addEventListener('click', event => {
     const picked = event.target.closest('[data-gym-compare]');
     if (!picked) return;
@@ -160,6 +244,6 @@
   });
   first.addEventListener('change', renderComparison);
   second.addEventListener('change', renderComparison);
-  renderProfiles();
+  renderFinder();
   renderComparison();
 }

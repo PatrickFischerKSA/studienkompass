@@ -140,3 +140,12 @@ body:has(dialog[open]) { overflow: hidden; }
   .gym-start img { height: 100%; aspect-ratio: 1; }
   .gym-start span { padding: 10px; }
 }
+#gym-finder { scroll-margin-top: 12px; }
+#gym-finder .career-question-card {
+  display: flex; flex-direction: column; align-items: stretch;
+  padding: 0; overflow: hidden; border: 2px solid #cbd5c4;
+  border-radius: 14px; background: #fff; color: var(--forest); text-align: left;
+}
+#gym-finder .career-question-card:hover,
+#gym-finder .career-question-card[aria-pressed="true"] { border-color: var(--forest); background: #eaf2dc; }
+#gym-finder-results > select { display: block; width: min(100%, 360px); margin-block: 6px 12px; }
