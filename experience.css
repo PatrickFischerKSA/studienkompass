@@ -156,12 +156,44 @@ body:has(dialog[open]) { overflow: hidden; }
 .mode-links li + li { margin-top: 14px; }
 @media (max-width: 650px) { .mode-grid { grid-template-columns: 1fr; } }
 .cover .mode-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
-  margin-top: 18px;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: clamp(12px, 2vw, 24px);
+  padding: clamp(16px, 3vw, 36px);
+  background: #102e29;
 }
-.cover .mode-grid a { grid-template-columns: 1fr; color: var(--forest); }
-.cover .mode-grid img { display: none; }
-.cover .mode-grid span { min-width: 0; padding: 13px; overflow-wrap: anywhere; }
+.cover .mode-grid a {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  border: 0;
+  box-shadow: 0 5px 18px #0003;
+}
+.cover .mode-grid img {
+  display: block;
+  height: auto;
+  aspect-ratio: 2.35;
+}
+.cover .mode-grid span {
+  min-width: 0;
+  padding: 16px 42px 18px 16px;
+  position: relative;
+  overflow-wrap: anywhere;
+}
+.cover .mode-grid span::after {
+  content: "";
+  position: absolute;
+  right: 17px;
+  top: 21px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+}
+.cover .mode-grid a:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 3px;
+}
 
 #practice-offers {
   margin-block: 1rem;
