@@ -208,6 +208,15 @@ body:has(dialog[open]) { overflow: hidden; }
   .cover .mode-grid span::after { top: 50%; right: 10px; transform: translateY(-50%) rotate(45deg); }
 }
 
+@media (max-width: 360px) {
+  .home-header { gap: 8px; padding-block: 10px; }
+  .home-header nav { gap: 4px 10px; }
+  .home-header + main { padding-top: 8px; }
+  .cover-copy { padding: 16px 16px 10px; }
+  .cover-copy > p:not(.cover-context) { display: none; }
+  .cover .mode-grid { padding: 10px; }
+}
+
 #practice-offers {
   margin-block: 1rem;
 }
