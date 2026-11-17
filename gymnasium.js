@@ -89,7 +89,9 @@
   second.value = 'uzh';
 
   function renderProfiles(interest = '') {
-    profiles.innerHTML = schools.filter(school => !interest || school[5].includes(interest))
+    const matches = schools.filter(school => !interest || school[5].includes(interest));
+    document.getElementById('gym-count').textContent = `${matches.length} Hochschulen`;
+    profiles.innerHTML = matches
       .map(([id, title, place, type, language, fields, programmes, focus, url]) => `<article class="panel gym-school">
         <h3>${title}</h3><p class="muted">${place} · ${type}</p>
         <p>${programmes}</p>
@@ -113,23 +115,48 @@
       ).join('')}</div><p class="muted">Gemeinsame Bereiche können unterschiedliche Studiengänge einschliessen. Vergleiche die Pflichtmodule und Zulassung des konkreten Bachelors.</p>`;
   }
 
-  filters.innerHTML = [['', 'Alle Hochschulen'], ...Object.entries(interests)].map(([key, label]) =>
-    `<button type="button" class="secondary" data-gym-interest="${key}" aria-pressed="${!key}">${label}</button>`
-  ).join('');
-  filters.addEventListener('click', event => {
-    const picked = event.target.closest('[data-gym-interest]');
-    if (!picked) return;
-    for (const button of filters.querySelectorAll('button')) button.setAttribute('aria-pressed', String(button === picked));
-    renderProfiles(picked.dataset.gymInterest);
+  const start = document.getElementById('gym-start');
+  const back = document.getElementById('gym-back');
+  const views = document.querySelectorAll('#gymnasium .gym-view');
+  const topicChoice = document.getElementById('gym-topic-select');
+  let lastEntry;
+
+  function openView(view) {
+    for (const panel of views) panel.hidden = panel !== view;
+    start.hidden = Boolean(view);
+    back.hidden = !view;
+    const focus = view?.querySelector('h3') ?? lastEntry;
+    focus?.focus({preventScroll: true});
+    document.getElementById('gymnasium').querySelector('h2').scrollIntoView({block: 'start'});
+  }
+
+  start.addEventListener('click', event => {
+    const entry = event.target.closest('[data-gym-view]');
+    if (!entry) return;
+    lastEntry = entry;
+    openView(document.getElementById(`gym-${entry.dataset.gymView}`));
   });
+  back.addEventListener('click', () => openView(null));
+
+  function showTopic() {
+    for (const topic of document.querySelectorAll('#gym-topics .gym-topic')) {
+      topic.hidden = topic.id !== topicChoice.value;
+    }
+  }
+  topicChoice.addEventListener('change', showTopic);
+  showTopic();
+
+  filters.innerHTML = [['', 'Alle Studienbereiche'], ...Object.entries(interests)].map(([key, label]) =>
+    `<option value="${key}">${label}</option>`
+  ).join('');
+  filters.addEventListener('change', () => renderProfiles(filters.value));
   profiles.addEventListener('click', event => {
     const picked = event.target.closest('[data-gym-compare]');
     if (!picked) return;
     first.value = 'lu';
     second.value = picked.dataset.gymCompare;
     renderComparison();
-    first.focus({preventScroll: true});
-    document.getElementById('gym-compare-title').scrollIntoView({block: 'start'});
+    openView(document.getElementById('gym-compare'));
   });
   first.addEventListener('change', renderComparison);
   second.addEventListener('change', renderComparison);

@@ -121,3 +121,22 @@ body:has(dialog[open]) { overflow: hidden; }
 .gym-topic { margin-block: 22px; scroll-margin-top: 78px; }
 .gym-topic li + li { margin-top: 8px; }
 .gym-topic dd { margin: 5px 0 0; }
+
+#gymnasium [hidden] { display: none; }
+#gymnasium > h2 { scroll-margin-top: 12px; }
+.gym-start { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.gym-start button { display: grid; align-content: start; overflow: hidden; padding: 0; border: 1px solid #cbd5c4; border-radius: 16px; background: #fffefa; color: var(--forest); text-align: left; }
+.gym-start button:hover { border-color: var(--forest); background: #eaf2dc; }
+.gym-start img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
+.gym-start span { padding: 14px; }
+.gym-start strong, .gym-start small { display: block; }
+.gym-start small { margin-top: 4px; font-weight: normal; }
+#gym-back { margin-bottom: 12px; }
+.gym-view > h3 { margin-block: 8px; }
+.gym-view > select { display: block; width: min(100%, 360px); margin-block: 6px 12px; }
+@media (max-width: 650px) {
+  .gym-start { grid-template-columns: 1fr; gap: 10px; }
+  .gym-start button { grid-template-columns: 26% 1fr; align-items: center; }
+  .gym-start img { height: 100%; aspect-ratio: 1; }
+  .gym-start span { padding: 10px; }
+}

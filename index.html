@@ -92,7 +92,7 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css?v=medizin"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=gym-uebersicht"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
   <nav aria-label="Hauptnavigation"><a href="#beratung">FMS-Berufsguide</a><a href="#gymnasium">Nach dem Gymnasium</a><a href="#ph-vergleich">PH-Vergleich</a><a href="#praxisvergleich">Praxisvergleich</a><a href="#plan">Mein Plan</a></nav>
@@ -120,24 +120,40 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
   </section>
 <section id="gymnasium">
   <h2>Studieren nach dem Gymnasium</h2>
-  <p>Wähle ein Interesse, erkunde passende Hochschulen und vergleiche ihre Bachelorangebote.</p>
-  <nav class="gym-interests" aria-label="Themen im Gymnasialmodus">
-    <a class="button" href="#gym-medizin">Medizin und Numerus clausus</a>
-    <a class="button" href="#gym-luzern">Besondere Angebote in Luzern</a>
-    <a class="button" href="#gym-fern">Fernstudium</a>
-    <a class="button" href="#gym-hochschultypen">Uni und FH</a>
-    <a class="button" href="#gym-weiterbildung">CAS, DAS und MAS</a>
-  </nav>
-  <div class="gym-interests" role="group" aria-label="Studieninteressen" id="gym-interests"></div>
-  <div id="gym-schools" class="grid" aria-label="Hochschulprofile"></div>
+  <div id="gym-start" class="gym-start">
+    <button type="button" data-gym-view="find"><img src="images/campus.webp" alt=""><span><strong>Hochschulen finden</strong><small>Nach Interesse suchen</small></span></button>
+    <button type="button" data-gym-view="compare"><img src="images/architecture.webp" alt=""><span><strong>Hochschulen vergleichen</strong><small>Zwei Standorte nebeneinander</small></span></button>
+    <button type="button" data-gym-view="topics"><img src="images/studying.webp" alt=""><span><strong>Studienwege verstehen</strong><small>Medizin, Fernstudium, Zulassung und mehr</small></span></button>
+  </div>
+  <button type="button" class="secondary" id="gym-back" hidden>← Zur Übersicht</button>
+  <section id="gym-find" class="gym-view" hidden>
+    <h3 tabindex="-1">Hochschulen finden</h3>
+    <label for="gym-interests">Welcher Studienbereich interessiert dich?</label>
+    <select id="gym-interests"></select>
+    <p id="gym-count" class="muted" role="status"></p>
+    <div id="gym-schools" class="grid" aria-label="Hochschulprofile"></div>
+  </section>
+  <div id="gym-compare" class="gym-view" hidden>
   <section class="panel gym-compare" aria-labelledby="gym-compare-title">
-    <h3 id="gym-compare-title">Zwei Hochschulen im direkten Vergleich</h3>
+    <h3 id="gym-compare-title" tabindex="-1">Zwei Hochschulen im direkten Vergleich</h3>
     <div class="gym-comparison-selects">
       <label>Erste Hochschule <select id="gym-first"></select></label>
       <label>Zweite Hochschule <select id="gym-second"></select></label>
     </div>
     <div id="gym-comparison" aria-live="polite"></div>
   </section>
+  </div>
+  <section id="gym-topics" class="gym-view" hidden>
+    <h3 tabindex="-1">Studienwege verstehen</h3>
+    <label for="gym-topic-select">Thema wählen</label>
+    <select id="gym-topic-select">
+      <option value="gym-medizin">Medizin und Numerus clausus</option>
+      <option value="gym-luzern">Besondere Angebote in Luzern</option>
+      <option value="gym-fern">Fernstudium</option>
+      <option value="gym-hochschultypen">Universität und Fachhochschule</option>
+      <option value="gym-weiterbildung">CAS, DAS und MAS</option>
+      <option value="gym-zulassung">Zulassung mit gymnasialer Matura</option>
+    </select>
   <section class="panel gym-topic" id="gym-medizin">
     <h3>Medizin studieren und lernen</h3>
     <div class="gym-comparison-grid">
@@ -187,10 +203,11 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
     </dl>
     <p><a href="https://www.sbfi.admin.ch/de/diplome-und-titel-an-schweizer-hochschulen">Abschlüsse und ECTS beim SBFI</a> · <a href="https://www.unilu.ch/fakultaeten/vpf/weiterbildung/">Weiterbildungsbeispiele aus Luzern</a></p>
   </section>
-  <section class="panel">
+  <section class="panel gym-topic" id="gym-zulassung">
     <h3>Mit gymnasialer Matura bewerben</h3>
     <p>Eine anerkannte Schweizer gymnasiale Matura eröffnet grundsätzlich den Zugang zu Universitäten und ETH/EPFL. Für Medizin gelten eigene Anmelde- und Auswahlregeln. An Fachhochschulen ist häufig einschlägige Arbeitswelterfahrung nötig. Kunst- und Musikstudiengänge prüfen je nach Fach ein Portfolio, eine Aufnahmeprüfung oder ein Vorspiel.</p>
     <a href="https://www.swissuniversities.ch/themen/zulassung/schweizerische-vorbildungsausweise-/-oder-passerelle">Zulassungsregeln von swissuniversities</a>
+  </section>
   </section>
 </section>
 <section id="beratung">
@@ -457,5 +474,5 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>. Bildmotive sind KI-generierte Illustrationen.</footer>
 <script src="app.js?v=praxisvergleich"></script>
 <script src="career-guide.js?v=mobiltest" defer></script>
-<script src="gymnasium.js?v=2" defer></script>
+<script src="gymnasium.js?v=3" defer></script>
 <script src="experience.js?v=gymnasium" defer></script></body></html>
