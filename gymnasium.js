@@ -226,6 +226,7 @@
 
   setupMode('fms', 'fms');
   setupMode('praxis', 'practice');
+  setupMode('sport', 'sport');
   const openView = setupMode('gymnasium', 'gym');
   const topicChoice = document.getElementById('gym-topic-select');
 

@@ -92,7 +92,7 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css?v=kompakt320"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=sportmodus"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
   <nav aria-label="Hauptnavigation"><a href="#fms">FMS</a><a href="#gymnasium">Gymnasium</a><a href="#praxis">Rein in die Praxis</a><a href="#plan">Mein Plan</a></nav>
@@ -109,8 +109,34 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
       <a href="#fms"><img src="images/teaching.webp" alt=""><span><strong>Fachmittelschule</strong><small>FMS-Ausweis oder Fachmaturität</small></span></a>
       <a href="#gymnasium"><img src="images/studying.webp" alt=""><span><strong>Gymnasium</strong><small>Gymnasiale Matura</small></span></a>
       <a href="#praxis"><img src="images/studio.webp" alt=""><span><strong>Rein in die Praxis</strong><small>Lehrstellen, Praktika und Jobs</small></span></a>
+      <a href="#sport"><img src="images/movement.webp" alt=""><span><strong>Sportlich unterwegs</strong><small>Spitzensport nach der K+S</small></span></a>
     </nav>
   </section>
+<section id="sport">
+  <h2>Sportlich unterwegs</h2>
+  <p>Du willst nach der K+S im Spitzensport weiterkommen. Plane deinen nächsten sportlichen Schritt und finde heraus, welche Ausbildung oder Arbeit daneben Platz hat.</p>
+  <div id="sport-start" class="gym-start">
+    <button type="button" data-mode-view="find"><img src="images/movement.webp" alt=""><span><strong>Meinen Weg planen</strong><small>Training, Wettkampf und Ausbildung</small></span></button>
+    <button type="button" data-mode-view="topics"><img src="images/plan.webp" alt=""><span><strong>Beratung und Anlaufstellen</strong><small>KSA, Verband und Swiss Olympic</small></span></button>
+  </div>
+  <button type="button" class="secondary mode-back" hidden>← Zur Übersicht</button>
+  <section id="sport-find" class="gym-view" hidden>
+    <h3 tabindex="-1">Dein Plan für die nächste Saison</h3>
+    <div class="panel">
+      <p id="sport-progress" class="muted" role="status"></p>
+      <div id="sport-question"></div>
+      <button type="button" id="sport-back" class="secondary" hidden>← Zurück</button>
+    </div>
+  </section>
+  <section id="sport-topics" class="gym-view" hidden>
+    <h3 tabindex="-1">Wer dir beim Planen hilft</h3>
+    <div class="gym-comparison-grid">
+      <article><h4>K+S an der KSA</h4><p>Besprich mit deiner K+S-Ansprechperson den Übergang nach der Matura und die nächsten Termine.</p><a href="https://www.ksasz.ch/de/gymnasium-ksa/gymnasium/ausbildung/sport-und-musikbegabte">Kunst- und Sportklasse der KSA</a></article>
+      <article><h4>Trainerteam und Verband</h4><p>Kläre Trainingsumfang, Selektionskriterien, Wettkämpfe und die Rolle deiner Swiss Olympic Card, falls du eine hast.</p><a href="https://www.swissolympic.ch/athlete-hub/erziehungsberechtigte/ausbildung-sport">Ausbildung und Sport bei Swiss Olympic</a></article>
+      <article><h4>Hochschule und Spitzensport</h4><p>Erkundige dich vor der Anmeldung nach Ansprechperson, Teilzeit, Präsenzpflicht und Prüfungen bei Wettkampfkonflikten. Die Hochschule entscheidet über die Möglichkeiten.</p><a href="https://www.swissolympic.ch/athlete-hub/Aus--und-Weiterbildung/studium">Spitzensport und Studium bei Swiss Olympic</a></article>
+    </div>
+  </section>
+</section>
 <section id="praxis">
   <h2>Rein in die Praxis</h2>
   <div id="practice-start" class="gym-start">
@@ -544,7 +570,8 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>. Bildmotive sind KI-generierte Illustrationen.</footer>
 <script src="app.js?v=praxisvergleich"></script>
 <script src="career-guide.js?v=mobiltest" defer></script>
-<script src="gymnasium.js?v=6" defer></script>
+<script src="gymnasium.js?v=7" defer></script>
 <script src="practice-offers.js?v=1" defer></script>
 <script src="practice.js?v=2" defer></script>
-<script src="experience.js?v=praxis" defer></script></body></html>
+<script src="sport.js?v=1" defer></script>
+<script src="experience.js?v=sport" defer></script></body></html>

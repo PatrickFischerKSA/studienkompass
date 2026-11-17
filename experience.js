@@ -1,4 +1,5 @@
 const sceneDefinitions = [
+  ['sport', 'Sportlich unterwegs', 'movement'],
   ['praxis', 'Rein in die Praxis', 'studio'],
   ['fms', 'FMS-Modus', 'teaching'],
   ['gymnasium', 'Gymnasialmodus', 'studying'],
