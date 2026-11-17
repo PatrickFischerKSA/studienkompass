@@ -155,10 +155,13 @@ body:has(dialog[open]) { overflow: hidden; }
 .mode-links { padding-left: 22px; }
 .mode-links li + li { margin-top: 14px; }
 @media (max-width: 650px) { .mode-grid { grid-template-columns: 1fr; } }
-.cover .mode-grid { margin-top: 18px; }
+.cover .mode-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  margin-top: 18px;
+}
 .cover .mode-grid a { grid-template-columns: 1fr; color: var(--forest); }
 .cover .mode-grid img { display: none; }
-.cover .mode-grid span { padding: 13px; }
+.cover .mode-grid span { min-width: 0; padding: 13px; overflow-wrap: anywhere; }
 
 #practice-offers {
   margin-block: 1rem;
