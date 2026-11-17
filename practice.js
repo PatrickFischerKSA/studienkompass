@@ -31,6 +31,20 @@
   const progress = document.getElementById('practice-progress');
   const back = document.getElementById('practice-back');
   const results = document.getElementById('practice-results');
+  const offers = document.getElementById('practice-offers');
+  const regionFilter = document.getElementById('practice-region');
+  const kindFilter = document.getElementById('practice-kind');
+  const qualificationFilter = document.getElementById('practice-qualification');
+  const offerCount = document.getElementById('practice-offer-count');
+  const offerCards = document.getElementById('practice-offer-cards');
+  const offerKinds = {apprenticeship: 'Lehrstelle', internship: 'Praktikum', job: 'Job'};
+  const statusLabels = {
+    accepted: 'Als Vorbildung anerkannt',
+    possible: 'Bewerbung möglich, siehe Voraussetzungen',
+    conditional: 'Weitere Voraussetzungen erforderlich',
+    clarify: 'Beim Betrieb abklären',
+    insufficient: 'Allein nicht ausreichend'
+  };
   const answers = [];
   let step = 0;
 
@@ -38,6 +52,7 @@
     const [chosenPath, field, priority] = answers;
     const preferred = {soon:'job', learn:'internship', long:'apprenticeship'}[priority];
     const first = chosenPath === 'open' ? preferred : chosenPath;
+    renderOffers(first, field);
     const ordered = [first, ...Object.keys(paths).filter(key => key !== first)];
     const nextStep = {
       soon: 'Filtere nach «per sofort», «befristet» oder einem passenden Startdatum.',
@@ -51,10 +66,34 @@
     }).join('');
   }
 
+  function renderOffers(preferredKind, field) {
+    const qualification = qualificationFilter.value;
+    const score = offer => 2 * (offer.kind === preferredKind) + (offer.field === field);
+    const matches = regionalPracticeOffers.filter(offer =>
+      (!regionFilter.value || offer.region === regionFilter.value) &&
+      (!kindFilter.value || offer.kind === kindFilter.value) &&
+      (!qualification || offer[qualification] !== 'insufficient')
+    ).sort((a, b) => score(b) - score(a));
+
+    offerCount.textContent = matches.length
+      ? `${matches.length} ${matches.length === 1 ? 'Angebot' : 'Angebote'}${qualification ? ' einschliesslich Stellen mit weiteren Voraussetzungen oder Abklärungsbedarf' : ''}`
+      : 'Für diese Auswahl gibt es hier gerade kein Inserat. Probiere einen anderen Kanton oder Einstieg.';
+    offerCards.innerHTML = matches.map(offer => `<article>
+      <p class="muted">${offerKinds[offer.kind]} · Kanton ${offer.region}</p>
+      <h5>${offer.title}</h5>
+      <p><strong>${offer.employer}</strong><br>${offer.place}<br>${offer.timing}</p>
+      <p><strong>Voraussetzungen</strong><br>${offer.requirements}</p>
+      <p><strong>FMS-Ausweis</strong> · ${statusLabels[offer.fms]}<br><strong>Gymnasiale Matura</strong> · ${statusLabels[offer.matura]}</p>
+      <a href="${offer.url}">${offer.action ?? 'Zum Inserat mit Bewerbung'}</a>
+      ${offer.source ? `<a href="${offer.source}">Inserat ansehen</a>` : ''}
+    </article>`).join('');
+  }
+
   function render() {
     const finished = step === steps.length;
     progress.textContent = finished ? 'Deine Praxisvorschläge' : `Frage ${step + 1} von ${steps.length}`;
     results.hidden = !finished;
+    offers.hidden = !finished;
     back.hidden = step === 0;
     question.replaceChildren();
     if (finished) {
@@ -81,5 +120,8 @@
     step--;
     updateQuestion();
   });
+  for (const filter of [regionFilter, kindFilter, qualificationFilter]) {
+    filter.addEventListener('change', renderResults);
+  }
   render();
 }

@@ -159,3 +159,28 @@ body:has(dialog[open]) { overflow: hidden; }
 .cover .mode-grid a { grid-template-columns: 1fr; color: var(--forest); }
 .cover .mode-grid img { display: none; }
 .cover .mode-grid span { padding: 13px; }
+
+#practice-offers {
+  margin-block: 1rem;
+}
+
+.practice-offer-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+}
+
+.practice-offer-filters label {
+  display: grid;
+  gap: .3rem;
+}
+
+#practice-offer-cards h5 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+#practice-offer-cards article a {
+  display: block;
+  margin-top: .45rem;
+}

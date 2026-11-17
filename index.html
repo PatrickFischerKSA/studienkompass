@@ -92,7 +92,7 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css?v=praxis"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=praxisangebote"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
   <nav aria-label="Hauptnavigation"><a href="#fms">FMS</a><a href="#gymnasium">Gymnasium</a><a href="#praxis">Rein in die Praxis</a><a href="#plan">Mein Plan</a></nav>
@@ -126,6 +126,18 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
       <div id="practice-question"></div>
       <button type="button" class="secondary" id="practice-back" hidden>← Zurück</button>
     </div>
+    <section id="practice-offers" class="panel" aria-labelledby="practice-offers-title" hidden>
+      <h4 id="practice-offers-title">Konkrete Stellen in deiner Region</h4>
+      <p>Deine Antworten bestimmen die Reihenfolge. Filtere nach Kanton, Einstieg und Abschluss.</p>
+      <div class="practice-offer-filters">
+        <label>Kanton <select id="practice-region"><option value="">Alle drei Kantone</option><option>Schwyz</option><option>Zürich</option><option>Zug</option></select></label>
+        <label>Einstieg <select id="practice-kind"><option value="">Alle Einstiege</option><option value="apprenticeship">Lehrstelle</option><option value="internship">Praktikum</option><option value="job">Job</option></select></label>
+        <label>Abschluss <select id="practice-qualification"><option value="">Beide Abschlüsse</option><option value="fms">FMS-Ausweis</option><option value="matura">Gymnasiale Matura</option></select></label>
+      </div>
+      <p class="muted">Stand 17. November 2026. Ob die Stelle noch frei ist, siehst du beim Anbieter.</p>
+      <p id="practice-offer-count" role="status"></p>
+      <div id="practice-offer-cards" class="gym-comparison-grid"></div>
+    </section>
     <div id="practice-results" class="grid" aria-label="Praxisvorschläge" hidden></div>
   </section>
   <section id="practice-compare" class="gym-view" hidden>
@@ -533,5 +545,6 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <script src="app.js?v=praxisvergleich"></script>
 <script src="career-guide.js?v=mobiltest" defer></script>
 <script src="gymnasium.js?v=6" defer></script>
-<script src="practice.js?v=1" defer></script>
+<script src="practice-offers.js?v=1" defer></script>
+<script src="practice.js?v=2" defer></script>
 <script src="experience.js?v=praxis" defer></script></body></html>
