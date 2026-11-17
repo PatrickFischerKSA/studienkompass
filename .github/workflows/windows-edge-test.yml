@@ -1,0 +1,14 @@
+name: Berufsguide in Windows Edge
+on:
+  push:
+    branches: [test/windows-edge]
+permissions:
+  contents: read
+jobs:
+  guide:
+    runs-on: windows-2025
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install --no-save playwright
+      - run: node .github/workflows/windows-edge-test.mjs
