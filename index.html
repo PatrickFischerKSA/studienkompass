@@ -92,10 +92,10 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css?v=modi"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=praxis"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
-  <nav aria-label="Hauptnavigation"><a href="#fms">FMS</a><a href="#gymnasium">Gymnasium</a><a href="#plan">Mein Plan</a></nav>
+  <nav aria-label="Hauptnavigation"><a href="#fms">FMS</a><a href="#gymnasium">Gymnasium</a><a href="#praxis">Rein in die Praxis</a><a href="#plan">Mein Plan</a></nav>
 </header>
 <main>
   <section class="cover">
@@ -106,10 +106,44 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
     <div class="gym-start mode-grid">
       <a href="#fms"><img src="images/teaching.webp" alt=""><span><strong>Fachmittelschule</strong><small>FMS-Ausweis oder Fachmaturität</small></span></a>
       <a href="#gymnasium"><img src="images/studying.webp" alt=""><span><strong>Gymnasium</strong><small>Gymnasiale Matura</small></span></a>
+      <a href="#praxis"><span><strong>Rein in die Praxis</strong><small>Kein Bock auf weitere Ausbildungen?</small></span></a>
     </div>
     </div>
     <img src="images/campus.webp" alt="Drei Jugendliche im Gespräch an einem Fenster mit Blick auf einen Schweizer See">
   </section>
+<section id="praxis">
+  <h2>Rein in die Praxis</h2>
+  <div id="practice-start" class="gym-start">
+    <button type="button" data-mode-view="find"><img src="images/studio.webp" alt=""><span><strong>Praxisfinder starten</strong><small>In drei Fragen zu passenden Einstiegen</small></span></button>
+    <button type="button" data-mode-view="compare"><img src="images/architecture.webp" alt=""><span><strong>Angebote vergleichen</strong><small>Lehre, Praktikum und Job</small></span></button>
+    <button type="button" data-mode-view="topics"><img src="images/plan.webp" alt=""><span><strong>Praxiswege verstehen</strong><small>Bewerbung, Schnuppern und Bedingungen</small></span></button>
+  </div>
+  <button type="button" class="secondary mode-back" hidden>← Zur Übersicht</button>
+  <section id="practice-find" class="gym-view" hidden>
+    <h3 tabindex="-1">Praxisfinder</h3>
+    <div id="practice-finder" class="panel">
+      <p id="practice-progress" class="muted" role="status"></p>
+      <div id="practice-question"></div>
+      <button type="button" class="secondary" id="practice-back" hidden>← Zurück</button>
+    </div>
+    <div id="practice-results" class="grid" aria-label="Praxisvorschläge" hidden></div>
+  </section>
+  <section id="practice-compare" class="gym-view" hidden>
+    <h3 tabindex="-1">Angebote vergleichen</h3>
+    <div class="gym-comparison-grid">
+      <article><h4>Berufslehre</h4><p><strong>Was du bekommst</strong> Berufspraxis, Berufsfachschule und einen Abschluss. Eine reguläre Grundbildung dauert je nach Beruf zwei Jahre (EBA) oder drei bis vier Jahre (EFZ).</p><p><strong>Worauf es ankommt</strong> Lehrvertrag, Starttermin und Lehrlingslohn. Bei Vorbildung eine mögliche Verkürzung abklären.</p><a href="https://www.berufsberatung.ch/dyn/show/204406">Lehrstellen suchen</a></article>
+      <article><h4>Praktikum</h4><p><strong>Was du bekommst</strong> Befristeten Einblick und erste Referenzen. Dauer und Entlöhnung hängen vom Betrieb und Vertrag ab.</p><p><strong>Worauf es ankommt</strong> Lernziele, Betreuung und ein Arbeitszeugnis vorab klären.</p><a href="https://www.job-room.ch/">Praktika im Job-Room suchen</a></article>
+      <article><h4>Job oder Temporäreinsatz</h4><p><strong>Was du bekommst</strong> Direkten Einstieg mit Lohn. Manche Stellen sind befristet oder im Stundenlohn.</p><p><strong>Worauf es ankommt</strong> Pensum, Schichten, Einarbeitung und erforderliche Nachweise im Inserat prüfen.</p><a href="https://www.job-room.ch/">Jobs im Job-Room suchen</a></article>
+    </div>
+  </section>
+  <section id="practice-topics" class="gym-view" hidden>
+    <h3 tabindex="-1">Praxiswege verstehen</h3>
+    <details class="panel"><summary>Erst schnuppern</summary><p>Frag bei einem Betrieb nach einem Schnuppertag. Lass dir Aufgaben zeigen und frage, wie der Einstieg für jemanden ohne Berufsabschluss aussieht.</p><a href="https://www.berufsberatung.ch/dyn/show/204406">Schnuppern und Lehrstellensuche</a></details>
+    <details class="panel"><summary>Lehre verkürzen</summary><p>Nach der gymnasialen Matura kann eine verkürzte Lehre infrage kommen. Way-up ist ein spezielles zweijähriges Modell für gymnasiale Maturand:innen. Bei einem FMS-Abschluss klärst du eine mögliche Verkürzung konkret mit Lehrbetrieb und kantonalem Berufsbildungsamt.</p><a href="https://www.berufsberatung.ch/dyn/show/65131">Verkürzte Lehre und Way-up</a></details>
+    <details class="panel"><summary>Auf ein Inserat antworten</summary><p>Schick einen kurzen Lebenslauf, dein Zeugnis und zwei Sätze dazu, warum dich die Stelle interessiert. Frag nach Startdatum, Pensum und Einarbeitung.</p><a href="https://www.job-room.ch/">Job-Room öffnen</a></details>
+    <p><a href="#praxisvergleich">Regionale Praxisangebote ansehen</a> · <a href="#plan">Meinen nächsten Schritt planen</a></p>
+  </section>
+</section>
 <section id="fms">
   <h2>Wege nach der Fachmittelschule</h2>
   <div id="fms-start" class="gym-start">
@@ -498,5 +532,6 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>. Bildmotive sind KI-generierte Illustrationen.</footer>
 <script src="app.js?v=praxisvergleich"></script>
 <script src="career-guide.js?v=mobiltest" defer></script>
-<script src="gymnasium.js?v=5" defer></script>
-<script src="experience.js?v=modi" defer></script></body></html>
+<script src="gymnasium.js?v=6" defer></script>
+<script src="practice.js?v=1" defer></script>
+<script src="experience.js?v=praxis" defer></script></body></html>

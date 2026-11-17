@@ -122,8 +122,8 @@ body:has(dialog[open]) { overflow: hidden; }
 .gym-topic li + li { margin-top: 8px; }
 .gym-topic dd { margin: 5px 0 0; }
 
-:is(#gymnasium, #fms) [hidden] { display: none; }
-:is(#gymnasium, #fms) > h2 { scroll-margin-top: 12px; }
+:is(#gymnasium, #fms, #praxis) [hidden] { display: none; }
+:is(#gymnasium, #fms, #praxis) > h2 { scroll-margin-top: 12px; }
 .gym-start { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .gym-start :is(button, a) { display: grid; align-content: start; overflow: hidden; padding: 0; border: 1px solid #cbd5c4; border-radius: 16px; background: #fffefa; color: var(--forest); text-align: left; }
 .gym-start :is(button, a):hover { border-color: var(--forest); background: #eaf2dc; }
@@ -140,17 +140,17 @@ body:has(dialog[open]) { overflow: hidden; }
   .gym-start img { height: 100%; aspect-ratio: 1; }
   .gym-start span { padding: 10px; }
 }
-#gym-finder { scroll-margin-top: 12px; }
-#gym-finder .career-question-card {
+:is(#gym-finder, #practice-finder) { scroll-margin-top: 12px; }
+:is(#gym-finder, #practice-finder) .career-question-card {
   display: flex; flex-direction: column; align-items: stretch;
   padding: 0; overflow: hidden; border: 2px solid #cbd5c4;
   border-radius: 14px; background: #fff; color: var(--forest); text-align: left;
 }
-#gym-finder .career-question-card:hover,
-#gym-finder .career-question-card[aria-pressed="true"] { border-color: var(--forest); background: #eaf2dc; }
+:is(#gym-finder, #practice-finder) .career-question-card:hover,
+:is(#gym-finder, #practice-finder) .career-question-card[aria-pressed="true"] { border-color: var(--forest); background: #eaf2dc; }
 #gym-finder-results > select { display: block; width: min(100%, 360px); margin-block: 6px 12px; }
 
-.mode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mode-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .gym-start a { text-decoration: none; }
 .mode-links { padding-left: 22px; }
 .mode-links li + li { margin-top: 14px; }
