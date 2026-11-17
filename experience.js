@@ -1,4 +1,5 @@
 const sceneDefinitions = [
+  ['gymnasium', 'Gymnasialmodus', 'studying'],
   ['beratung', 'Berufsguide', 'campus'],
   ['praxisvergleich', 'Praxisvergleich', 'lab'],
   ['profil', 'Anschlusswege', 'studio', 'wege', 'wege-vergleich'],

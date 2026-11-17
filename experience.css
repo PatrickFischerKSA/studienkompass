@@ -106,3 +106,15 @@ body:has(dialog[open]) { overflow: hidden; }
   }
 }
 .career-step-nav [hidden] { display: none; }
+
+.cover .gym-entry { margin-top: 10px; }
+.gym-interests { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 18px; }
+.gym-interests button[aria-pressed="true"] { background: var(--forest); color: white; }
+.gym-school h3, .gym-comparison-grid h4 { margin-top: 0; }
+.gym-compare { margin-block: 22px; }
+.gym-comparison-selects, .gym-comparison-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.gym-comparison-grid article { background: #f6f7ee; border-radius: 12px; padding: 15px; }
+.gym-comparison-selects select { width: 100%; }
+@media (max-width: 600px) {
+  .gym-comparison-selects, .gym-comparison-grid { grid-template-columns: 1fr; }
+}

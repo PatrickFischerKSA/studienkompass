@@ -92,10 +92,10 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css?v=iphone"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=gymnasium"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
-  <nav aria-label="Hauptnavigation"><a href="#beratung">Berufsguide</a><a href="#ph-vergleich">PH-Vergleich</a><a href="#praxisvergleich">Praxisvergleich</a><a href="#plan">Mein Plan</a></nav>
+  <nav aria-label="Hauptnavigation"><a href="#beratung">FMS-Berufsguide</a><a href="#gymnasium">Nach dem Gymnasium</a><a href="#ph-vergleich">PH-Vergleich</a><a href="#praxisvergleich">Praxisvergleich</a><a href="#plan">Mein Plan</a></nav>
 </header>
 <main>
   <section class="cover">
@@ -103,7 +103,8 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
       <p class="cover-context">Wege nach der FMS und dem Gymnasium</p>
       <h1>Wie geht’s für dich weiter?</h1>
       <p>Unterrichten, forschen, Menschen begleiten oder im Betrieb lernen. Finde heraus, was dich interessiert und wie du dort hinkommst.</p>
-      <a class="button" href="#beratung">Berufsguide öffnen <span aria-hidden="true">↗</span></a>
+      <a class="button" href="#beratung">FMS-Berufsguide öffnen <span aria-hidden="true">↗</span></a>
+      <a class="button gym-entry" href="#gymnasium">Gymnasialmodus öffnen <span aria-hidden="true">↗</span></a>
     </div>
     <img src="images/campus.webp" alt="Drei Jugendliche im Gespräch an einem Fenster mit Blick auf einen Schweizer See">
   </section>
@@ -117,9 +118,29 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
       <a class="explore-card" href="#plan"><img src="images/plan.webp" alt="" loading="lazy"><span><strong>Meinen nächsten Schritt planen</strong><small>Checkliste und eigene Notizen</small></span><b aria-hidden="true">↗</b></a>
     </div>
   </section>
+<section id="gymnasium">
+  <h2>Studieren nach dem Gymnasium</h2>
+  <p>Wähle ein Interesse, erkunde passende Hochschulen und vergleiche ihre Bachelorangebote.</p>
+  <div class="gym-interests" role="group" aria-label="Studieninteressen" id="gym-interests"></div>
+  <div id="gym-schools" class="grid" aria-label="Hochschulprofile"></div>
+  <section class="panel gym-compare" aria-labelledby="gym-compare-title">
+    <h3 id="gym-compare-title">Zwei Hochschulen im direkten Vergleich</h3>
+    <div class="gym-comparison-selects">
+      <label>Erste Hochschule <select id="gym-first"></select></label>
+      <label>Zweite Hochschule <select id="gym-second"></select></label>
+    </div>
+    <div id="gym-comparison" aria-live="polite"></div>
+  </section>
+  <section class="panel">
+    <h3>Mit gymnasialer Matura bewerben</h3>
+    <p>Eine anerkannte Schweizer gymnasiale Matura eröffnet grundsätzlich den Zugang zu Universitäten und ETH/EPFL. Für Medizin gelten eigene Anmelde- und Auswahlregeln. An Fachhochschulen ist häufig einschlägige Arbeitswelterfahrung nötig. Kunst- und Musikstudiengänge prüfen je nach Fach ein Portfolio, eine Aufnahmeprüfung oder ein Vorspiel.</p>
+    <a href="https://www.swissuniversities.ch/themen/zulassung/schweizerische-vorbildungsausweise-/-oder-passerelle">Zulassungsregeln von swissuniversities</a>
+  </section>
+</section>
 <section id="beratung">
   <h2>Dein nächster Schritt nach der FMS</h2>
   <p>Beginne mit deinem Abschluss und der Frage, die du gerade klären möchtest.</p>
+  <p><a href="#gymnasium">Mit gymnasialer Matura Hochschulen vergleichen</a></p>
   <form id="career-form" class="panel">
     <p id="career-progress" class="muted"></p>
     <fieldset id="career-direction" hidden>
@@ -380,4 +401,5 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>. Bildmotive sind KI-generierte Illustrationen.</footer>
 <script src="app.js?v=praxisvergleich"></script>
 <script src="career-guide.js?v=mobiltest" defer></script>
-<script src="experience.js?v=ressourcen" defer></script></body></html>
+<script src="gymnasium.js?v=1" defer></script>
+<script src="experience.js?v=gymnasium" defer></script></body></html>
