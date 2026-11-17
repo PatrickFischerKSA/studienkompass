@@ -118,3 +118,6 @@ body:has(dialog[open]) { overflow: hidden; }
 @media (max-width: 600px) {
   .gym-comparison-selects, .gym-comparison-grid { grid-template-columns: 1fr; }
 }
+.gym-topic { margin-block: 22px; scroll-margin-top: 78px; }
+.gym-topic li + li { margin-top: 8px; }
+.gym-topic dd { margin: 5px 0 0; }

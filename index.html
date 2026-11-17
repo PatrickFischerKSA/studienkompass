@@ -92,7 +92,7 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css?v=gymnasium"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=medizin"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
   <nav aria-label="Hauptnavigation"><a href="#beratung">FMS-Berufsguide</a><a href="#gymnasium">Nach dem Gymnasium</a><a href="#ph-vergleich">PH-Vergleich</a><a href="#praxisvergleich">Praxisvergleich</a><a href="#plan">Mein Plan</a></nav>
@@ -121,6 +121,13 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <section id="gymnasium">
   <h2>Studieren nach dem Gymnasium</h2>
   <p>Wähle ein Interesse, erkunde passende Hochschulen und vergleiche ihre Bachelorangebote.</p>
+  <nav class="gym-interests" aria-label="Themen im Gymnasialmodus">
+    <a class="button" href="#gym-medizin">Medizin und Numerus clausus</a>
+    <a class="button" href="#gym-luzern">Besondere Angebote in Luzern</a>
+    <a class="button" href="#gym-fern">Fernstudium</a>
+    <a class="button" href="#gym-hochschultypen">Uni und FH</a>
+    <a class="button" href="#gym-weiterbildung">CAS, DAS und MAS</a>
+  </nav>
   <div class="gym-interests" role="group" aria-label="Studieninteressen" id="gym-interests"></div>
   <div id="gym-schools" class="grid" aria-label="Hochschulprofile"></div>
   <section class="panel gym-compare" aria-labelledby="gym-compare-title">
@@ -130,6 +137,55 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
       <label>Zweite Hochschule <select id="gym-second"></select></label>
     </div>
     <div id="gym-comparison" aria-live="polite"></div>
+  </section>
+  <section class="panel gym-topic" id="gym-medizin">
+    <h3>Medizin studieren und lernen</h3>
+    <div class="gym-comparison-grid">
+      <article><h4>Humanmedizin in Bern</h4><p>Im Bachelor bearbeitest du medizinische Fälle in Tutorien, leitest Lernfragen daraus ab und erarbeitest Grundlagen im Selbststudium. Dieses problemorientierte Lernen heisst <em>Problem-Based Learning</em> (PBL). Praktika und das Berner Hausarzt-Lehrsystem geben Einblick in die Versorgung.</p><p><a href="https://www.medizin.unibe.ch/studium/studienprogramme/bachelor_humanmedizin/index_ger.html">Berner Bachelor und Lernformen</a> · <a href="https://www.unibe.ch/studium/studienangebote/bachelor/bewerbung/national/medizin/index_ger.html">Bewerbung in Bern</a></p></article>
+      <article><h4>Chiropraktische Medizin in Zürich</h4><p>Der Weg beginnt an der UZH mit dem Bachelor Medizin mit Schwerpunkt Chiropraktik und führt zum Master Chiropraktische Medizin. Gemeinsame medizinische Grundlagen und chiropraktische Fachausbildung greifen ineinander. Der Studiengang hat ein eigenes Platzangebot und unterliegt der Zulassungsbeschränkung.</p><p><a href="https://med.uzh.ch/de/studium/chiropraktikstudium.html">Studienaufbau Chiropraktik</a> · <a href="https://www.uzh.ch/de/studies/application/medicine.htm">Zulassung an der UZH</a></p></article>
+    </div>
+    <h4>Numerus clausus (NC) und Eignungstest (EMS)</h4>
+    <p>Der NC begrenzt die Zahl der Studienplätze. Wo ein NC gilt, entscheidet bei Übernachfrage das Ergebnis im Eignungstest für das Medizinstudium (EMS) über die Zuteilung. Wo der Zugang ohne NC erfolgt, kann die Auswahl nach dem ersten Studienjahr stattfinden. Melde dich bei swissuniversities bis 15. Februar vor und prüfe die Fristen für EMS und Hochschule separat.</p>
+    <p><a href="https://www.swissuniversities.ch/service/anmeldung-zum-medizinstudium/zulassungsverfahren-mit-numerus-clausus">Ablauf und Fristen mit EMS</a> · <a href="https://www.swissuniversities.ch/service/anmeldung-zum-medizinstudium/studienangebot">Studienorte und Platzangebot</a></p>
+    <h4>Debatte um Abschaffung oder Reform</h4>
+    <p>In der parlamentarischen Debatte zur Motion 23.3293 wurde kritisiert, dass ein einzelner Test soziale und kommunikative Eignung nur begrenzt erfasst. Zudem wurden mehr Studienplätze gefordert. Gegen eine Aufhebung ohne Kapazitätsausbau spricht, dass klinische Ausbildungsplätze begrenzt bleiben und sich die Auswahl ins Studium verlagern kann. Der Ständerat nahm die Motion 2024 an. Für die Bewerbung gelten die veröffentlichten Zulassungsverfahren.</p>
+    <p><a href="https://print.parlament.ch/printview/?subjectId=65795">Parlamentsdebatte und Abstimmung</a> · <a href="https://www.swissuniversities.ch/service/anmeldung-zum-medizinstudium/zahlen-und-fakten-zum-zulassungsverfahren">Anmelde- und EMS-Zahlen</a></p>
+  </section>
+  <section class="panel gym-topic" id="gym-luzern">
+    <h3>Besondere Studienwege in Luzern</h3>
+    <ul>
+      <li><strong>Philosophy, Politics and Economics (BA)</strong> verbindet Philosophie, politische Institutionen und Wirtschaft. <a href="https://www.unilu.ch/studium/studienangebot/bachelor/kultur-und-sozialwissenschaftliche-fakultaet/philosophy-politics-and-economics/">Studienplan PPE</a></li>
+      <li><strong>Gesundheitswissenschaften (BSc)</strong> untersucht Gesundheit, Versorgung und Gesundheitssysteme mit wissenschaftlichen Methoden. <a href="https://www.unilu.ch/studium/studienangebot/bachelor/gmf/gesundheitswissenschaften/">Studienaufbau Gesundheitswissenschaften</a></li>
+      <li><strong>Jus mit Wirtschaft</strong> ist bereits im Bachelor als Kombination möglich. Im anschliessenden Master gibt es auch Kombinationen mit International Relations oder Health Policy und einen zweisprachigen Weg mit Neuenburg. <a href="https://www.unilu.ch/studium/studienangebot/bachelor/rechtswissenschaftliche-fakultaet/bachelor-rechtswissenschaft/">Bachelor Jus</a> · <a href="https://www.unilu.ch/studium/studienangebot/master/rechtswissenschaftliche-fakultaet/rechtswissenschaft/">Master Jus</a></li>
+      <li><strong>Luzerner Track Humanmedizin</strong> startet mit dem Bachelor an der UZH und führt zum gemeinsamen Master Luzern/Zürich. <a href="https://www.med.uzh.ch/de/studium/gemeinsamemasterstudiengaenge.html">Standorte und Schwerpunkte</a></li>
+    </ul>
+  </section>
+  <section class="panel gym-topic" id="gym-fern">
+    <h3>Studieren auf Distanz</h3>
+    <div class="gym-comparison-grid">
+      <article><h4>FernUni Schweiz</h4><p>Akkreditiertes universitäres Institut. Bachelorbeispiele sind Recht, Psychologie und Geschichte. Prüfe Sprache, Prüfungsform und feste Termine pro Studiengang.</p><a href="https://fernuni.ch/studium">Studienangebot FernUni Schweiz</a></article>
+      <article><h4>Fernfachhochschule Schweiz (FFHS)</h4><p>Fachhochschule im Verbund der SUPSI. Beispiele sind Wirtschaftsinformatik und Ernährung und Gesundheit. Das Modell verbindet Online-Selbststudium mit festen Unterrichtsterminen. Prüfe Arbeitswelterfahrung und Präsenzpflicht pro Studiengang.</p><a href="https://www.ffhs.ch/de/studium/leben-und-studieren">Studienmodell und Angebote der FFHS</a></article>
+      <article><h4>FernUniversität in Hagen</h4><p>Deutsche Universität mit Fernstudiengängen, etwa Psychologie. Prüfe den Zugang mit Schweizer Matura sowie die Anerkennung, wenn der Abschluss später für einen reglementierten Beruf in der Schweiz dienen soll.</p><a href="https://www.fernuni-hagen.de/studium/studienangebot/">Studienangebot der FernUniversität</a></article>
+    </div>
+  </section>
+  <section class="panel gym-topic" id="gym-hochschultypen">
+    <h3>Universität und Fachhochschule im Vergleich</h3>
+    <p><strong>Gemeinsamkeiten</strong> Beide bieten Bachelor und Master, arbeiten mit ECTS und betreiben Forschung. Für einen Wechsel in einen Master des anderen Typs prüft die Hochschule den Abschluss und kann Zusatzleistungen verlangen.</p>
+    <div class="gym-comparison-grid">
+      <article><h4>Universität und ETH/EPFL</h4><p><strong>Studium</strong> Wissenschaftliche Grundlagen, Theorie und Forschungsmethoden prägen viele Studiengänge. Je nach Fach gehören auch Labor, Klinik oder Praxis dazu.</p><p><strong>Einstieg</strong> Schweizer gymnasiale Matura in der Regel ausreichend. Für Medizin gelten besondere Regeln.</p><p><strong>Danach</strong> In vielen Fächern ist der Master der übliche nächste Schritt. Universitäre Hochschulen verleihen Doktorgrade.</p></article>
+      <article><h4>Fachhochschule</h4><p><strong>Studium</strong> Berufsfelder, Projekte mit Praxispartnern und angewandte Forschung prägen viele Studiengänge.</p><p><strong>Einstieg</strong> Mit gymnasialer Matura ist meist einschlägige Arbeitswelterfahrung gefordert. Bei Kunst und Musik gelten fachspezifische Eignungsverfahren.</p><p><strong>Danach</strong> Viele Bachelor bereiten auf den Berufseinstieg vor. Ein Fachmaster oder ein Wechsel an eine Universität kommt je nach Fach und Zulassung infrage.</p></article>
+    </div>
+    <p><a href="https://www.sbfi.admin.ch/de/diplome-und-titel-an-schweizer-hochschulen">Abschlüsse im Schweizer Hochschulsystem</a> · <a href="https://www.hslu.ch/de-ch/hochschule-luzern/studium/zulassung/">FH-Zulassung am Beispiel HSLU</a></p>
+  </section>
+  <section class="panel gym-topic" id="gym-weiterbildung">
+    <h3>CAS, DAS und MAS nach dem Studium</h3>
+    <p>Diese Abschlüsse gehören zur Hochschulweiterbildung. Je nach Programm brauchst du einen Hochschulabschluss und Berufserfahrung. Manche Hochschulen rechnen passende CAS an ein DAS oder MAS an. Die Studienordnung legt fest, was sich kombinieren lässt.</p>
+    <dl class="gym-comparison-grid">
+      <div><dt><strong>CAS · mindestens 10 ECTS</strong></dt><dd>Certificate of Advanced Studies. Eine kompakte Weiterbildung zu einem begrenzten Thema.</dd></div>
+      <div><dt><strong>DAS · mindestens 30 ECTS</strong></dt><dd>Diploma of Advanced Studies. Vertieft ein Fachgebiet über mehrere Module.</dd></div>
+      <div><dt><strong>MAS · mindestens 60 ECTS</strong></dt><dd>Master of Advanced Studies. Ein berufsbegleitender Weiterbildungsmaster mit eigener Zulassung.</dd></div>
+    </dl>
+    <p><a href="https://www.sbfi.admin.ch/de/diplome-und-titel-an-schweizer-hochschulen">Abschlüsse und ECTS beim SBFI</a> · <a href="https://www.unilu.ch/fakultaeten/vpf/weiterbildung/">Weiterbildungsbeispiele aus Luzern</a></p>
   </section>
   <section class="panel">
     <h3>Mit gymnasialer Matura bewerben</h3>
@@ -401,5 +457,5 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>. Bildmotive sind KI-generierte Illustrationen.</footer>
 <script src="app.js?v=praxisvergleich"></script>
 <script src="career-guide.js?v=mobiltest" defer></script>
-<script src="gymnasium.js?v=1" defer></script>
+<script src="gymnasium.js?v=2" defer></script>
 <script src="experience.js?v=gymnasium" defer></script></body></html>
