@@ -199,28 +199,34 @@
       ).join('')}</div><p class="muted">Gemeinsame Bereiche können unterschiedliche Studiengänge einschliessen. Vergleiche die Pflichtmodule und Zulassung des konkreten Bachelors.</p>`;
   }
 
-  const start = document.getElementById('gym-start');
-  const back = document.getElementById('gym-back');
-  const views = document.querySelectorAll('#gymnasium .gym-view');
-  const topicChoice = document.getElementById('gym-topic-select');
-  let lastEntry;
+  function setupMode(sectionId, prefix) {
+    const mode = document.getElementById(sectionId);
+    const start = document.getElementById(`${prefix}-start`);
+    const back = mode.querySelector('.mode-back');
+    const views = mode.querySelectorAll('.gym-view');
+    let lastEntry;
 
-  function openView(view) {
-    for (const panel of views) panel.hidden = panel !== view;
-    start.hidden = Boolean(view);
-    back.hidden = !view;
-    const focus = view?.querySelector('h3') ?? lastEntry;
-    focus?.focus({preventScroll: true});
-    document.getElementById('gymnasium').querySelector('h2').scrollIntoView({block: 'start'});
+    function openView(view) {
+      for (const panel of views) panel.hidden = panel !== view;
+      start.hidden = Boolean(view);
+      back.hidden = !view;
+      (view?.querySelector('h3') ?? lastEntry)?.focus({preventScroll: true});
+      mode.querySelector('h2').scrollIntoView({block: 'start'});
+    }
+
+    start.addEventListener('click', event => {
+      const entry = event.target.closest('[data-mode-view]');
+      if (!entry) return;
+      lastEntry = entry;
+      openView(document.getElementById(`${prefix}-${entry.dataset.modeView}`));
+    });
+    back.addEventListener('click', () => openView(null));
+    return openView;
   }
 
-  start.addEventListener('click', event => {
-    const entry = event.target.closest('[data-gym-view]');
-    if (!entry) return;
-    lastEntry = entry;
-    openView(document.getElementById(`gym-${entry.dataset.gymView}`));
-  });
-  back.addEventListener('click', () => openView(null));
+  setupMode('fms', 'fms');
+  const openView = setupMode('gymnasium', 'gym');
+  const topicChoice = document.getElementById('gym-topic-select');
 
   function showTopic() {
     for (const topic of document.querySelectorAll('#gym-topics .gym-topic')) {

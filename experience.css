@@ -122,21 +122,21 @@ body:has(dialog[open]) { overflow: hidden; }
 .gym-topic li + li { margin-top: 8px; }
 .gym-topic dd { margin: 5px 0 0; }
 
-#gymnasium [hidden] { display: none; }
-#gymnasium > h2 { scroll-margin-top: 12px; }
+:is(#gymnasium, #fms) [hidden] { display: none; }
+:is(#gymnasium, #fms) > h2 { scroll-margin-top: 12px; }
 .gym-start { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.gym-start button { display: grid; align-content: start; overflow: hidden; padding: 0; border: 1px solid #cbd5c4; border-radius: 16px; background: #fffefa; color: var(--forest); text-align: left; }
-.gym-start button:hover { border-color: var(--forest); background: #eaf2dc; }
+.gym-start :is(button, a) { display: grid; align-content: start; overflow: hidden; padding: 0; border: 1px solid #cbd5c4; border-radius: 16px; background: #fffefa; color: var(--forest); text-align: left; }
+.gym-start :is(button, a):hover { border-color: var(--forest); background: #eaf2dc; }
 .gym-start img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
 .gym-start span { padding: 14px; }
 .gym-start strong, .gym-start small { display: block; }
 .gym-start small { margin-top: 4px; font-weight: normal; }
-#gym-back { margin-bottom: 12px; }
+.mode-back { margin-bottom: 12px; }
 .gym-view > h3 { margin-block: 8px; }
 .gym-view > select { display: block; width: min(100%, 360px); margin-block: 6px 12px; }
 @media (max-width: 650px) {
   .gym-start { grid-template-columns: 1fr; gap: 10px; }
-  .gym-start button { grid-template-columns: 26% 1fr; align-items: center; }
+  .gym-start :is(button, a) { grid-template-columns: 26% 1fr; align-items: center; }
   .gym-start img { height: 100%; aspect-ratio: 1; }
   .gym-start span { padding: 10px; }
 }
@@ -149,3 +149,13 @@ body:has(dialog[open]) { overflow: hidden; }
 #gym-finder .career-question-card:hover,
 #gym-finder .career-question-card[aria-pressed="true"] { border-color: var(--forest); background: #eaf2dc; }
 #gym-finder-results > select { display: block; width: min(100%, 360px); margin-block: 6px 12px; }
+
+.mode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gym-start a { text-decoration: none; }
+.mode-links { padding-left: 22px; }
+.mode-links li + li { margin-top: 14px; }
+@media (max-width: 650px) { .mode-grid { grid-template-columns: 1fr; } }
+.cover .mode-grid { margin-top: 18px; }
+.cover .mode-grid a { grid-template-columns: 1fr; color: var(--forest); }
+.cover .mode-grid img { display: none; }
+.cover .mode-grid span { padding: 13px; }

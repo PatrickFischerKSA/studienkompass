@@ -92,10 +92,10 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 .comparison-share button { min-height: 44px; }
 #comparison-share-link { margin-top: 8px; }
 #comparison-share-url { display: block; width: 100%; max-width: 40rem; padding: 9px; border: 1px solid #829484; border-radius: 8px; font: inherit; }
-</style><link rel="stylesheet" href="experience.css?v=gym-finder"></head><body>
+</style><link rel="stylesheet" href="experience.css?v=modi"></head><body>
 <header class="home-header">
   <a class="wordmark" href="./" aria-label="Studienkompass Startseite"><span aria-hidden="true">✦</span> Studienkompass</a>
-  <nav aria-label="Hauptnavigation"><a href="#beratung">FMS-Berufsguide</a><a href="#gymnasium">Nach dem Gymnasium</a><a href="#ph-vergleich">PH-Vergleich</a><a href="#praxisvergleich">Praxisvergleich</a><a href="#plan">Mein Plan</a></nav>
+  <nav aria-label="Hauptnavigation"><a href="#fms">FMS</a><a href="#gymnasium">Gymnasium</a><a href="#plan">Mein Plan</a></nav>
 </header>
 <main>
   <section class="cover">
@@ -103,29 +103,46 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
       <p class="cover-context">Wege nach der FMS und dem Gymnasium</p>
       <h1>Wie geht’s für dich weiter?</h1>
       <p>Unterrichten, forschen, Menschen begleiten oder im Betrieb lernen. Finde heraus, was dich interessiert und wie du dort hinkommst.</p>
-      <a class="button" href="#beratung">FMS-Berufsguide öffnen <span aria-hidden="true">↗</span></a>
-      <a class="button gym-entry" href="#gymnasium">Gymnasialmodus öffnen <span aria-hidden="true">↗</span></a>
+    <div class="gym-start mode-grid">
+      <a href="#fms"><img src="images/teaching.webp" alt=""><span><strong>Fachmittelschule</strong><small>FMS-Ausweis oder Fachmaturität</small></span></a>
+      <a href="#gymnasium"><img src="images/studying.webp" alt=""><span><strong>Gymnasium</strong><small>Gymnasiale Matura</small></span></a>
+    </div>
     </div>
     <img src="images/campus.webp" alt="Drei Jugendliche im Gespräch an einem Fenster mit Blick auf einen Schweizer See">
   </section>
-  <section class="explore" aria-labelledby="explore-title">
-    <h2 id="explore-title">Was möchtest du erkunden?</h2>
-    <div class="explore-grid">
-      <a class="explore-card" href="#ksa-paedagogik"><img src="images/teaching.webp" alt="" loading="lazy"><span><strong>Lehrperson werden</strong><small>FMS Pädagogik und die drei PHs</small></span><b aria-hidden="true">↗</b></a>
-      <a class="explore-card" href="#praxisvergleich"><img src="images/lab.webp" alt="" loading="lazy"><span><strong>In die Praxis</strong><small>Ausbildungsangebote und FMS-Zugang</small></span><b aria-hidden="true">↗</b></a>
-      <a class="explore-card" href="#profil"><img src="images/studio.webp" alt="" loading="lazy"><span><strong>Anschlusswege vergleichen</strong><small>Von der Lehre bis zum Studium</small></span><b aria-hidden="true">↗</b></a>
-      <a class="explore-card" href="#bildungswege"><img src="images/architecture.webp" alt="" loading="lazy"><span><strong>Bildungssystem verstehen</strong><small>Abschlüsse, Übergänge und Passerelle</small></span><b aria-hidden="true">↗</b></a>
-      <a class="explore-card" href="#plan"><img src="images/plan.webp" alt="" loading="lazy"><span><strong>Meinen nächsten Schritt planen</strong><small>Checkliste und eigene Notizen</small></span><b aria-hidden="true">↗</b></a>
-    </div>
+<section id="fms">
+  <h2>Wege nach der Fachmittelschule</h2>
+  <div id="fms-start" class="gym-start">
+    <a href="#beratung"><img src="images/campus.webp" alt=""><span><strong>Studienfinder starten</strong><small>Studiengänge und Praxiswege entdecken</small></span></a>
+    <button type="button" data-mode-view="compare"><img src="images/architecture.webp" alt=""><span><strong>Angebote vergleichen</strong><small>Pädagogische Hochschulen und Praxisangebote</small></span></button>
+    <button type="button" data-mode-view="topics"><img src="images/studying.webp" alt=""><span><strong>Studienwege verstehen</strong><small>Fachmaturität, Zulassung und Passerelle</small></span></button>
+  </div>
+  <button type="button" class="secondary mode-back" hidden>← Zur Übersicht</button>
+  <section id="fms-compare" class="gym-view" hidden>
+    <h3 tabindex="-1">Angebote vergleichen</h3>
+    <ul class="mode-links">
+      <li><a href="#ph-vergleich">PH Schwyz, PH Zürich und PH Zug vergleichen</a></li>
+      <li><a href="#praxisvergleich">Praxisangebote und Zulassung vergleichen</a></li>
+      <li><a href="#profil">Anschlusswege nach Abschluss und Interessen vergleichen</a></li>
+    </ul>
   </section>
+  <section id="fms-topics" class="gym-view" hidden>
+    <h3 tabindex="-1">Studienwege verstehen</h3>
+    <ul class="mode-links">
+      <li><a href="#ksa-paedagogik">FMS Pädagogik an der KSA und der Weg an die PH</a></li>
+      <li><a href="#bildungswege">Fachmaturität, Übergänge und Passerelle</a></li>
+      <li><a href="#plan">Den nächsten Schritt planen</a></li>
+    </ul>
+  </section>
+</section>
 <section id="gymnasium">
   <h2>Studieren nach dem Gymnasium</h2>
   <div id="gym-start" class="gym-start">
-    <button type="button" data-gym-view="find"><img src="images/campus.webp" alt=""><span><strong>Studienfinder starten</strong><small>In drei Fragen zu passenden Studienfächern</small></span></button>
-    <button type="button" data-gym-view="compare"><img src="images/architecture.webp" alt=""><span><strong>Hochschulen vergleichen</strong><small>Zwei Standorte nebeneinander</small></span></button>
-    <button type="button" data-gym-view="topics"><img src="images/studying.webp" alt=""><span><strong>Studienwege verstehen</strong><small>Medizin, Fernstudium, Zulassung und mehr</small></span></button>
+    <button type="button" data-mode-view="find"><img src="images/campus.webp" alt=""><span><strong>Studienfinder starten</strong><small>In drei Fragen zu passenden Studienfächern</small></span></button>
+    <button type="button" data-mode-view="compare"><img src="images/architecture.webp" alt=""><span><strong>Hochschulen vergleichen</strong><small>Zwei Standorte nebeneinander</small></span></button>
+    <button type="button" data-mode-view="topics"><img src="images/studying.webp" alt=""><span><strong>Studienwege verstehen</strong><small>Medizin, Fernstudium, Zulassung und mehr</small></span></button>
   </div>
-  <button type="button" class="secondary" id="gym-back" hidden>← Zur Übersicht</button>
+  <button type="button" class="secondary mode-back" id="gym-back" hidden>← Zur Übersicht</button>
   <section id="gym-find" class="gym-view" hidden>
     <h3 tabindex="-1">Studienfinder</h3>
     <div id="gym-finder" class="panel">
@@ -481,5 +498,5 @@ section { margin-bottom: clamp(44px, 7vw, 86px); }
 <footer>Grundlage: <cite>Ready for… Laufbahngestaltung nach der Matura</cite>, Berufs-, Studien- und Laufbahnberatung des Kantons Schwyz, S. 3–25. FMS-Ergänzungen: <a href="https://www.edk.ch/de/bildungssystem-ch/nachobligatorium/sek-ll/fms">EDK</a> und <a href="https://www.sz.ch/verwaltung/bildungsdepartement/amt-fuer-mittel-und-hochschulen/mittelschulen/fachmittelschule.html/8756-8758-8802-9466-9468-10045-11935">Kanton Schwyz</a>. Prüfe Zulassung und Fristen beim jeweiligen Anbieter. Weitere Grundlage für den Berufsguide ist die <a href="https://www.theresianum.ch/cms/upload/dokumente/fms/Wege_nach_FMS_Langversion.pdf">Übersicht «Wege nach der FMS» der Schwyzer Berufs-, Studien- und Laufbahnberatung</a>. <a href="https://www.berufsberatung.ch/de/mittelschueler-innen">Ressourcen für Mittelschülerinnen und Mittelschüler</a>. Bildmotive sind KI-generierte Illustrationen.</footer>
 <script src="app.js?v=praxisvergleich"></script>
 <script src="career-guide.js?v=mobiltest" defer></script>
-<script src="gymnasium.js?v=4" defer></script>
-<script src="experience.js?v=gymnasium" defer></script></body></html>
+<script src="gymnasium.js?v=5" defer></script>
+<script src="experience.js?v=modi" defer></script></body></html>
