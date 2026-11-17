@@ -195,6 +195,19 @@ body:has(dialog[open]) { overflow: hidden; }
   outline-offset: 3px;
 }
 
+@media (max-width: 700px) {
+  .cover-copy { padding: 20px 20px 12px; }
+  .cover-context { margin: 0; }
+  .cover h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .cover-copy > p:not(.cover-context) { margin-bottom: 0; }
+  .cover > img { order: 1; }
+  .cover .mode-grid { padding: 12px; gap: 8px; }
+  .cover .mode-grid a { grid-template-columns: 26% minmax(0, 1fr); align-items: stretch; }
+  .cover .mode-grid img { height: 100%; aspect-ratio: auto; min-height: 68px; }
+  .cover .mode-grid span { align-self: center; padding: 8px 24px 8px 10px; }
+  .cover .mode-grid span::after { top: 50%; right: 10px; transform: translateY(-50%) rotate(45deg); }
+}
+
 #practice-offers {
   margin-block: 1rem;
 }
